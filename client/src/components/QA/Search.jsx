@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Search = () => {
+  const [entry, setEntry] = useState('');
+
   return (
-    <div>
-      <h2>Search</h2>
-    </div>
-  )
-};
+    <form>
+      <input
+        type='text'
+        placeholder='Have a Question? Search for answers...'
+        value={ entry }
+        onChange={e => setEntry(e.target.value)}
+      />
+      <button type='submit'>Search</button>
+    </form>
+  );
+}
 
 export default Search;
