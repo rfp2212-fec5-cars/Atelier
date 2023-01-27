@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
+import QA from './QA/QA.jsx';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
     <div>
       <h1>Hello world</h1>
       <Overview/>
+      <QA />
     </div>
   );
 };
