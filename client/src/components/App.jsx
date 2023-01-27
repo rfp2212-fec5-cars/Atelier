@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
+import QA from './QA/QA.jsx';
 import RelatedItemsComparison from './Related Items & Comparison/Related Items & Comparison.jsx';
-
-
 
 const App = () => {
   //STATES//
@@ -29,8 +28,9 @@ const App = () => {
   return (
     <div>
       <h1>Hello world</h1>
-      <RelatedItemsComparison/>
       <Overview/>
+      <QA />
+      <RelatedItemsComparison/>
     </div>
   );
 };
