@@ -1,0 +1,7 @@
+.vscode
+node_modules
+client/dist/bundle.js
+client/dist/bundle.js.map
+.env
+server/config.js
+.config.js
