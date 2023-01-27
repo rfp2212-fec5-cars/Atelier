@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
+import RR from './RatingsReviews/RR.jsx';
 
 
 const App = () => {
   //STATES//
   const [products, setProducts] = useState([]);
+  const [productId, setProductId] = useState(40344);
 
   //Handler//
   const allProducts = async () => {
@@ -28,6 +30,7 @@ const App = () => {
     <div>
       <h1>Hello world</h1>
       <Overview/>
+      <RR productId={productId}/>
     </div>
   );
 };
