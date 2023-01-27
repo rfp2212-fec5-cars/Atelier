@@ -2,9 +2,7 @@ import React from 'react';
 
 const AddQuestion = () => {
   return (
-    <div>
-      <h2>Add Question</h2>
-    </div>
+    <button type='submit'>Ask Your Question</button>
   )
 };
 
