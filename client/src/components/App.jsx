@@ -30,11 +30,10 @@ const App = () => {
   }, []);
   return (
     <div>
-      <h1>Hello world</h1>
       <Overview/>
       <RR productId={productId}/>
       <QA />
-      <RelatedItemsComparison/>
+      {/* <RelatedItemsComparison/> */}
     </div>
   );
 };
