@@ -1,12 +1,17 @@
 import React from 'react';
+import QuestionListEntry from './QuestionListEntry.jsx';
 
 const QuestionList = ({ questionList }) => {
   return (
     <div>
-      <h2>Q: </h2>
+      <h2>Question List</h2>
       { questionList.map((question) => (
-        <li>{ question.question_body} </li>
+        <QuestionListEntry
+          key={ question.question_id }
+          question={ question }
+        />
       ))}
+      <button type='submit'>See More Questions</button>
     </div>
   )
 };
