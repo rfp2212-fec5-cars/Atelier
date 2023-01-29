@@ -38,13 +38,11 @@ var RR = ({ productId }) => {
   // <AddRating />
   //<SumRating meta = {meta}/>
 
+
   console.log('meta before ', meta);
   return (
-    <div>
+    <div className = 'reviews'>
       <h1>Hello from Ratings & Reviews</h1>
-
-
-
     </div>
 
   );
