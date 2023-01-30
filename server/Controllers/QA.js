@@ -2,12 +2,12 @@ const models = require('../Models/QA.js');
 
 module.exports = {
   getQuestions: (req, res) => {
-    var { product_id, page, count } = req.body
+    var { product_id, page, count } = req.body;
 
     models.getQuestions(product_id, page, count)
-      .then((results) => {
+      .then(({ data }) => {
         res.status(200);
-        res.end(JSON.stringify(results.data));
+        res.end(JSON.stringify(data));
       })
       .catch((err) => {
         console.log(err);
@@ -16,7 +16,17 @@ module.exports = {
   },
 
   getAnswers: (req, res) => {
+    var { question_id, page, count } = req.params;
 
+    models.getAnswers(question_id, page, count)
+      .then(({ data }) => {
+        res.status(200);
+        res.end(JSON.stringify(data));
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      })
   },
 
   addQuestion: (req, res) => {

@@ -14,8 +14,16 @@ module.exports = {
     return axios(options);
   },
 
-  getAnswers: () => {
+  getAnswers: (question_id, page, count) => {
+    var options = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/answers`,
+      headers: {
+        Authorization: TOKEN
+      },
+      params: { page, count }
+    }
 
+    return axios(options);
   },
 
   addQuestion: () => {
