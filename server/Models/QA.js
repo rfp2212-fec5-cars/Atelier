@@ -34,8 +34,17 @@ module.exports = {
 
   },
 
-  likeQuestion: () => {
+  likeQuestion: (question_id) => {
+    var options = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/helpful`,
+      headers: {
+        Authorization: TOKEN,
+      },
+      params: { question_id },
+      method: 'PUT'
+    }
 
+    return axios(options);
   },
 
   reportQuestion: () => {

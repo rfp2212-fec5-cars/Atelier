@@ -38,7 +38,14 @@ module.exports = {
   },
 
   likeQuestion: (req, res) => {
+    var { question_id } = req.params;
 
+    models.likeQuestion(question_id)
+      .then(() => res.sendStatus(204))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(422);
+      })
   },
 
   reportQuestion: (req, res) => {
