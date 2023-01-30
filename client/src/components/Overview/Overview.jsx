@@ -5,10 +5,10 @@ import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 
 
-const Overview = () => (
+const Overview = ({productId}) => (
   <div>
-    <div> <ProductInformation/> </div>
-    <div> <StyleSelector/> </div>
+    <div> <ProductInformation productId={productId}/> </div>
+    <div> <StyleSelector productId={productId}/> </div>
     <div> <AddToCart/> </div>
     <div> <ImageGallery/> </div>
   </div>
