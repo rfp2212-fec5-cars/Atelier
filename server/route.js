@@ -3,6 +3,7 @@ const router = express.Router();
 const products = require('./Controllers/Products.js');
 const reviews = require('./Controllers/Reviews.js');
 const cart = require('./Controllers/Overview.js');
+const interactions = require('./Controllers/Interactions.js');
 
 //******PRODUCTS API******//
 // default the product id = 1
@@ -14,6 +15,9 @@ router.get('/products/:productId/related', products.getRelated);
 //******CART API******//
 router.get('/cart', cart.getCart);
 router.post('/cart', cart.postCart);
+
+//******INTERACTIONS API******//
+router.post('/interactions', interactions.logInteraction);
 
 
 

@@ -22,4 +22,13 @@ module.exports = {
     };
     return axios(options);
   },
+  logInteraction: ({element, widget, time}) => {
+    let options = {
+      method: 'post',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/interactions',
+      headers: {
+        Authorization: `${config.TOKEN}`,
+    }
+  }
+  return axios(options);
 };
