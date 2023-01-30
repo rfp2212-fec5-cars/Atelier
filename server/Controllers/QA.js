@@ -62,16 +62,22 @@ module.exports = {
   likeAnswer: (req, res) => {
     var { answer_id } = req.params;
 
-    console.log('answer_id', answer_id);
     models.likeAnswer(answer_id)
       .then(() => res.sendStatus(204))
       .catch((err) => {
         console.log(err);
-        res.sendStatus(244);
+        res.sendStatus(422);
       })
   },
 
   reportAnswer: (req, res) => {
+    var { answer_id } = req.params;
 
+    models.reportAnswer(answer_id)
+      .then(() => res.sendStatus(204))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(422);
+      })
   }
 };
