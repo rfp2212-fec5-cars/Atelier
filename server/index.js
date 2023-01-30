@@ -6,7 +6,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-//static service and middel ware
+//static service and middle ware
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(morgan('dev'));
