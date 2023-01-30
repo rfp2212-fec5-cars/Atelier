@@ -26,12 +26,30 @@ module.exports = {
     return axios(options);
   },
 
-  addQuestion: () => {
+  addQuestion: (body, name, email, product_id) => {
+    var options = {
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions',
+      headers: {
+        Authorization: TOKEN
+      },
+      data: { body, name, email, product_id },
+      method: 'POST'
+    }
 
+    return axios(options);
   },
 
-  addAnswer: () => {
+  addAnswer: (question_id, body, name, email, photos) => {
+    var options = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/answers`,
+      headers: {
+        Authorization: TOKEN
+      },
+      data: { body, name, email, photos },
+      method: 'POST'
+    }
 
+    return axios(options);
   },
 
   likeQuestion: (question_id) => {

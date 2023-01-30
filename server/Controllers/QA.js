@@ -30,11 +30,26 @@ module.exports = {
   },
 
   addQuestion: (req, res) => {
+    var { body, name, email, product_id } = req.body;
 
+    models.addQuestion(body, name, email, product_id)
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(422);
+      })
   },
 
   addAnswer: (req, res) => {
+    var { question_id } = req.params;
+    var { body, name, email, photos } = req.body;
 
+    models.addAnswer(question_id, body, name, email, photos)
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(422);
+      })
   },
 
   likeQuestion: (req, res) => {
