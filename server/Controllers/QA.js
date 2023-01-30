@@ -2,7 +2,7 @@ const models = require('../Models/QA.js');
 
 module.exports = {
   getQuestions: (req, res) => {
-    var { product_id, page, count } = req.body;
+    var { product_id, page, count } = req.query;
 
     models.getQuestions(product_id, page, count)
       .then(({ data }) => {
