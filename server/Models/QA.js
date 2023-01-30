@@ -60,8 +60,17 @@ module.exports = {
     return axios(options);
   },
 
-  likeAnswer: () => {
+  likeAnswer: (answer_id) => {
+    var options = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${answer_id}/helpful`,
+      headers: {
+        Authorization: TOKEN,
+      },
+      params: { answer_id },
+      method: 'PUT'
+    }
 
+    return axios(options);
   },
 
   reportAnswer: () => {
