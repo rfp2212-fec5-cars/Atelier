@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddQuestion = ({ product_id }) => {
+const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -20,6 +20,7 @@ const AddQuestion = ({ product_id }) => {
       .then(() => {
         alert('Posted Your Question');
         setShowModal(false);
+        setUpdateQuestions(!updateQuestions);
       })
       .catch((err) => {
         console.log('Failed to post question', err);
@@ -52,7 +53,7 @@ const AddQuestion = ({ product_id }) => {
             onChange={e => setName(e.target.value)}
             required
           />
-          <p>“For privacy reasons, do not use your full name or email address”</p>
+          <p>For privacy reasons, do not use your full name or email address</p>
         </fieldset>
         <fieldset>
           <label htmlFor='email'>Email</label>
@@ -64,7 +65,7 @@ const AddQuestion = ({ product_id }) => {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <p>“For authentication reasons, you will not be emailed”</p>
+          <p>For authentication reasons, you will not be emailed</p>
         </fieldset>
         <button type='submit'>Post Question</button>
       </form>

@@ -7,7 +7,8 @@ import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ productId }) => {
   const [questionList, setQuestionList] = useState([]);
-  const [displayedQuestions, setDisplayedQuestions] = useState([])
+  const [displayedQuestions, setDisplayedQuestions] = useState([]);
+  const [updateQuestions, setUpdateQuestions] = useState(false);
 
   useEffect(() => {
     var options = {
@@ -32,15 +33,15 @@ const QA = ({ productId }) => {
         console.log(err);
       })
 
-  }, []);
+  }, [updateQuestions]);
 
   return (
     <div>
       <h1>Questions & Answers</h1>
       <Search />
       <QuestionList questionList={ displayedQuestions }/>
-      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
-      <AddQuestion product_id={ productId }/>
+      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } displayedQuestions={ displayedQuestions }/>
+      <AddQuestion product_id={ productId } updateQuestions={ updateQuestions } setUpdateQuestions={ setUpdateQuestions }/>
     </div>
   )
 };
