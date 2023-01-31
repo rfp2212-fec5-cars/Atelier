@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
-import QuestionList from './QuestionList.jsx';
-import AddQuestion from './AddQuestion.jsx';
+import QuestionList from './Questions/QuestionList.jsx';
+import MoreQuestions from './Questions/MoreQuestions.jsx';
+import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ productId }) => {
   const [questionList, setQuestionList] = useState([]);
@@ -33,17 +34,12 @@ const QA = ({ productId }) => {
 
   }, []);
 
-  const handleMoreQuestions = (e) => {
-    e.preventDefault();
-    setDisplayedQuestions(questionList);
-  }
-
   return (
     <div>
       <h1>Questions & Answers</h1>
       <Search />
       <QuestionList questionList={ displayedQuestions }/>
-      { displayedQuestions.length < questionList.length ? <button type='submit' onClick={e => handleMoreQuestions(e)}>More Answered Questions</button> : null }
+      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
       <AddQuestion />
     </div>
   )

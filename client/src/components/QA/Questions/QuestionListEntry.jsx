@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AnswerList from './AnswerList.jsx';
-import AddAnswer from './AddAnswer.jsx';
+import AnswerList from '../Answers/AnswerList.jsx';
+import MoreAnswers from '../Answers/MoreAnswers.jsx';
+import AddAnswer from '../Answers/AddAnswer.jsx';
 
 const QuestionListEntry = ({ question }) => {
   const [answerList, setAnswerList] = useState([]);
   const [displayedAnswers, setDisplayedAnswers] = useState([]);
-  const [answerCount, setAnswerCount] = useState(2);
 
   useEffect(() => {
     var options = {
@@ -23,11 +23,12 @@ const QuestionListEntry = ({ question }) => {
         })
 
         setAnswerList(sortedAnswers);
+        setDisplayedAnswers(sortedAnswers.slice(0, 2));
       })
       .catch((err) => {
         console.log('Failed to get answer list', err);
       })
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -38,7 +39,8 @@ const QuestionListEntry = ({ question }) => {
         { question.question_helpfulness }
         <AddAnswer />
       </div>
-      <AnswerList answers={ answerList }/>
+      <AnswerList answers={ displayedAnswers }/>
+      <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
       <hr></hr>
     </div>
   );
