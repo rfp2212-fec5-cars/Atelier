@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddAnswer = ({ question, updateAnswers, setUpdateAnswers }) => {
+const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -31,7 +31,7 @@ const AddAnswer = ({ question, updateAnswers, setUpdateAnswers }) => {
     <div className='modal'>
       <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
       <h3>Submit your Answer</h3>
-      <h4>Product Name: { question.question_body }</h4>
+      <h4>{ product_name }: { question.question_body }</h4>
       <form onSubmit={e => postAnswer(e)}>
         <fieldset>
           <label htmlFor='answer_body'>Your Answer</label>

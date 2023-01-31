@@ -4,7 +4,7 @@ import AnswerList from '../Answers/AnswerList.jsx';
 import MoreAnswers from '../Answers/MoreAnswers.jsx';
 import AddAnswer from '../Answers/AddAnswer.jsx';
 
-const QuestionListEntry = ({ question, product_id }) => {
+const QuestionListEntry = ({ question, product_name }) => {
   // setting up states for the question details
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(question.question_helpfulness);
@@ -86,7 +86,7 @@ const QuestionListEntry = ({ question, product_id }) => {
           ? 'Reported'
           : <input type='button' onClick={e => handleReport(e)} value='Report' />
         }
-        <AddAnswer question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
+        <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
       </div>
       <AnswerList answers={ displayedAnswers } />
       <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>

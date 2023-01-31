@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
+const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuestions }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -31,7 +31,7 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
     <div className='modal'>
       <button className='closeModal' onClick={e => setShowModal(false) }>X</button>
       <h3>Ask Your Question</h3>
-      <h4>About the Product Name</h4>
+      <h4>About the { product_name }</h4>
       <form onSubmit={e => postQuestion(e)}>
         <fieldset>
           <label htmlFor='question_body'>Your Question</label>
@@ -44,10 +44,10 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
           </textarea>
         </fieldset>
         <fieldset>
-          <label htmlFor='username'>What is your nickname</label>
+          <label htmlFor='nickname'>What is your nickname</label>
           <input
             type='text'
-            name='username'
+            name='nickname'
             maxLength='60'
             placeholder='Example: jackson11!'
             onChange={e => setName(e.target.value)}
