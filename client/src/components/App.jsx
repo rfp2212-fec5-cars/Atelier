@@ -12,25 +12,25 @@ const App = () => {
   const [productId, setProductId] = useState(40460);
 
   //Handler//
-  const allProducts = async () => {
-    // axios
-    //   .get('/products')
-    //   .then(({data}) => setProducts(data))
-    //   .catch(err => console.log('App.jsx', err));
-    // var result = await axios.get('/products');
-    try {
-      var result = await axios.get('/products');
-      console.log(result)
-    }catch(err){console.log(err)}
+  // const allProducts = async () => {
+  //   // axios
+  //   //   .get('/products')
+  //   //   .then(({data}) => setProducts(data))
+  //   //   .catch(err => console.log('App.jsx', err));
+  //   // var result = await axios.get('/products');
+  //   try {
+  //     var result = await axios.get('/products')
+  //     console.log(result)
+  //   }catch(err){console.log(err)}
 
-  };
+  // };
 
-  useEffect(() => {
-    allProducts();
-  }, []);
+  // useEffect(() => {
+  //   allProducts();
+  // }, []);
   return (
     <div>
-      <Overview/>
+      <Overview productId={productId}/>
       <RR productId={productId}/>
       <QA className='QA' productId={productId}/>
       {/* <RelatedItemsComparison/> */}
