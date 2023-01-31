@@ -90,3 +90,8 @@
 .reviewsummary{
   font-weight: bold;
 }
+
+/* QA Styles */
+.modal {
+  background-color: aliceblue;
+}
