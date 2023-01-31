@@ -5,9 +5,9 @@ const ImageGallery = () => {
 
   return (
     <div>
-      <p>I'm Image Gallery!</p>
+      <div><b>IMAGE GALLERY</b></div>
     </div>
   );
-}
+};
 
 export default ImageGallery;
