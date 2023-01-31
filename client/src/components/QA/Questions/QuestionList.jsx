@@ -10,7 +10,6 @@ const QuestionList = ({ questionList }) => {
           question={ question }
         />
       ))}
-      <button type='submit'>See More Questions</button>
     </div>
   )
 };

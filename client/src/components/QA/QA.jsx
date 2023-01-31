@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
-import QuestionList from './QuestionList.jsx';
-import AddQuestion from './AddQuestion.jsx';
+import QuestionList from './Questions/QuestionList.jsx';
+import MoreQuestions from './Questions/MoreQuestions.jsx';
+import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ productId }) => {
   const [questionList, setQuestionList] = useState([]);
+  const [displayedQuestions, setDisplayedQuestions] = useState([])
 
   useEffect(() => {
     var options = {
@@ -19,7 +21,12 @@ const QA = ({ productId }) => {
 
     axios(options)
       .then(({ data }) => {
-        setQuestionList(data.results);
+        var sortedQuestions = data.results.sort((a, b) => {
+          return b.question_helpfulness - a.question_helpfulness;
+        });
+
+        setQuestionList(sortedQuestions);
+        setDisplayedQuestions(sortedQuestions.slice(0, 4));
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +38,8 @@ const QA = ({ productId }) => {
     <div>
       <h1>Questions & Answers</h1>
       <Search />
-      <QuestionList questionList={ questionList }/>
+      <QuestionList questionList={ displayedQuestions }/>
+      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
       <AddQuestion />
     </div>
   )
