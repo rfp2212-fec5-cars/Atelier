@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import SizeSelector from './Subcomponents/AddToCart/SizeSelector.jsx';
 
 const AddToCart = () => {
 
 
   return (
     <div>
-      <p>I'm Add To Cart!</p>
+      <div><b>ADD TO CART</b></div>
+      {/* <div><SizeSelector/></div> */}
     </div>
   );
-}
+};
 
 export default AddToCart;

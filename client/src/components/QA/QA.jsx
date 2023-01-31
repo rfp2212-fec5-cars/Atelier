@@ -1,40 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Search from './Search.jsx';
-import QuestionList from './QuestionList.jsx';
-import AddQuestion from './AddQuestion.jsx';
+import QuestionList from './Questions/QuestionList.jsx';
+import MoreQuestions from './Questions/MoreQuestions.jsx';
+import AddQuestion from './Questions/AddQuestion.jsx';
 
-const QA = () => {
-  const exampleQuestionList = {
-    product_id: 1,
-    results: [
-      {
-        "question_id": 37,
-        "question_body": "Why is this product cheaper here than other sites?",
-        "question_date": "2018-10-18T00:00:00.000Z",
-        "asker_name": "williamsmith",
-        "question_helpfulness": 4,
-        "reported": false,
-        "answers": {
-          68: {
-            "id": 68,
-            "body": "We are selling it here without any markup from the middleman!",
-            "date": "2018-08-18T00:00:00.000Z",
-            "answerer_name": "Seller",
-            "helpfulness": 4,
-            "photos": []
-          }
-        }
+const QA = ({ productId }) => {
+  const [questionList, setQuestionList] = useState([]);
+  const [displayedQuestions, setDisplayedQuestions] = useState([])
+
+  useEffect(() => {
+    var options = {
+      url: '/qa/questions',
+      params: {
+        product_id: productId,
+        page: 1,
+        count: 100
       }
-    ]
-  };
+    };
 
-  const [questionList, setQuestionList] = useState(exampleQuestionList);
+    axios(options)
+      .then(({ data }) => {
+        var sortedQuestions = data.results.sort((a, b) => {
+          return b.question_helpfulness - a.question_helpfulness;
+        });
+
+        setQuestionList(sortedQuestions);
+        setDisplayedQuestions(sortedQuestions.slice(0, 4));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
+  }, []);
 
   return (
     <div>
       <h1>Questions & Answers</h1>
       <Search />
-      <QuestionList questionList={ questionList.results }/>
+      <QuestionList questionList={ displayedQuestions }/>
+      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
       <AddQuestion />
     </div>
   )
