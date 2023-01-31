@@ -32,7 +32,7 @@ const App = () => {
     <div>
       <Overview/>
       <RR productId={productId}/>
-      <QA productId={productId}/>
+      <QA className='QA' productId={productId}/>
       {/* <RelatedItemsComparison/> */}
     </div>
   );
