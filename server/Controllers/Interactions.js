@@ -9,6 +9,6 @@ module.exports = {
       })
       .catch((err) => {
         res.status(422).send(err);
-      })
+      });
   }
 };
