@@ -16,7 +16,8 @@ module.exports = {
   },
 
   getAnswers: (req, res) => {
-    var { question_id, page, count } = req.params;
+    var { question_id } = req.params;
+    var { page, count } = req.query;
 
     models.getAnswers(question_id, page, count)
       .then(({ data }) => {
