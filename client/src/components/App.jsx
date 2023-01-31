@@ -9,7 +9,7 @@ import RelatedItemsComparison from './Related Items & Comparison/Related Items &
 const App = () => {
   //STATES//
   const [products, setProducts] = useState([]);
-  const [productId, setProductId] = useState(40344);
+  const [productId, setProductId] = useState(40380);
 
   //Handler//
   // const allProducts = async () => {
@@ -32,7 +32,7 @@ const App = () => {
     <div>
       <Overview productId={productId}/>
       <RR productId={productId}/>
-      <QA />
+      <QA productId={productId}/>
       {/* <RelatedItemsComparison/> */}
     </div>
   );
