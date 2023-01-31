@@ -7,7 +7,6 @@ const AnswerList = ({ answers }) => {
       { answers.map(answer => (
         <AnswerListEntry key={ answer.answer_id } answer={ answer }/>
       ))}
-      <button type='submit'>See More Answers</button>
     </div>
   );
 };
