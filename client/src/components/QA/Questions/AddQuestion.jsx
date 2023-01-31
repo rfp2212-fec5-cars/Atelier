@@ -29,7 +29,7 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
 
   const questionModal = (
     <div className='modal'>
-      <button onClick={e => setShowModal(false) }>X</button>
+      <button className='closeModal' onClick={e => setShowModal(false) }>X</button>
       <h3>Ask Your Question</h3>
       <h4>About the Product Name</h4>
       <form onSubmit={e => postQuestion(e)}>
@@ -44,7 +44,7 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
           </textarea>
         </fieldset>
         <fieldset>
-          <label htmlFor='username'>Nickname</label>
+          <label htmlFor='username'>What is your nickname</label>
           <input
             type='text'
             name='username'
@@ -56,7 +56,7 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
           <p>For privacy reasons, do not use your full name or email address</p>
         </fieldset>
         <fieldset>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Your Email</label>
           <input
             type='email'
             name='email'
@@ -67,7 +67,7 @@ const AddQuestion = ({ product_id, updateQuestions, setUpdateQuestions }) => {
           />
           <p>For authentication reasons, you will not be emailed</p>
         </fieldset>
-        <button type='submit'>Post Question</button>
+        <button type='submit'>Submit Question</button>
       </form>
     </div>
   )
