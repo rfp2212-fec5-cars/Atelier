@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddAnswer = ({ question }) => {
+const AddAnswer = ({ question, updateAnswers, setUpdateAnswers }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -17,7 +17,14 @@ const AddAnswer = ({ question }) => {
       data: { body, name, email, photos }
     }
 
-    console.log('Submit Answer', options);
+    axios(options)
+      .then(() => {
+        setShowModal(false);
+        setUpdateAnswers(!updateAnswers);
+      })
+      .catch((err) => {
+        console.log('Failed posting answer', err);
+      })
   }
 
   const answerModal = (
@@ -62,7 +69,7 @@ const AddAnswer = ({ question }) => {
         </fieldset>
         <fieldset>
           <label htmlFor='photos'>Upload your photos</label>
-          <input type='file' name='photos' multiple/>
+          <input type='file' name='photos' multiple />
         </fieldset>
         <button type='submit'>Submit answer</button>
       </form>

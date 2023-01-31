@@ -13,6 +13,7 @@ const QuestionListEntry = ({ question, product_id }) => {
   // setting up states for the answer lists
   const [answerList, setAnswerList] = useState([]);
   const [displayedAnswers, setDisplayedAnswers] = useState([]);
+  const [updateAnswers, setUpdateAnswers] = useState(false);
 
   // getting the answer list
   useEffect(() => {
@@ -35,7 +36,7 @@ const QuestionListEntry = ({ question, product_id }) => {
       .catch((err) => {
         console.log('Failed to get answer list', err);
       })
-  }, []);
+  }, [updateAnswers]);
 
   // liking a question
   const handleLike = (e) => {
@@ -85,7 +86,7 @@ const QuestionListEntry = ({ question, product_id }) => {
           ? 'Reported'
           : <input type='button' onClick={e => handleReport(e)} value='Report' />
         }
-        <AddAnswer question={ question }/>
+        <AddAnswer question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
       </div>
       <AnswerList answers={ displayedAnswers } />
       <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
