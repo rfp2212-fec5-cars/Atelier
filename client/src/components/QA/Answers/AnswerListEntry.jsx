@@ -4,11 +4,13 @@ import axios from 'axios';
 const AnswerListEntry = ({ answer }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(answer.helpfulness);
+  const [alreadyReported, setAlreadyReported] = useState(false);
 
   // format the date
   var date = new Date(answer.date);
   date = date.toLocaleString('default', {month: 'long'}) + ' ' + date.getDate() + ', ' + date.getFullYear();
 
+  // liking an answer increases its yes count
   const handleLike = (e) => {
     e.preventDefault();
 
@@ -27,6 +29,22 @@ const AnswerListEntry = ({ answer }) => {
       })
   }
 
+  // reporting an answer
+  const handleReport = (e) => {
+    e.preventDefault();
+
+    var options = {
+      url: `/qa/answers/${answer.answer_id}/report`,
+      method: 'PUT'
+    }
+
+    axios(options)
+      .then(() => setAlreadyReported(true))
+      .catch((err) => {
+        console.log('Failed to report answer', err);
+      })
+  }
+
   return (
     <div>
       <p><b>A: </b>{ answer.body }</p>
@@ -36,9 +54,10 @@ const AnswerListEntry = ({ answer }) => {
         ? `Yes (${yesCount})`
         : <input type='button' onClick={e => handleLike(e)} value={`Yes (${yesCount})`}/>
       }
-      <div>
-        <button type='submit'>Report</button>
-      </div>
+      { alreadyReported
+        ? 'Reported'
+        : <input type='button' onClick={e => handleReport(e)} value='Report' />
+      }
     </div>
   )
 };
