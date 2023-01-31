@@ -19,7 +19,11 @@ const QA = ({ productId }) => {
 
     axios(options)
       .then(({ data }) => {
-        setQuestionList(data.results);
+        var sortedQuestions = data.results.sort((a, b) => {
+          return b.question_helpfulness - a.question_helpfulness;
+        });
+
+        setQuestionList(sortedQuestions);
       })
       .catch((err) => {
         console.log(err);

@@ -33,6 +33,7 @@ const QuestionListEntry = ({ question }) => {
         </div>
       </div>
       <AnswerList answers={ answerList }/>
+      <hr></hr>
     </div>
   );
 };
