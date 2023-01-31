@@ -9,7 +9,7 @@ const AnswerListEntry = ({ answer }) => {
   return (
     <div>
       <p><b>A: </b>{ answer.body }</p>
-      <p>by { answer.answerer_name }, { date }</p>
+      <p>by { answer.answerer_name === 'Seller' ? <b>Seller</b> : answer.answerer_name }, { date }</p>
       <label>Helpful? </label>
       <button type='submit'>Yes</button>
       { answer.helpfulness }
