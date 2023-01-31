@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 
 const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
 
-  console.log('currentStyle', currentStyle);
-
   const handleStyleChange = (style) => {
-    // console.log(style);
-    setCurrentStyle(style);
+    console.log(currentStyle, style);
+    if (currentStyle !== style) {
+      setCurrentStyle(style);
+    }
   };
 
   let styleContainer1 = [];
