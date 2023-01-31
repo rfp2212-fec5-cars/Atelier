@@ -5,6 +5,8 @@ import AddAnswer from './AddAnswer.jsx';
 
 const QuestionListEntry = ({ question }) => {
   const [answerList, setAnswerList] = useState([]);
+  const [displayedAnswers, setDisplayedAnswers] = useState([]);
+  const [answerCount, setAnswerCount] = useState(2);
 
   useEffect(() => {
     var options = {
@@ -15,7 +17,13 @@ const QuestionListEntry = ({ question }) => {
       }
     }
     axios(options)
-      .then(({ data }) => setAnswerList(data.results))
+      .then(({ data }) =>{
+        var sortedAnswers = data.results.sort((a, b) => {
+          return b.helpfulness - a.helpfulness;
+        })
+
+        setAnswerList(sortedAnswers);
+      })
       .catch((err) => {
         console.log('Failed to get answer list', err);
       })
@@ -28,9 +36,7 @@ const QuestionListEntry = ({ question }) => {
         <label>Helpful? </label>
         <button type='submit'>Yes</button>
         { question.question_helpfulness }
-        <div>
-          <AddAnswer />
-        </div>
+        <AddAnswer />
       </div>
       <AnswerList answers={ answerList }/>
       <hr></hr>
