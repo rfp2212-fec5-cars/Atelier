@@ -1,44 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
 
 const QuestionListEntry = ({ question }) => {
+  const [answerList, setAnswerList] = useState([]);
 
-  // get the answers from the question id
-  var exampleAnswerList = {
-    "question": "1",
-    "page": 0,
-    "count": 5,
-    "results": [
-      {
-        "answer_id": 8,
-        "body": "What a great question!",
-        "date": "2018-01-04T00:00:00.000Z",
-        "answerer_name": "metslover",
-        "helpfulness": 8,
-        "photos": [],
-      },
-      {
-        "answer_id": 5,
-        "body": "Something pretty durable but I can't be sure",
-        "date": "2018-01-04T00:00:00.000Z",
-        "answerer_name": "metslover",
-        "helpfulness": 5,
-        "photos": [{
-            "id": 1,
-            "url": "urlplaceholder/answer_5_photo_number_1.jpg"
-          },
-          {
-            "id": 2,
-            "url": "urlplaceholder/answer_5_photo_number_2.jpg"
-          },
-          // ...
-        ]
-      },
-      // ...
-    ]
-  }
-
+  useEffect(() => {
+    var options = {
+      url: `/qa/questions/${question.question_id}/answers`,
+      params: {
+        page: 1,
+        count: 100
+      }
+    }
+    axios(options)
+      .then(({ data }) => setAnswerList(data.results))
+      .catch((err) => {
+        console.log('Failed to get answer list', err);
+      })
+  }, [])
 
   return (
     <div>
@@ -51,7 +32,7 @@ const QuestionListEntry = ({ question }) => {
           <AddAnswer />
         </div>
       </div>
-      <AnswerList answers={ exampleAnswerList.results }/>
+      <AnswerList answers={ answerList }/>
     </div>
   );
 };
