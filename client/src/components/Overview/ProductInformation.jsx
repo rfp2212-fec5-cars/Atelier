@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import SocialMediaButton from './Subcomponents/ProductInformation/SocialMediaButton.jsx';
+import PriceDisplay from './Subcomponents/ProductInformation/PriceDisplay.jsx';
 
 
-const ProductInformation = ({productId}) => {
+const ProductInformation = ({productId, currentStyle}) => {
 
   const [productInfo, setProductInfo] = useState({});
   const getProductInfo = () =>{
@@ -11,7 +12,6 @@ const ProductInformation = ({productId}) => {
     axios(url)
       .then((results) => {
         setProductInfo(results.data);
-        // console.log('ProductInfo Results', results.data);
       })
       .catch((err) =>{
         console.log('Error', err);
@@ -23,31 +23,27 @@ const ProductInformation = ({productId}) => {
   }, []);
 
   //Star rating
-  //Product Category
-  console.log(productInfo.category);
-  //Product Title
-  console.log(productInfo.name);
-  //Price
-  console.log(productInfo.default_price);
-  //Product Overview
-  console.log(productInfo.description);
   //Share on Social Media
-
   let ratings = () => {
 
   };
+  const clickHandler = () => {
+    scrollToReviews();
+  };
 
-  const scrollToReviews = () => {
-    document.getElementsByClassName('reviews').scrollIntoView();
+  const scrollToReviews = (event) => {
+    let reviews = document.getElementsByClassName('reviews');
+    console.log(reviews);
+    reviews[0].scrollIntoView();
   };
 
   return (
     <div className='productInformation'>
-      <p>I'm Product Information</p>
-      <div onClick={scrollToReviews}>Stars, Link to Reviews</div>
+      <div><b>PRODUCT INFORMATION</b></div>
+      <div onClick={clickHandler}>Stars, Link to Reviews</div>
       <div>{productInfo.category}</div>
       <div>{productInfo.name}</div>
-      <div>${productInfo.default_price}</div>
+      <div><PriceDisplay currentStyle={currentStyle}/></div>
       <div>{productInfo.description ? productInfo.description : null }</div>
       <div><SocialMediaButton/></div>
     </div>
