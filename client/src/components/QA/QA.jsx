@@ -40,7 +40,7 @@ const QA = ({ productId }) => {
       <Search />
       <QuestionList questionList={ displayedQuestions }/>
       <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
-      <AddQuestion />
+      <AddQuestion product_id={ productId }/>
     </div>
   )
 };
