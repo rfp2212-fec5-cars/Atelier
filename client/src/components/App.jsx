@@ -9,7 +9,7 @@ import RelatedItemsComparison from './Related Items & Comparison/Related Items &
 const App = () => {
   //STATES//
   const [products, setProducts] = useState([]);
-  const [productId, setProductId] = useState(40100);
+  const [productId, setProductId] = useState(40344);
 
   //Handler//
   const allProducts = async () => {
