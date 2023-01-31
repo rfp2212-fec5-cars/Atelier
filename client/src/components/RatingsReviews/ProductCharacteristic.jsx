@@ -19,9 +19,9 @@ var ProductCharacteristic = ({ type, info }) => {
       <div>{type}</div>
       <div>
         <div className='pointer' style={{ marginLeft: `${moving + 'px'}` }}>▼</div>
-        <div className='left'></div>
-        <div className='middle'></div>
-        <div className='right'></div>
+        <div className='leftbar'></div>
+        <div className='middlebar'></div>
+        <div className='rightbar'></div>
       </div>
 
       <div className='producttext'>

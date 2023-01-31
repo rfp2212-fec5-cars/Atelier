@@ -10,7 +10,7 @@ var RR = ({ productId }) => {
   const [sort, setSort] = useState('relevant');
 
   const getReviewMeta = () => {
-    let url = 'http://localhost:3000/reviews/meta';
+    let url = '/reviews/meta';
     axios.get(url, { params: { 'product_id': `${productId}` } })
       .then((results) => {
         //console.log('get review meta', results.data);
@@ -24,7 +24,7 @@ var RR = ({ productId }) => {
   };
   const getReviews = (page = 1, count = Number.MAX_SAFE_INTEGER, sort = {sort}) => {
     console.log('count', count);
-    let url = 'http://localhost:3000/reviews';
+    let url = '/reviews';
     axios.get(url, { params: { 'product_id': `${productId}`, 'page': page, 'count': count, 'sort': sort } })
       .then((results) => {
         console.log('get reviews', results.data);
@@ -47,12 +47,6 @@ var RR = ({ productId }) => {
     getReviews();
   }, []);
 
-  // <RatingList list = {list}/>
-  // <AddRating />
-  var handleMoreReviews = () => {
-
-
-  };
   var handleSort = (e) => {
     let selector = e.target.value;
     setSort(selector);

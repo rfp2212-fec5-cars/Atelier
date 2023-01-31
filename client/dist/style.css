@@ -30,21 +30,21 @@
   margin-top: 10px;
   width: 250px;
 }
-.left{
+.leftbar{
   display: inline-block;
   width: 80px;
   height: 1em;
   background-color: darkgray;
   margin-right: 5px;
 }
-.middle{
+.middlebar{
   display: inline-block;
   width: 80px;
   height: 1em;
   background-color: darkgray;
   margin-right: 5px;
 }
-.right{
+.rightbar{
   display: inline-block;
   width: 80px;
   height: 1em;
