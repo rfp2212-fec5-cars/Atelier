@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import StyleContainers from './Subcomponents/StyleSelector/StyleContainers.jsx';
 
 const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
 
@@ -10,7 +11,7 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
     axios(url)
       .then((results) => {
         setStyles(results.data.results);
-        setCurrentStyle(results.data.results[2]);
+        setCurrentStyle(results.data.results[0]);
         console.log('Styles Results', results.data.results);
       });
   };
@@ -24,14 +25,15 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
     <div className = 'styleSelector'>
       <div><b>STYLE</b></div>
       <div className = 'thumbnail'>
-        {styles.map((style, index) => {
-          // console.log(style.photos[0].thumbnail_url, 'STYLE Photos FROM MAP');
+        {/* {styles.map((style, index) => {
+          console.log(style, 'STYLE Photos FROM MAP');
           return (
-            <a key = {index}>
+            <a key = {index} onClick ={handleStyleChange}>
               <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
             </a>
           );
-        })}
+        })} */}
+        <StyleContainers styles={styles} setCurrentStyle={setCurrentStyle}/>
       </div>
     </div>
   );
