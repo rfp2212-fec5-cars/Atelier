@@ -68,6 +68,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
           <p>For authentication reasons, you will not be emailed</p>
         </fieldset>
         <fieldset>
+          {/* Photo upload doesn't work yet */}
           <label htmlFor='photos'>Upload your photos</label>
           <input type='file' name='photos' multiple />
         </fieldset>
