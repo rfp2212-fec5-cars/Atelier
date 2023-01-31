@@ -57,6 +57,20 @@ const QuestionListEntry = ({ question }) => {
   }
 
   // reporting a question
+  const handleReport = (e) => {
+    e.preventDefault();
+
+    var options = {
+      url: `/qa/questions/${question.question_id}/report`,
+      method: 'PUT'
+    }
+
+    axios(options)
+      .then(() => setAlreadyReported(true))
+      .catch((err) => {
+        console.log('Failed to report question', err);
+      })
+  }
 
   return (
     <div>
