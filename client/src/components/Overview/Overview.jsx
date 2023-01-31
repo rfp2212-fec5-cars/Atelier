@@ -37,6 +37,7 @@ const Overview = ({productId}) => {
         productId={productId}
         productStyles = {productStyles}
         setCurrentStyle={setCurrentStyle}
+        currentStyle = {currentStyle}
       /> </div>
       <div> <AddToCart/> </div>
     </div>

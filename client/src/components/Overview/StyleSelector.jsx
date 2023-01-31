@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import StyleContainers from './Subcomponents/StyleSelector/StyleContainers.jsx';
 
-const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
+const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle}) => {
 
   const [styles, setStyles] = useState([]);
 
@@ -24,6 +24,7 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
   return (
     <div className = 'styleSelector'>
       <div><b>STYLE</b></div>
+      <h2>{currentStyle ? currentStyle.name : null}</h2>
       <div className = 'thumbnail'>
         {/* {styles.map((style, index) => {
           console.log(style, 'STYLE Photos FROM MAP');
@@ -33,7 +34,10 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle}) => {
             </a>
           );
         })} */}
-        <StyleContainers styles={styles} setCurrentStyle={setCurrentStyle}/>
+        <StyleContainers
+          styles={styles}
+          setCurrentStyle={setCurrentStyle}
+          currentStyle={currentStyle}/>
       </div>
     </div>
   );

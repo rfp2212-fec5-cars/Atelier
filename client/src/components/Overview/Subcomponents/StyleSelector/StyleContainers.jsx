@@ -1,15 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
-const StyleContainers = ({styles, setCurrentStyle}) => {
+const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
 
-  // { styles.map((style, index) => {
-  //   console.log(style, 'STYLE Photos FROM MAP');
-  //   return (
-  //     <a key = {index} onClick ={handleStyleChange}>
-  //       <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
-  //     </a>
-  //   );
-  // }); }
+  console.log('currentStyle', currentStyle);
 
   const handleStyleChange = (style) => {
     // console.log(style);
