@@ -6,6 +6,7 @@ import AddQuestion from './AddQuestion.jsx';
 
 const QA = ({ productId }) => {
   const [questionList, setQuestionList] = useState([]);
+  const [displayedQuestions, setDisplayedQuestions] = useState([])
 
   useEffect(() => {
     var options = {
@@ -24,6 +25,7 @@ const QA = ({ productId }) => {
         });
 
         setQuestionList(sortedQuestions);
+        setDisplayedQuestions(sortedQuestions.slice(0, 4));
       })
       .catch((err) => {
         console.log(err);
@@ -31,11 +33,17 @@ const QA = ({ productId }) => {
 
   }, []);
 
+  const handleMoreQuestions = (e) => {
+    e.preventDefault();
+    setDisplayedQuestions(questionList);
+  }
+
   return (
     <div>
       <h1>Questions & Answers</h1>
       <Search />
-      <QuestionList questionList={ questionList }/>
+      <QuestionList questionList={ displayedQuestions }/>
+      { displayedQuestions.length < questionList.length ? <button type='submit' onClick={e => handleMoreQuestions(e)}>More Answered Questions</button> : null }
       <AddQuestion />
     </div>
   )
