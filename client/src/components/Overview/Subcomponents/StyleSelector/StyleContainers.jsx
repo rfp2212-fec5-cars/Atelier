@@ -24,13 +24,13 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
 
 
   return (
-    <div className = 'styleThumbnail'>
+    <div className = 'styleContainer'>
       <ul>
         {styleContainer1.length ? styleContainer1.map((style, index) => {
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>
-                <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
             </li>
           );
@@ -41,7 +41,7 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>
-                <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
             </li>
           );
@@ -52,7 +52,7 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>
-                <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
             </li>
           );
