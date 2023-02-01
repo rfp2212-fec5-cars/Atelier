@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 
-const Search = () => {
-  const [entry, setEntry] = useState('');
+const Search = ({ setSearch }) => {
 
   return (
     <form>
       <input
         type='text'
         placeholder='Have a Question? Search for answers...'
-        value={ entry }
-        onChange={e => setEntry(e.target.value)}
+        onChange={e => {
+          if (e.target.value.length >= 3) {
+            setSearch(e.target.value);
+          } else {
+            setSearch('');
+          }
+        }}
       />
-      <button type='submit'>Search</button>
     </form>
   );
 }

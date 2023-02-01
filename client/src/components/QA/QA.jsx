@@ -6,10 +6,16 @@ import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ product_id, product_name }) => {
-  const [questionList, setQuestionList] = useState([]);
+  // different types of questions
+  const [allQuestions, setAllQuestions] = useState([]);
   const [displayedQuestions, setDisplayedQuestions] = useState([]);
-  const [updateQuestions, setUpdateQuestions] = useState(false);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
 
+  // states to update question lists
+  const [updateQuestions, setUpdateQuestions] = useState(false);
+  const [search, setSearch] = useState('');
+
+  // getting all the questions on reload
   useEffect(() => {
     var options = {
       url: '/qa/questions',
@@ -26,8 +32,10 @@ const QA = ({ product_id, product_name }) => {
           return b.question_helpfulness - a.question_helpfulness;
         });
 
-        setQuestionList(sortedQuestions);
+        setAllQuestions(sortedQuestions);
+        setFilteredQuestions(sortedQuestions);
         setDisplayedQuestions(sortedQuestions.slice(0, 4));
+        setSearch('');
       })
       .catch((err) => {
         console.log(err);
@@ -35,13 +43,34 @@ const QA = ({ product_id, product_name }) => {
 
   }, [updateQuestions]);
 
+  // filter the question list if search term is updated
+  useEffect(() => {
+    var searched = allQuestions.filter(question => question.question_body.toUpperCase().includes(search.toUpperCase()));
+    setFilteredQuestions(searched);
+    setDisplayedQuestions(searched);
+  }, [search]);
+
   return (
     <div>
       <h1>Questions & Answers</h1>
-      <Search />
-      <QuestionList questionList={ displayedQuestions } product_name={ product_name }/>
-      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } displayedQuestions={ displayedQuestions }/>
-      <AddQuestion product_id={ product_id } product_name={ product_name } updateQuestions={ updateQuestions } setUpdateQuestions={ setUpdateQuestions }/>
+      <Search
+        setSearch={ setSearch }
+      />
+      <QuestionList
+        displayedQuestions={ displayedQuestions }
+        product_name={ product_name }
+      />
+      <MoreQuestions
+        filteredQuestions={ filteredQuestions }
+        setDisplayedQuestions={ setDisplayedQuestions }
+        displayedQuestions={ displayedQuestions }
+      />
+      <AddQuestion
+        product_id={ product_id }
+        product_name={ product_name }
+        updateQuestions={ updateQuestions }
+        setUpdateQuestions={ setUpdateQuestions }
+      />
     </div>
   )
 };
