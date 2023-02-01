@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
 
   const handleStyleChange = (style) => {
-    console.log(currentStyle, style);
     if (currentStyle !== style) {
       setCurrentStyle(style);
     }
@@ -25,10 +24,9 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
 
 
   return (
-    <div>
+    <div className = 'styleThumbnail'>
       <ul>
         {styleContainer1.length ? styleContainer1.map((style, index) => {
-          // console.log(style, 'STYLE Photos FROM MAP');
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>
@@ -40,7 +38,6 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
       </ul>
       <ul>
         {styleContainer2.length ? styleContainer2.map((style, index) => {
-          // console.log(style, 'STYLE Photos FROM MAP');
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>
@@ -52,7 +49,6 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
       </ul>
       <ul>
         {styleContainer3.length ? styleContainer3.map((style, index) => {
-          // console.log(style, 'STYLE Photos FROM MAP');
           return (
             <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
               <a>

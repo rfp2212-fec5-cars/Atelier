@@ -12,7 +12,6 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle}
       .then((results) => {
         setStyles(results.data.results);
         setCurrentStyle(results.data.results[0]);
-        console.log('Styles Results', results.data.results);
       });
   };
 
@@ -26,14 +25,6 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle}
       <div><b>STYLE</b></div>
       <h2>{currentStyle ? currentStyle.name : null}</h2>
       <div className = 'thumbnail'>
-        {/* {styles.map((style, index) => {
-          console.log(style, 'STYLE Photos FROM MAP');
-          return (
-            <a key = {index} onClick ={handleStyleChange}>
-              <img key = {index} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
-            </a>
-          );
-        })} */}
         <StyleContainers
           styles={styles}
           setCurrentStyle={setCurrentStyle}
