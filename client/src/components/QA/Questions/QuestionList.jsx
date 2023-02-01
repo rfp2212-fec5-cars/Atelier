@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionListEntry from './QuestionListEntry.jsx';
 
 const QuestionList = ({ questionList, product_name }) => {
+
   return (
     <div>
       { questionList.map((question) => (

@@ -2,31 +2,28 @@ import React, { useState } from 'react';
 
 const MoreAnswers = ({ answerList, displayedAnswers, setDisplayedAnswers }) => {
   const [answerCount, setAnswerCount] = useState(2);
-  const [buttonName, setButtonName] = useState('See More Answers');
 
   const handleMoreAnswers = (e) => {
     e.preventDefault();
 
-    if (buttonName === 'Collapse Answers') {
-      setButtonName('See More Answers');
+    if (JSON.stringify(displayedAnswers) === JSON.stringify(answerList)) {
       setDisplayedAnswers(answerList.slice(0, 2));
       setAnswerCount(2);
-      return;
+    } else {
+      setDisplayedAnswers(answerList.slice(0, answerCount + 2));
+      setAnswerCount(answerCount + 2);
     }
+  }
 
-    setDisplayedAnswers(answerList.slice(0, answerCount + 2));
-    setAnswerCount(answerCount + 2);
-
-    if (answerCount + 2 >= answerList.length) {
-      setButtonName('Collapse Answers');
-    }
+  const buttonName = () => {
+    return answerList.length > displayedAnswers.length ? 'See More Answers' : 'Collapse Answers';
   }
 
   return (
     <div>
       { answerList.length === 0 ? 'Question has not been answered yet' : null }
       { answerList.length > 2
-        ? <input type='button' onClick={(e) => handleMoreAnswers(e)} value={ buttonName } />
+        ? <input type='button' onClick={(e) => handleMoreAnswers(e)} value={ buttonName() } />
         : null
       }
     </div>

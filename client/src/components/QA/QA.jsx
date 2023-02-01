@@ -9,6 +9,7 @@ const QA = ({ product_id, product_name }) => {
   const [questionList, setQuestionList] = useState([]);
   const [displayedQuestions, setDisplayedQuestions] = useState([]);
   const [updateQuestions, setUpdateQuestions] = useState(false);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     var options = {
@@ -35,13 +36,41 @@ const QA = ({ product_id, product_name }) => {
 
   }, [updateQuestions]);
 
+  useEffect(() => {
+    console.log('searching', search);
+    const filteredList = questionList
+  }, [search])
+
+  // useEffect(() => {
+  //   const filteredList = questionList.filter(question => {
+  //     return question.question_body.toUpperCase().includes(search.toUpperCase())
+  //   });
+  //   console.log(filteredList)
+  //   setDisplayedQuestions(filteredList);
+  // }, [search])
+
+
   return (
     <div>
       <h1>Questions & Answers</h1>
-      <Search />
-      <QuestionList questionList={ displayedQuestions } product_name={ product_name }/>
-      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } displayedQuestions={ displayedQuestions }/>
-      <AddQuestion product_id={ product_id } product_name={ product_name } updateQuestions={ updateQuestions } setUpdateQuestions={ setUpdateQuestions }/>
+      <Search
+        setSearch={ setSearch }
+      />
+      <QuestionList
+        questionList={ displayedQuestions }
+        product_name={ product_name }
+      />
+      <MoreQuestions
+        questionList={ questionList }
+        setDisplayedQuestions={ setDisplayedQuestions }
+        displayedQuestions={ displayedQuestions }
+      />
+      <AddQuestion
+        product_id={ product_id }
+        product_name={ product_name }
+        updateQuestions={ updateQuestions }
+        setUpdateQuestions={ setUpdateQuestions }
+      />
     </div>
   )
 };
