@@ -1,20 +1,30 @@
 import React from 'react';
-import Review from './Review.jsx';
+import ReviewListEntry from './ReviewListEntry.jsx';
 
-var ReviewsList = ({display, total, handleSort})=>{
+var ReviewsList = ({ display, setDisplay, total, handleSort, reRenderList }) => {
+  let num = display.length;
+  const handleMoreReviews = () => {
+    num += 2;
+    setDisplay(total.slice(0, num));
+  };
   return (
-    <div id = 'reviewslist'>
-      <div>{total} reviews, sorted by
-        <select id = 'mySelect' onChange = {(e)=>{
+    <div id='reviewslist'>
+      <div>{total.length} reviews, sorted by
+        <select id='mySelect' onChange={(e) => {
           handleSort(e);
         }}>
-          <option value = 'Relevant'>Relevant</option>
-          <option value = 'Helpful'>Helpful</option>
-          <option value = 'Newest'>Newest</option>
+          <option value='Relevant'>Relevant</option>
+          <option value='Helpful'>Helpful</option>
+          <option value='Newest'>Newest</option>
         </select>
       </div>
-      {display.map((review, index)=>
-        <Review review = {review} key = {index}/>)}
+      <div id='reviewcontent'>
+        {display.map((review, index) =>
+          <ReviewListEntry review={review} key={index} reRenderList={reRenderList} />)}
+      </div>
+      {
+        display.length < total.length && (<button onClick={handleMoreReviews}>MORE REVIEWS</button>)
+      }
     </div>
   );
 };

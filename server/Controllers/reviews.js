@@ -32,7 +32,7 @@ module.exports = {
 
   },
   helpful: (req, res) => {
-    models.helpful(req.query.review_id)
+    models.helpful(req.params.review_id)
       .then((result)=>{
         res.send(result.data);
       })
@@ -42,7 +42,7 @@ module.exports = {
 
   },
   report: (req, res) => {
-    models.report(req.query.review_id)
+    models.report(req.params.review_id)
       .then((result)=>{
         res.send(result.data);
       })
