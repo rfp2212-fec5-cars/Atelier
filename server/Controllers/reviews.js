@@ -9,7 +9,6 @@ module.exports = {
       .catch((err)=>{
         res.status(404).send();
       });
-
   },
   getAll: (req, res) => {
     //req.query page count product_id

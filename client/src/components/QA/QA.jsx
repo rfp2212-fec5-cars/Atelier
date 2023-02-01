@@ -5,15 +5,16 @@ import QuestionList from './Questions/QuestionList.jsx';
 import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
-const QA = ({ productId }) => {
+const QA = ({ product_id, product_name }) => {
   const [questionList, setQuestionList] = useState([]);
-  const [displayedQuestions, setDisplayedQuestions] = useState([])
+  const [displayedQuestions, setDisplayedQuestions] = useState([]);
+  const [updateQuestions, setUpdateQuestions] = useState(false);
 
   useEffect(() => {
     var options = {
       url: '/qa/questions',
       params: {
-        product_id: productId,
+        product_id: product_id,
         page: 1,
         count: 100
       }
@@ -32,15 +33,15 @@ const QA = ({ productId }) => {
         console.log(err);
       })
 
-  }, []);
+  }, [updateQuestions]);
 
   return (
     <div>
       <h1>Questions & Answers</h1>
       <Search />
-      <QuestionList questionList={ displayedQuestions }/>
-      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } />
-      <AddQuestion />
+      <QuestionList questionList={ displayedQuestions } product_name={ product_name }/>
+      <MoreQuestions questionList={ questionList } setDisplayedQuestions={ setDisplayedQuestions } displayedQuestions={ displayedQuestions }/>
+      <AddQuestion product_id={ product_id } product_name={ product_name } updateQuestions={ updateQuestions } setUpdateQuestions={ setUpdateQuestions }/>
     </div>
   )
 };
