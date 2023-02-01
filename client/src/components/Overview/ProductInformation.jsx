@@ -27,9 +27,6 @@ const ProductInformation = ({productId, currentStyle}) => {
   let ratings = () => {
 
   };
-  const clickHandler = () => {
-    scrollToReviews();
-  };
 
   const scrollToReviews = (event) => {
     let reviews = document.getElementsByClassName('reviews');
@@ -40,7 +37,7 @@ const ProductInformation = ({productId, currentStyle}) => {
   return (
     <div className='productInformation'>
       <div><b>PRODUCT INFORMATION</b></div>
-      <div onClick={clickHandler}>Stars, Link to Reviews</div>
+      <div onClick={scrollToReviews}>Stars, Link to Reviews</div>
       <div>{productInfo.category}</div>
       <div>{productInfo.name}</div>
       <div><PriceDisplay currentStyle={currentStyle}/></div>

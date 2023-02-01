@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 
-const MoreQuestions = ({ setDisplayedQuestions, questionList }) => {
-  const [buttonName, setButtonName ] = useState('More Answered Questions')
+const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQuestions }) => {
+  const [questionCount, setQuestionCount] = useState(4);
 
   const handleMoreQuestions = (e) => {
     e.preventDefault();
-
-    if (buttonName === 'Collapse Questions') {
-      setDisplayedQuestions(questionList.slice(0, 4));
-      setButtonName('More Answered Questions')
-    } else {
-      setDisplayedQuestions(questionList);
-      setButtonName('Collapse Questions');
-    }
+    setDisplayedQuestions(filteredQuestions.slice(0, questionCount + 2));
+    setQuestionCount(questionCount + 2);
   }
 
   return (
     <div>
-      { questionList.length >= 4 ? <input type='button' onClick={e => handleMoreQuestions(e)} value={ buttonName } /> : null }
+      { filteredQuestions.length >= 4 && questionCount < filteredQuestions.length
+          ? <input type='button' onClick={e => handleMoreQuestions(e)} value='See More Questions' />
+          : null
+      }
     </div>
   )
 }

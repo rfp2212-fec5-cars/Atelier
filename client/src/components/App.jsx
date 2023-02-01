@@ -8,8 +8,7 @@ import RelatedItemsComparison from './Related Items & Comparison/Related Items &
 
 const App = () => {
   //STATES//
-  const [products, setProducts] = useState([]);
-  const [productId, setProductId] = useState(40460);
+  // const [products, setProducts] = useState([]);
 
   //Handler//
   // const allProducts = async () => {
@@ -28,11 +27,29 @@ const App = () => {
   // useEffect(() => {
   //   allProducts();
   // }, []);
+
+  const [productId, setProductId] = useState(40460);
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    var options = {
+      url: `/products/${productId}`
+    }
+
+    axios(options)
+      .then(({ data }) => {
+        setProduct(data);
+      })
+      .catch((err) => {
+        console.log('Failed to get product', err);
+      })
+  }, []);
+
   return (
     <div>
       <Overview productId={productId}/>
       <RR productId={productId}/>
-      <QA productId={productId}/>
+      <QA className='QA' product_id={ productId } product_name={ product.name }/>
       {/* <RelatedItemsComparison/> */}
     </div>
   );

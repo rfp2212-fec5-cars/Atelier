@@ -124,3 +124,8 @@
 .report{
   margin-left: 20px;
 }
+
+/* QA Styles */
+.modal {
+  background-color: aliceblue;
+}
