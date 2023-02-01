@@ -59,6 +59,7 @@ var RR = ({ productId }) => {
     <div className='reviews'>
       <SumRating meta={meta} />
       <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort} reRenderList={getReviews}/>
+      <AddReview productId={productId}/>
     </div>
   );
 };
