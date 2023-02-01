@@ -10,8 +10,6 @@ var RR = ({ productId }) => {
   const [display, setDisplay] = useState([]);
   const [total, setTotal] = useState([]);
   const [sortFilter, setSortFilter] = useState('relevant');
-  const [total, setTotal] = useState(0);
-  const [sort, setSort] = useState('relevant');
 
 
   const getReviewMeta = () => {
