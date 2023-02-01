@@ -5,10 +5,9 @@ import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import axios from 'axios';
 
-
 const Overview = ({productId}) => {
   const [productStyles, setProductStyles] = useState([]);
-  const [currentStyle, setCurrentStyle] = useState(productStyles[1]);
+  const [currentStyle, setCurrentStyle] = useState(productStyles[0]);
 
   const getProductStyles = () =>{
     let url = (`/products/${productId}/styles`);
@@ -26,6 +25,9 @@ const Overview = ({productId}) => {
     getProductStyles();
   }, []);
 
+  useEffect(()=> {
+    console.log(currentStyle);
+  }, [currentStyle]);
 
   return (
     <div>
@@ -35,6 +37,7 @@ const Overview = ({productId}) => {
         productId={productId}
         productStyles = {productStyles}
         setCurrentStyle={setCurrentStyle}
+        currentStyle = {currentStyle}
       /> </div>
       <div> <AddToCart/> </div>
     </div>

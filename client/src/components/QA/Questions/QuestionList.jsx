@@ -1,13 +1,15 @@
 import React from 'react';
 import QuestionListEntry from './QuestionListEntry.jsx';
 
-const QuestionList = ({ questionList }) => {
+const QuestionList = ({ displayedQuestions, product_name }) => {
+
   return (
     <div>
-      { questionList.map((question) => (
+      { displayedQuestions.map((question) => (
         <QuestionListEntry
           key={ question.question_id }
           question={ question }
+          product_name={ product_name }
         />
       ))}
     </div>
