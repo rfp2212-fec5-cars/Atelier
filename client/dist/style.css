@@ -129,3 +129,18 @@
 .modal {
   background-color: aliceblue;
 }
+
+
+
+/* Overview Styles */
+.salePrice {
+  color: red
+}
+.styleThumbnail {
+  width: 85px;
+  height: 85px;
+  display: inline;
+  object-fit: cover;
+  margin-left: 10px;
+  border-radius: 50%;
+}
