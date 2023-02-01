@@ -76,10 +76,18 @@
 .reviews{
   display: flex;
   justify-content: space-around;
+  margin: 50px auto;
 }
 
 #reviewslist{
   width: 80%;
+}
+#reviewcontent{
+  max-height: 600px;
+  overflow-y: auto;
+}
+.singlereview{
+  margin: 10px auto;
 }
 .userinfo{
   float: right;
@@ -89,4 +97,30 @@
 }
 .reviewsummary{
   font-weight: bold;
+}
+.reviewphoto{
+  display: inline;
+}
+.thumbnails{
+  width: 50px;
+  height: 50px;
+  border-radius: 2px;
+  cursor: 'pointer';
+  margin-right: 10px;
+}
+.read-or-hide{
+  font-style: italic;
+}
+.sellerresponse{
+  background-color: lightgray;
+  padding: 5px;
+}
+.helpfulandreport{
+  display: flex;
+}
+.helpful{
+  margin-right: 20px;
+}
+.report{
+  margin-left: 20px;
 }
