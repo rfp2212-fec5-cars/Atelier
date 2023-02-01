@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SumRating from './SumRating.jsx';
 import ReviewsList from './ReviewsList.jsx';
+import AddReview from './AddReview.jsx';
+
 
 var RR = ({ productId }) => {
   const [meta, setMeta] = useState({});
   const [display, setDisplay] = useState([]);
+  const [total, setTotal] = useState([]);
+  const [sortFilter, setSortFilter] = useState('relevant');
   const [total, setTotal] = useState(0);
   const [sort, setSort] = useState('relevant');
+
 
   const getReviewMeta = () => {
     let url = '/reviews/meta';
@@ -22,8 +27,8 @@ var RR = ({ productId }) => {
         }
       });
   };
-  const getReviews = (page = 1, count = Number.MAX_SAFE_INTEGER, sort = {sort}) => {
-    console.log('count', count);
+  const getReviews = (page = 1, count = Number.MAX_SAFE_INTEGER, sort = sortFilter) => {
+    //console.log('sort', sort);
     let url = '/reviews';
     axios.get(url, { params: { 'product_id': `${productId}`, 'page': page, 'count': count, 'sort': sort } })
       .then((results) => {
@@ -49,7 +54,7 @@ var RR = ({ productId }) => {
 
   var handleSort = (e) => {
     let selector = e.target.value;
-    setSort(selector);
+    setSortFilter(selector);
   };
 
 
@@ -57,9 +62,8 @@ var RR = ({ productId }) => {
   return (
     <div className='reviews'>
       <SumRating meta={meta} />
-      <ReviewsList display={display} total = {total.length} handleSort = {handleSort}/>
+      <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort} reRenderList={getReviews}/>
     </div>
-
   );
 };
 export default RR;
