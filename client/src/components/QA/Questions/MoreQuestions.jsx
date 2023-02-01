@@ -1,33 +1,22 @@
 import React, { useState } from 'react';
 
-const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, questionList }) => {
-  const [questionCount, setQuestionCount] = useState(2);
+const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQuestions }) => {
+  const [questionCount, setQuestionCount] = useState(4);
 
   const handleMoreQuestions = (e) => {
     e.preventDefault();
-
-    setDisplayedQuestions(questionList.slice(0, questionCount + 2));
+    setDisplayedQuestions(filteredQuestions.slice(0, questionCount + 2));
     setQuestionCount(questionCount + 2);
   }
 
-  const moreButton = (
-    <input type='button' onClick={e => handleMoreQuestions(e)} value='See More Questions' />
-  );
-
   return (
     <div>
-      { questionList.length >= 4 && questionCount < questionList.length
-          ? moreButton
+      { filteredQuestions.length >= 4 && questionCount < filteredQuestions.length
+          ? <input type='button' onClick={e => handleMoreQuestions(e)} value='See More Questions' />
           : null
       }
-      {/* { (questionList.length >= 4 && questionCount < questionList.length)
-        ? { moreButton }
-        : null
-      } */}
     </div>
   )
 }
 
 export default MoreQuestions;
-
-// <input type='button' onClick={e => handleMoreQuestions(e)} value={ buttonName() } />

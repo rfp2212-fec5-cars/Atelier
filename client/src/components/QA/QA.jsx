@@ -6,11 +6,16 @@ import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ product_id, product_name }) => {
-  const [questionList, setQuestionList] = useState([]);
+  // different types of questions
+  const [allQuestions, setAllQuestions] = useState([]);
   const [displayedQuestions, setDisplayedQuestions] = useState([]);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
+
+  // states to update question lists
   const [updateQuestions, setUpdateQuestions] = useState(false);
   const [search, setSearch] = useState('');
 
+  // getting all the questions on reload
   useEffect(() => {
     var options = {
       url: '/qa/questions',
@@ -27,8 +32,10 @@ const QA = ({ product_id, product_name }) => {
           return b.question_helpfulness - a.question_helpfulness;
         });
 
-        setQuestionList(sortedQuestions);
+        setAllQuestions(sortedQuestions);
+        setFilteredQuestions(sortedQuestions);
         setDisplayedQuestions(sortedQuestions.slice(0, 4));
+        setSearch('');
       })
       .catch((err) => {
         console.log(err);
@@ -36,19 +43,12 @@ const QA = ({ product_id, product_name }) => {
 
   }, [updateQuestions]);
 
+  // filter the question list if search term is updated
   useEffect(() => {
-    console.log('searching', search);
-    const filteredList = questionList
-  }, [search])
-
-  // useEffect(() => {
-  //   const filteredList = questionList.filter(question => {
-  //     return question.question_body.toUpperCase().includes(search.toUpperCase())
-  //   });
-  //   console.log(filteredList)
-  //   setDisplayedQuestions(filteredList);
-  // }, [search])
-
+    var searched = allQuestions.filter(question => question.question_body.toUpperCase().includes(search.toUpperCase()));
+    setFilteredQuestions(searched);
+    setDisplayedQuestions(searched);
+  }, [search]);
 
   return (
     <div>
@@ -57,11 +57,11 @@ const QA = ({ product_id, product_name }) => {
         setSearch={ setSearch }
       />
       <QuestionList
-        questionList={ displayedQuestions }
+        displayedQuestions={ displayedQuestions }
         product_name={ product_name }
       />
       <MoreQuestions
-        questionList={ questionList }
+        filteredQuestions={ filteredQuestions }
         setDisplayedQuestions={ setDisplayedQuestions }
         displayedQuestions={ displayedQuestions }
       />
