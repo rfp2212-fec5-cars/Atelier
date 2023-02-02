@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SumRating from './SumRating.jsx';
 import ReviewsList from './ReviewsList.jsx';
-import AddReview from './AddReview.jsx';
 
 
 var RR = ({ productId }) => {
@@ -59,7 +58,7 @@ var RR = ({ productId }) => {
   return (
     <div className='reviews'>
       <SumRating meta={meta} />
-      <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort} reRenderList={getReviews}/>
+      <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort}/>
     </div>
   );
 };

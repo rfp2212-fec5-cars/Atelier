@@ -97,8 +97,8 @@ button {
   margin: 50px auto;
 }
 
-#reviewslist{
-  width: 80%;
+#reviewswraper{
+  width:80%;
 }
 #reviewcontent{
   max-height: 600px;
@@ -138,6 +138,9 @@ button {
 }
 .helpful{
   margin-right: 20px;
+}
+.helpfultext, .reporttext{
+  text-decoration: underline;
 }
 .report{
   margin-left: 20px;
