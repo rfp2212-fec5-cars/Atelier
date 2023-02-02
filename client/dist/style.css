@@ -1,3 +1,17 @@
+/* General */
+:root {
+  --color1: #0B2027;
+  --color2: #40798C;
+  --color3: #70A9A1;
+  --color4: #CFD7C7;
+  --color5: #F6F1D1;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+/* RR Styles */
 #avgstar{
   font-size:50px;
 }
@@ -126,11 +140,26 @@
 }
 
 /* QA Styles */
-.modal {
-  background-color: aliceblue;
+
+.questionList {
+  background-color: var(--color4);
+  border-radius: 10px;
+  max-height: 50vh;
+  overflow-y: auto;
 }
 
+.questionListEntry {
+  padding: 10px;
+}
 
+.answerListEntry {
+  padding: 10px;
+}
+
+.modal {
+  position: absolute;
+  background-color: var(--color5);
+}
 
 /* Overview Styles */
 .salePrice {

@@ -74,7 +74,7 @@ const QuestionListEntry = ({ question, product_name }) => {
   }
 
   return (
-    <div>
+    <div className='questionListEntry'>
       <h4>Q: { question.question_body }</h4 >
       <div>
         <label>Helpful? </label>
