@@ -12,19 +12,7 @@ body {
 }
 
 button {
-  background-color: var(--color1);
-  color: white;
-  text-decoration: none;
-  text-shadow: 1px 1px 1px black;
-  padding: 10px;
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px black;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: white;
-  color: var(--color1);
 }
 
 /* RR Styles */
@@ -170,16 +158,25 @@ button:hover {
 .questionList {
   border: 2px black solid;
   border-radius: 10px;
-  max-height: 50vh;
+  box-shadow: 1px 1px 1px black;
+  max-height: 75vh;
   overflow-y: auto;
 }
 
 .questionListEntry {
   padding: 10px;
+  border-bottom: 2px black solid;
+}
+
+.questionListEntry:last-child {
+  border: none;
+}
+
+.question {
+  font-size: larger;
 }
 
 .questionLine {
-  border: 2px black solid;
   border-radius: 10px;
   padding: 5px;
   display: flex;
@@ -189,6 +186,11 @@ button:hover {
 .options {
   display: flex;
   gap: 10px;
+}
+
+.answerList {
+  max-height: 50vh;
+  overflow-y: auto;
 }
 
 .answerListEntry {
@@ -210,6 +212,9 @@ button:hover {
   width: 50vh;
   text-align: center;
   padding: 10px;
+  border-radius: 10px;
+  border: 2px black solid;
+  box-shadow: 1px 1px 1px black;
 }
 
 .modal {
@@ -220,7 +225,6 @@ button:hover {
   right: 25vh;
   border: 2px black solid;
   border-radius: 10px;
-  box-shadow: #0B2027;
 }
 
 /* Overview Styles */

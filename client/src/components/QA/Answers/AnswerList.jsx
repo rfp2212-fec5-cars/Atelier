@@ -3,7 +3,7 @@ import AnswerListEntry from './AnswerListEntry.jsx';
 
 const AnswerList = ({ answers }) => {
   return (
-    <div>
+    <div className='answerList'>
       { answers.map(answer => (
         <AnswerListEntry key={ answer.answer_id } answer={ answer }/>
       ))}
