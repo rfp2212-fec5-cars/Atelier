@@ -10,10 +10,6 @@ var RR = ({ productId }) => {
   const [display, setDisplay] = useState([]);
   const [total, setTotal] = useState([]);
   const [sortFilter, setSortFilter] = useState('relevant');
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
   const getReviewMeta = () => {
     let url = '/reviews/meta';
