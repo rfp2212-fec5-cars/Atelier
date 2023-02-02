@@ -3,17 +3,21 @@ import Star from './Star.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import axios from 'axios';
 
-var ReviewListEntry = ({ review, reRenderList }) => {
+var ReviewListEntry = ({ review }) => {
   console.log('single review', review);
   const [showMore, setShowMore] = useState(true);
+  const [helpfuled, setHelpfuled] = useState(false);
+  const [reported, setReported] = useState(false);
+  const [yes, setYes] = useState(review.helpfulness);
 
   const markHelpful = (e) => {
-    console.log('e target', e.target);
+    //console.log('e target', e.target);
     let url = `/reviews/${review.review_id}/helpful`;
-    axios.put(url, {params: {'review_id': review.review_id}})
+    axios.put(url, { params: { 'review_id': review.review_id } })
       .then((results) => {
-        //console.log('update review helpful status', results.status);
-        reRenderList();
+        console.log('update review helpful status', results.status);
+        setHelpfuled(true);
+        setYes(yes + 1);
       })
       .catch((err) => {
         if (err) {
@@ -23,10 +27,10 @@ var ReviewListEntry = ({ review, reRenderList }) => {
   };
   const reportReview = () => {
     let url = `/reviews/${review.review_id}/report`;
-    axios.put(url, {params: {'review_id': review.review_id}})
+    axios.put(url, { params: { 'review_id': review.review_id } })
       .then((results) => {
-        //console.log('report review status', results.status);
-        reRenderList();
+        console.log('report review status', results.status);
+        setReported(true);
       })
       .catch((err) => {
         if (err) {
@@ -92,11 +96,16 @@ var ReviewListEntry = ({ review, reRenderList }) => {
       <div className='helpfulandreport'>
         <div className='helpful'>
           Was this review helpful?&nbsp;&nbsp;
-          <span onClick = {markHelpful}>Yes {review.helpfulness}</span>
+          {
+            helpfuled ? 'Yes' : <span className = 'helpfultext' onClick={markHelpful}>Yes </span>
+          }
+          ({yes})
         </div>
         |
         <div className='report'>
-          <span onClick = {reportReview}>Report</span>
+          {
+            reported ? 'Report' : <span className = 'reporttext' onClick={reportReview}>Report</span>
+          }
         </div>
       </div>
 
