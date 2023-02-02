@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the search component in the Q&A section 1`] = `
+<form>
+  <input
+    onChange={[Function]}
+    placeholder="Have a Question? Search for answers..."
+    type="text"
+  />
+</form>
+`;

@@ -9,7 +9,7 @@ var ReviewsList = ({ display, setDisplay, total, handleSort, reRenderList }) => 
     setDisplay(total.slice(0, num));
   };
   return (
-    <div>
+    <div id = 'reviewswraper'>
       <div id='reviewslist'>
         <div>{total.length} reviews, sorted by
           <select id='mySelect' onChange={(e) => {
