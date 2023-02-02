@@ -61,16 +61,16 @@ const QA = ({ product_id, product_name }) => {
         product_name={ product_name }
       />
       <div className='questionButtons'>
-        <MoreQuestions
-          filteredQuestions={ filteredQuestions }
-          setDisplayedQuestions={ setDisplayedQuestions }
-          displayedQuestions={ displayedQuestions }
-        />
         <AddQuestion
           product_id={ product_id }
           product_name={ product_name }
           updateQuestions={ updateQuestions }
           setUpdateQuestions={ setUpdateQuestions }
+        />
+        <MoreQuestions
+          filteredQuestions={ filteredQuestions }
+          setDisplayedQuestions={ setDisplayedQuestions }
+          displayedQuestions={ displayedQuestions }
         />
       </div>
     </div>
