@@ -40,7 +40,7 @@ const ProductInformation = ({productId, currentStyle}) => {
       <div onClick={scrollToReviews}>Stars, Link to Reviews</div>
       <div>{productInfo.category}</div>
       <div>{productInfo.name}</div>
-      <div><PriceDisplay currentStyle={currentStyle}/></div>
+      {currentStyle && <div><PriceDisplay currentStyle={currentStyle}/></div>}
       <div>{productInfo.description ? productInfo.description : null }</div>
       <div><SocialMediaButton/></div>
     </div>
