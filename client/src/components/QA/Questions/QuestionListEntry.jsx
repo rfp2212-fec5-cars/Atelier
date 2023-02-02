@@ -77,7 +77,7 @@ const QuestionListEntry = ({ question, product_name }) => {
     <div className='questionListEntry'>
       <div className='questionLine'>
         <h4>Q: { question.question_body }</h4 >
-        <div className='questionOptions'>
+        <div className='options'>
           <p>Helpful? </p>
           { alreadyLiked
             ? <p>{ `Yes (${yesCount}) ` }</p>
@@ -87,13 +87,12 @@ const QuestionListEntry = ({ question, product_name }) => {
             ? <p>Reported</p>
             : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
           }
-          <p>    |     </p>
+          <p> | </p>
           <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
         </div>
       </div>
       <AnswerList answers={ displayedAnswers } />
       <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
-      <hr></hr>
     </div>
   );
 };

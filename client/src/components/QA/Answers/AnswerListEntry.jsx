@@ -47,17 +47,22 @@ const AnswerListEntry = ({ answer }) => {
 
   return (
     <div className='answerListEntry'>
-      <p><b>A: </b>{ answer.body }</p>
-      <p>by { answer.answerer_name === 'Seller' ? <b>Seller</b> : answer.answerer_name }, { date }</p>
-      <label>Helpful? </label>
-      { alreadyLiked
-        ? `Yes (${yesCount})`
-        : <input type='button' onClick={e => handleLike(e)} value={`Yes (${yesCount})`}/>
-      }
-      { alreadyReported
-        ? 'Reported'
-        : <input type='button' onClick={e => handleReport(e)} value='Report' />
-      }
+      <p><b>A:  </b>{ answer.body }</p>
+      <div className='options answerOptions'>
+        <p>
+          by { answer.answerer_name === 'Seller' ? <b>Seller</b> : answer.answerer_name }, { date }
+        </p>
+        <p> | </p>
+        <p>Helpful? </p>
+          { alreadyLiked
+            ? <p>{ `Yes (${yesCount}) ` }</p>
+            : <p onClick={e => handleLike(e)}><span className='statusLink'>Yes</span>{` (${yesCount})` }</p>
+          }
+          { alreadyReported
+            ? <p>Reported</p>
+            : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
+          }
+      </div>
     </div>
   )
 };
