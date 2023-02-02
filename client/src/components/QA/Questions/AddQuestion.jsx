@@ -75,7 +75,7 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
 
   return (
     <div>
-      <input type='button' onClick={e => setShowModal(true)} value='Ask Your Question' />
+      <button onClick={e => setShowModal(true)}>Ask Your Question</button>
       { showModal ? questionModal : null }
     </div>
   )
