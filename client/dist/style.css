@@ -220,13 +220,24 @@ button {
   box-shadow: 1px 1px 1px black;
 }
 
-.modal {
+.qaModal {
   background-color: white;
   position: fixed;
   left: 25vh;
   top: 25vh;
   right: 25vh;
+  bottom: 25vh;
+  overflow-y: auto;
   border: 2px black solid;
+  border-radius: 10px;
+}
+
+input::file-selector-button {
+  background-color: white;
+}
+
+.answerPhoto {
+  width: 20%;
   border-radius: 10px;
 }
 

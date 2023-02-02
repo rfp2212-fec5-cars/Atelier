@@ -8,6 +8,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
 
+  // posts the answer to the api
   const postAnswer = (e) => {
     e.preventDefault();
 
@@ -27,8 +28,26 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
       })
   }
 
+  // adds the photos to the answer modal window
+  const AddPhoto = () => {
+    const loadFile = (e) => {
+      var photo = URL.createObjectURL(e.target.files[0]);
+      setPhotos(photos.concat(photo));
+    }
+
+    return (
+      <input
+        class='addPhoto'
+        type='file'
+        name='photos'
+        accept='image/*'
+        onChange={e => loadFile(e)}
+      />
+    );
+  }
+
   const answerModal = (
-    <div className='modal'>
+    <div className='qaModal'>
       <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
       <h3>Submit your Answer</h3>
       <h4>{ product_name }: { question.question_body }</h4>
@@ -68,9 +87,11 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
           <p>For authentication reasons, you will not be emailed</p>
         </fieldset>
         <fieldset>
-          {/* Photo upload doesn't work yet */}
           <label htmlFor='photos'>Upload your photos</label>
-          <input type='file' name='photos' multiple />
+          <div>
+            { photos.map( photo => <img src={ photo } className='answerPhoto'/> ) }
+            { photos.length < 5 ? <AddPhoto /> : null }
+          </div>
         </fieldset>
         <button type='submit'>Submit answer</button>
       </form>
