@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import SizeSelector from './Subcomponents/AddToCart/SizeSelector.jsx';
 
-const AddToCart = () => {
+const AddToCart = ({currentStyle}) => {
 
 
   return (
     <div>
       <div><b>ADD TO CART</b></div>
-      {/* <div><SizeSelector/></div> */}
+      {currentStyle && <div><SizeSelector currentStyle= {currentStyle}/></div>}
     </div>
   );
 };
