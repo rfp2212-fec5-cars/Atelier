@@ -87,6 +87,7 @@ const QuestionListEntry = ({ question, product_name }) => {
             ? <p>Reported</p>
             : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
           }
+          <p>    |     </p>
           <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
         </div>
       </div>

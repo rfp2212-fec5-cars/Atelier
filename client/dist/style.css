@@ -162,8 +162,6 @@ body {
 
 .questionOptions {
   display: flex;
-  justify-content: space-evenly;
-  border: 1px red solid;
   gap: 10px;
 }
 
