@@ -10,6 +10,7 @@
 body,
 textarea {
   font-family: 'Heebo', sans-serif;
+  margin: 3% 7%;
 }
 
 button {
