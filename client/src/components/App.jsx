@@ -34,7 +34,7 @@ const App = () => {
   useEffect(() => {
     var options = {
       url: `/products/${productId}`
-    }
+    };
 
     axios(options)
       .then(({ data }) => {
@@ -42,7 +42,7 @@ const App = () => {
       })
       .catch((err) => {
         console.log('Failed to get product', err);
-      })
+      });
   }, []);
 
   return (

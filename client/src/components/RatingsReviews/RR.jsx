@@ -10,7 +10,6 @@ var RR = ({ productId }) => {
   const [total, setTotal] = useState([]);
   const [sortFilter, setSortFilter] = useState('relevant');
 
-
   const getReviewMeta = () => {
     let url = '/reviews/meta';
     axios.get(url, { params: { 'product_id': `${productId}` } })

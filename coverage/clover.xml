@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< Updated upstream
 <coverage generated="1675297013781" clover="3.2.0">
   <project timestamp="1675297013781" name="All files">
     <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1" elements="9" coveredelements="3" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
@@ -9,6 +10,15 @@
       <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="12" count="0" type="stmt"/>
       <line num="14" count="0" type="stmt"/>
+=======
+<coverage generated="1675298367005" clover="3.2.0">
+  <project timestamp="1675298367005" name="All files">
+    <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1" elements="7" coveredelements="5" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
+    <file name="PriceDisplay.jsx" path="/Users/William/Hack Reactor/SeniorPhase/FEC/Atelier/client/src/components/Overview/Subcomponents/ProductInformation/PriceDisplay.jsx">
+      <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+>>>>>>> Stashed changes
     </file>
   </project>
 </coverage>
