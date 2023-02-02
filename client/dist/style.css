@@ -7,17 +7,23 @@
   --color5: #F6F1D1;
 }
 
-body {
+body,
+textarea {
   font-family: 'Heebo', sans-serif;
 }
 
 button {
-  background-color: white;
-  border: 2px black solid;
+  background-color: var(--color2);
+  color: white;
+  margin: none;
   box-shadow: 1px 1px 1px black;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color1);
 }
 
 /* RR Styles */
@@ -216,25 +222,70 @@ button {
   cursor: pointer;
 }
 
-.search {
-  width: 50vh;
-  text-align: center;
+.inputField {
   padding: 10px;
   border-radius: 10px;
   border: 2px black solid;
   box-shadow: 1px 1px 1px black;
 }
 
+.search {
+  width: 50vh;
+  text-align: center;
+}
+
 .qaModal {
   background-color: white;
   position: fixed;
   left: 25vh;
-  top: 25vh;
+  top: 10vh;
   right: 25vh;
   bottom: 25vh;
   overflow-y: auto;
   border: 2px black solid;
   border-radius: 10px;
+  box-shadow: 10px 5px 5px #0B2027;
+}
+
+.qaModalHeader {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: var(--color3);
+  padding-left: 10px;
+}
+
+.closeModal {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  box-shadow: none;
+  font-weight: bolder;
+}
+
+.closeModal:hover {
+  background-color: inherit;
+}
+
+.modalSubtitle {
+  width: 100%;
+  text-align: center;
+}
+
+.qaModal fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.disclaimer {
+  color: #5A5A5A;
+  font-size: small;
+}
+
+.required {
+  color: red;
 }
 
 input::file-selector-button {
