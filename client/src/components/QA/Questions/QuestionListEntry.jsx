@@ -75,18 +75,20 @@ const QuestionListEntry = ({ question, product_name }) => {
 
   return (
     <div className='questionListEntry'>
-      <h4>Q: { question.question_body }</h4 >
-      <div>
-        <label>Helpful? </label>
-        { alreadyLiked
-          ? `Yes (${yesCount})`
-          : <input type='button' onClick={e => handleLike(e)} value={`Yes (${yesCount})`}/>
-        }
-        { alreadyReported
-          ? 'Reported'
-          : <input type='button' onClick={e => handleReport(e)} value='Report' />
-        }
-        <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
+      <div className='questionLine'>
+        <h4>Q: { question.question_body }</h4 >
+        <div className='questionOptions'>
+          <p>Helpful? </p>
+          { alreadyLiked
+            ? <p>{ `Yes (${yesCount}) ` }</p>
+            : <p onClick={e => handleLike(e)}><span className='statusLink'>Yes</span>{` (${yesCount})` }</p>
+          }
+          { alreadyReported
+            ? <p>Reported</p>
+            : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
+          }
+          <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
+        </div>
       </div>
       <AnswerList answers={ displayedAnswers } />
       <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
