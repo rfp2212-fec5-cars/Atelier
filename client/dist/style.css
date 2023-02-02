@@ -156,6 +156,16 @@ button:hover {
 }
 
 /* QA Styles */
+.QA {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.questionButtons {
+  display: flex;
+  gap: 10px;
+}
 
 .questionList {
   border: 2px black solid;
@@ -194,6 +204,12 @@ button:hover {
   color: var(--color2);
   text-decoration: underline;
   cursor: pointer;
+}
+
+.search {
+  width: 50vh;
+  text-align: center;
+  padding: 10px;
 }
 
 .modal {

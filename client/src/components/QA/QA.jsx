@@ -51,8 +51,8 @@ const QA = ({ product_id, product_name }) => {
   }, [search]);
 
   return (
-    <div>
-      <h1>QUESTION & ANSWERS</h1>
+    <div className='QA'>
+      <h1>Question & Answers</h1>
       <Search
         setSearch={ setSearch }
       />
@@ -60,17 +60,19 @@ const QA = ({ product_id, product_name }) => {
         displayedQuestions={ displayedQuestions }
         product_name={ product_name }
       />
-      <MoreQuestions
-        filteredQuestions={ filteredQuestions }
-        setDisplayedQuestions={ setDisplayedQuestions }
-        displayedQuestions={ displayedQuestions }
-      />
-      <AddQuestion
-        product_id={ product_id }
-        product_name={ product_name }
-        updateQuestions={ updateQuestions }
-        setUpdateQuestions={ setUpdateQuestions }
-      />
+      <div className='questionButtons'>
+        <MoreQuestions
+          filteredQuestions={ filteredQuestions }
+          setDisplayedQuestions={ setDisplayedQuestions }
+          displayedQuestions={ displayedQuestions }
+        />
+        <AddQuestion
+          product_id={ product_id }
+          product_name={ product_name }
+          updateQuestions={ updateQuestions }
+          setUpdateQuestions={ setUpdateQuestions }
+        />
+      </div>
     </div>
   )
 };
