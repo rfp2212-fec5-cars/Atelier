@@ -32,7 +32,10 @@ const Overview = ({productId}) => {
   return (
     <div>
       <div> <ImageGallery/> </div>
-      <div> <ProductInformation productId={productId} currentStyle = {currentStyle}/> </div>
+      <div> <ProductInformation
+        productId={productId}
+        currentStyle = {currentStyle}/>
+      </div>
       <div> <StyleSelector
         productId={productId}
         productStyles = {productStyles}
