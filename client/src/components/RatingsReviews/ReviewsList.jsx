@@ -2,14 +2,14 @@ import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReview from './AddReview.jsx';
 
-var ReviewsList = ({ display, setDisplay, total, handleSort, productName, productId}) => {
+var ReviewsList = ({ display, setDisplay, total, handleSort, productName, productId }) => {
   let num = display.length;
   const handleMoreReviews = () => {
     num += 2;
     setDisplay(total.slice(0, num));
   };
   return (
-    <div id = 'reviewswraper'>
+    <div id='reviewswraper'>
       <div id='reviewslist'>
         <div>{total.length} reviews, sorted by
           <select id='mySelect' onChange={(e) => {
@@ -22,15 +22,16 @@ var ReviewsList = ({ display, setDisplay, total, handleSort, productName, produc
         </div>
         <div id='reviewcontent'>
           {display.map((review, index) =>
-            <ReviewListEntry review={review} key={index}/>)}
+            <ReviewListEntry review={review} key={index} />)}
         </div>
         {
-          display.length < total.length && (<button onClick={handleMoreReviews}>MORE REVIEWS</button>)
+          display.length < total.length && (<button id='more-reviews-button' onClick={handleMoreReviews}>MORE REVIEWS</button>)
         }
+        <div id='addreview'>
+          <AddReview productName={productName} productId={productId} />
+        </div>
       </div>
-      <div id = 'addreview'>
-        <AddReview productName={productName} productId={productId}/>
-      </div>
+
 
     </div>
 

@@ -153,14 +153,25 @@ button {
   display: inline-block;
   margin-left: 10px;
 }
-#text-character{
-  display: inline;
-  position: fixed;
-}
-#product-character{
-  margin-left: 130px;
+.formItem{
   display: inline-block;
+  width: 260px;
+  margin: 10px auto;
 }
+.privacy-hint{
+  margin-left: 260px;
+}
+#addreview{
+  display: inline-block;
+  margin-left: 50px;
+}
+#submit-button{
+  display: block;
+  margin: 30px auto;
+  width: 100px;
+}
+
+
 /* QA Styles */
 .QA {
   display: flex;

@@ -23,7 +23,7 @@
 }
 
 .modal-content {
-  width: 900px;
+  width: 950px;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
