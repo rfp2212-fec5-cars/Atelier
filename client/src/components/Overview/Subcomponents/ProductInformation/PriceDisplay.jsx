@@ -8,7 +8,9 @@ const PriceDisplay = ({currentStyle}) => {
           ${currentStyle.sale_price}
         </span>
       }
-      {currentStyle.sale_price ? <s> ${currentStyle.original_price}</s> :
+      {currentStyle.sale_price ?
+        <s> ${currentStyle.original_price}</s>
+        :
         <span>${currentStyle.original_price}</span>
       }
     </div>
