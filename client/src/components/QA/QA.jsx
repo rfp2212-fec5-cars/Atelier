@@ -52,7 +52,7 @@ const QA = ({ product_id, product_name }) => {
 
   return (
     <div className='QA'>
-      <h1>Question & Answers</h1>
+      <h1><span className='headingUnderline'>Questions</span> & Answers</h1>
       <Search
         setSearch={ setSearch }
       />

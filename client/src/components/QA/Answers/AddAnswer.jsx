@@ -47,7 +47,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
         onChange={e => loadFile(e)}
       />
     );
-  }
+  };
 
   const answerModal = (
     <div className='qaModal'>
@@ -65,6 +65,8 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
             placeholder='The quality is better than expected...'
             onChange={e => setBody(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter an answer')}
+            onInput={e => e.target.setCustomValidity('')}
             required >
           </textarea>
         </fieldset>
@@ -77,6 +79,8 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
             placeholder='Example: jack543!'
             onChange={e => setName(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter your nickname')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
           <p className='disclaimer'>For privacy reasons, do not use your full name or email address</p>
@@ -90,6 +94,8 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
             placeholder='Example: jack@email.com'
             onChange={e => setEmail(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('The email address provided is not in the correct email format')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
           <p className='disclaimer'>For authentication reasons, you will not be emailed</p>

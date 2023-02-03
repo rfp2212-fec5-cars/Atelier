@@ -7,7 +7,7 @@
   --color5: #F6F1D1;
 }
 
-body {
+#root {
   margin: 3% 7%;;
 }
 
@@ -170,6 +170,11 @@ button:hover {
   gap: 20px;
 }
 
+.headingUnderline {
+  border-bottom: 4px solid var(--color2);
+  padding-bottom: 1px;
+}
+
 .questionButtons {
   display: flex;
   gap: 10px;
@@ -197,10 +202,14 @@ button:hover {
 }
 
 .questionLine {
-  border-radius: 10px;
-  padding: 5px;
+  padding: 0 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.questionLine,
+.answerLine {
+  margin: 0;
 }
 
 .options {
@@ -215,6 +224,7 @@ button:hover {
 
 .answerListEntry {
   padding-left: 30px;
+  padding-bottom: 10px;
 }
 
 .answerOptions {
@@ -306,6 +316,7 @@ button:hover {
   max-width: 15vh;
   height: 15vh;
   border-radius: 10px;
+  box-shadow: 1px 1px 1px black;
 }
 
 /* Overview Styles */

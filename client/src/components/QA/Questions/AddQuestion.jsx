@@ -43,6 +43,8 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
             placeholder='How is the quality of...'
             onChange={e => setBody(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter a question')}
+            onInput={e => e.target.setCustomValidity('')}
             required >
           </textarea>
         </fieldset>
@@ -55,6 +57,8 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
             placeholder='Example: jackson11!'
             onChange={e => setName(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter your nickname')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
           <p className='disclaimer'>For privacy reasons, do not use your full name or email address</p>
@@ -68,6 +72,8 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
             placeholder='Why did you like the product or not?'
             onChange={e => setEmail(e.target.value)}
             className='inputField'
+            onInvalid={e => e.target.setCustomValidity('The email address provided is not in the correct email format')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
           <p className='disclaimer'>For authentication reasons, you will not be emailed</p>

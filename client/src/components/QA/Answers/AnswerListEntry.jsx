@@ -53,7 +53,7 @@ const AnswerListEntry = ({ answer }) => {
 
   return (
     <div className='answerListEntry'>
-      <p><b>A:  </b>{ answer.body }</p>
+      <p className='answerLine'><b>A:  </b>{ answer.body }</p>
       { answer.photos.length > 0 ? <AnswerPhotos /> : null }
       <div className='options answerOptions'>
         <p>
