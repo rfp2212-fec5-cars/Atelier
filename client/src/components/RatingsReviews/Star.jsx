@@ -33,7 +33,7 @@ const Star = ({ star }) => {
     }
     // This for loop adds 0s to the array to represent empty stars
   }
-  console.log(starArr);
+  //console.log(starArr);
   return (
     <span className='star'>
       {starArr.map((val, i) => (

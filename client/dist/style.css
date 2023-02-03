@@ -162,6 +162,32 @@ button:hover {
 .report{
   margin-left: 20px;
 }
+.setratingstar {
+  color: #ff9933;
+  cursor: pointer;
+}
+.overall-rating-star{
+  display: inline-block;
+  margin-left: 10px;
+}
+.formItem{
+  display: inline-block;
+  width: 260px;
+  margin: 10px auto;
+}
+.privacy-hint{
+  margin-left: 260px;
+}
+#addreview{
+  display: inline-block;
+  margin-left: 50px;
+}
+#submit-button{
+  display: block;
+  margin: 30px auto;
+  width: 100px;
+}
+
 
 /* QA Styles */
 .QA {
