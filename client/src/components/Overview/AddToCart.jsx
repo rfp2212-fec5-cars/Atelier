@@ -3,9 +3,9 @@ import SizeSelector from './Subcomponents/AddToCart/SizeSelector.jsx';
 import QuantitySelector from './Subcomponents/AddToCart/QuantitySelector.jsx';
 
 
-const AddToCart = ({currentStyle}) => {
+const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
 
-  const [selectedSku, setSelectedSku] = useState(null);
+  // const [selectedSku, setSelectedSku] = useState(null);
 
 
   return (

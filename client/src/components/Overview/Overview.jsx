@@ -8,6 +8,8 @@ import axios from 'axios';
 const Overview = ({productId}) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(productStyles[0]);
+  const [selectedSku, setSelectedSku] = useState(null);
+
 
   const getProductStyles = () =>{
     let url = (`/products/${productId}/styles`);
@@ -41,9 +43,12 @@ const Overview = ({productId}) => {
         productStyles = {productStyles}
         setCurrentStyle={setCurrentStyle}
         currentStyle = {currentStyle}
+        setSelectedSku={setSelectedSku}
       /> </div>
       <div> <AddToCart
-        currentStyle = {currentStyle}/> </div>
+        currentStyle = {currentStyle}
+        selectedSku={selectedSku}
+        setSelectedSku={setSelectedSku}/> </div>
     </div>
   );
 };

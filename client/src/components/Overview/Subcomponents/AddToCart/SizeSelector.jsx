@@ -21,7 +21,9 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
 
   const changeSizeHandler = (event) => {
     setSelectedSku(event.target.value);
-    document.getElementById('realQuantity').value = '1';
+    if (document.getElementById('realQuantity')) {
+      document.getElementById('realQuantity').value = '1';
+    }
   };
 
   useEffect(() => {
