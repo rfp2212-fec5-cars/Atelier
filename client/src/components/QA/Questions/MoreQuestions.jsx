@@ -12,7 +12,7 @@ const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQues
   return (
     <div>
       { filteredQuestions.length >= 4 && questionCount < filteredQuestions.length
-          ? <input type='button' onClick={e => handleMoreQuestions(e)} value='See More Questions' />
+          ? <button onClick={e => handleMoreQuestions(e)}>See More Questions</button>
           : null
       }
     </div>

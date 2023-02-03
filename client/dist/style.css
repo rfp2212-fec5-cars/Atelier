@@ -1,4 +1,21 @@
-/*RR styles*/
+/* General */
+:root {
+  --color1: #0B2027;
+  --color2: #40798C;
+  --color3: #70A9A1;
+  --color4: #CFD7C7;
+  --color5: #F6F1D1;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* RR Styles */
 #avgstar{
   font-size:50px;
 }
@@ -145,11 +162,88 @@
   display: inline-block;
 }
 /* QA Styles */
-.modal {
-  background-color: aliceblue;
+.QA {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.questionButtons {
+  display: flex;
+  gap: 10px;
+}
 
+.questionList {
+  border: 2px black solid;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px black;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.questionListEntry {
+  padding: 10px;
+  border-bottom: 2px black solid;
+}
+
+.questionListEntry:last-child {
+  border: none;
+}
+
+.question {
+  font-size: larger;
+}
+
+.questionLine {
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.answerList {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.answerListEntry {
+  padding-left: 30px;
+}
+
+.answerOptions {
+  color: #5A5A5A;
+  font-size: small;
+}
+
+.statusLink {
+  color: var(--color2);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search {
+  width: 50vh;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px black solid;
+  box-shadow: 1px 1px 1px black;
+}
+
+.modal {
+  background-color: white;
+  position: fixed;
+  left: 25vh;
+  top: 25vh;
+  right: 25vh;
+  border: 2px black solid;
+  border-radius: 10px;
+}
 
 /* Overview Styles */
 .salePrice {

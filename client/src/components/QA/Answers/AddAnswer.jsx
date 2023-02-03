@@ -79,7 +79,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   return (
     <div>
-      <input type='button' onClick={e => setShowModal(true)} value='Add Answer'/>
+      <p onClick={e => setShowModal(true)} className='statusLink'>Add Answer</p>
       { showModal ? answerModal : null }
     </div>
   );
