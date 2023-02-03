@@ -4,7 +4,7 @@ import SumRating from './SumRating.jsx';
 import ReviewsList from './ReviewsList.jsx';
 
 
-var RR = ({ productId }) => {
+var RR = ({ productId, productName}) => {
   const [meta, setMeta] = useState({});
   const [display, setDisplay] = useState([]);
   const [total, setTotal] = useState([]);
@@ -59,7 +59,7 @@ var RR = ({ productId }) => {
   return (
     <div className='reviews'>
       <SumRating meta={meta} />
-      <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort}/>
+      <ReviewsList display={display} setDisplay = {setDisplay} total = {total} handleSort = {handleSort} productName={productName} productId={productId}/>
     </div>
   );
 };

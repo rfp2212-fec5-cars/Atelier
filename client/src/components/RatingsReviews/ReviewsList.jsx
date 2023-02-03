@@ -2,7 +2,7 @@ import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReview from './AddReview.jsx';
 
-var ReviewsList = ({ display, setDisplay, total, handleSort, reRenderList }) => {
+var ReviewsList = ({ display, setDisplay, total, handleSort, productName, productId}) => {
   let num = display.length;
   const handleMoreReviews = () => {
     num += 2;
@@ -22,14 +22,14 @@ var ReviewsList = ({ display, setDisplay, total, handleSort, reRenderList }) => 
         </div>
         <div id='reviewcontent'>
           {display.map((review, index) =>
-            <ReviewListEntry review={review} key={index} reRenderList={reRenderList} />)}
+            <ReviewListEntry review={review} key={index}/>)}
         </div>
         {
           display.length < total.length && (<button onClick={handleMoreReviews}>MORE REVIEWS</button>)
         }
       </div>
       <div id = 'addreview'>
-        <AddReview />
+        <AddReview productName={productName} productId={productId}/>
       </div>
 
     </div>

@@ -128,7 +128,22 @@
 .report{
   margin-left: 20px;
 }
-
+.setratingstar {
+  color: #ff9933;
+  cursor: pointer;
+}
+.overall-rating-star{
+  display: inline-block;
+  margin-left: 10px;
+}
+#text-character{
+  display: inline;
+  position: fixed;
+}
+#product-character{
+  margin-left: 130px;
+  display: inline-block;
+}
 /* QA Styles */
 .modal {
   background-color: aliceblue;
