@@ -52,10 +52,12 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   const answerModal = (
     <div className='qaModal'>
       <div className='qaModalHeader'>
-        <h3>Submit your Answer</h3>
+        <div>
+          <h3 className='modalTitle'><span className='headingUnderline'>Submit</span> your Answer</h3>
+          <p className='modalSubtitle'><b>{ product_name }</b>: { question.question_body }</p>
+        </div>
         <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
       </div>
-      <h4 className='modalSubtitle'>{ product_name }: { question.question_body }</h4>
       <form onSubmit={e => postAnswer(e)}>
         <fieldset>
           <label htmlFor='answer_body'>Your Answer <span className='required'>*</span></label>

@@ -223,7 +223,7 @@ button:hover {
 }
 
 .answerListEntry {
-  padding-left: 30px;
+  padding-left: 5%;
   padding-bottom: 10px;
 }
 
@@ -284,9 +284,14 @@ button:hover {
   background-color: inherit;
 }
 
+.modalTitle {
+  font-size: x-large;
+}
+
 .modalSubtitle {
   width: 100%;
   text-align: center;
+  padding-left: 5%;
 }
 
 .qaModal fieldset {
