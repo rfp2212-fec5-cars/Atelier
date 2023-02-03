@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from './Modal/Modal';
+import Modal from '../Modal/Modal';
 import SetRatingStar from './SetRatingStar.jsx';
 import axios from 'axios';
 
