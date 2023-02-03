@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
+const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) => {
 
 
 
@@ -12,7 +12,7 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
     setStyleSkus(Object.entries(currentStyle.skus));
   }, [currentStyle]);
 
-  const inStock = () => {
+  const outOfStock = () => {
     let skuStock = Object.values(currentStyle.skus);
     return skuStock.every((element) => {
       return element.quantity === 0;
@@ -21,6 +21,9 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
 
   const changeSizeHandler = (event) => {
     setSelectedSku(event.target.value);
+    setNoSize(false);
+    let size = document.getElementById('size');
+    size.size = 1;
     if (document.getElementById('realQuantity')) {
       document.getElementById('realQuantity').value = '1';
     }
@@ -32,13 +35,13 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
 
   return (
     <div id='sizeSelector'>
-      {inStock() ?
+      {outOfStock() ?
         <select onChange={changeSizeHandler} disabled>
-          <option value={null} >OUT OF STOCK</option>
+          <option value="Out of Stock" >OUT OF STOCK</option>
         </select>
         :
-        <select onChange={changeSizeHandler}>
-          <option value= {null} >Select Size</option>
+        <select id='size' onChange={changeSizeHandler}>
+          <option value= 'Select Size' >Select Size</option>
           {styleSkus.map((style) => {
             if (style[1].quantity > 0) {
               return <option value={style[0]} key={style[0]}>{style[1].size}</option>;
