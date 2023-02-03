@@ -45,9 +45,16 @@ const AnswerListEntry = ({ answer }) => {
       })
   }
 
+  const AnswerPhotos = () => (
+    <div className='answerPhotos'>
+      { answer.photos.map(photo => <img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='answerPhoto'/>)}
+    </div>
+  )
+
   return (
     <div className='answerListEntry'>
       <p><b>A:  </b>{ answer.body }</p>
+      { answer.photos.length > 0 ? <AnswerPhotos /> : null }
       <div className='options answerOptions'>
         <p>
           by { answer.answerer_name === 'Seller' ? <b>Seller</b> : answer.answerer_name }, { date }

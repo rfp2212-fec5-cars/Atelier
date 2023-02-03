@@ -12,6 +12,9 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   const postAnswer = (e) => {
     e.preventDefault();
 
+    // need to remove the 'blob:' prefix
+    setPhotos(photos.map(photo => photo.slice(5)));
+
     var options = {
       url: `qa/questions/${question.question_id}/answers`,
       method: 'POST',
@@ -37,7 +40,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
     return (
       <input
-        class='addPhoto'
+        className='addPhoto'
         type='file'
         name='photos'
         accept='image/*'
@@ -48,7 +51,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   const answerModal = (
     <div className='qaModal'>
-      <div class='qaModalHeader'>
+      <div className='qaModalHeader'>
         <h3>Submit your Answer</h3>
         <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
       </div>
@@ -95,7 +98,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
           <label htmlFor='photos'>Upload your photos</label>
           <div>
             <div className='answerPhotos'>
-              { photos.map( photo => <img src={ photo } className='answerPhoto'/> ) }
+              { photos.map( (photo, index) => <img key={ index } src={ photo } className='answerPhoto'/> ) }
             </div>
             { photos.length < 5 ? <AddPhoto /> : null }
           </div>
