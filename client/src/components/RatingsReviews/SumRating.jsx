@@ -10,7 +10,7 @@ var SumRating = ({ meta }) => {
       </div>
     );
   } else {
-    //console.log('meta after ', meta);
+    console.log('meta after ', meta);
     var sum1 = 0;
     var sum2 = 0;
     let i = 1;
@@ -20,9 +20,6 @@ var SumRating = ({ meta }) => {
       i++;
     }
     let num = (sum1 / sum2).toFixed(1);
-
-    let height = 36;
-    let width = 31;
 
     let recommend = meta.recommended.true;
     let sumReviews = parseInt(meta.recommended.true) + parseInt(meta.recommended.false);
