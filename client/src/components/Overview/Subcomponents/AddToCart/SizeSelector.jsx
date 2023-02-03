@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const SizeSelector = ({currentStyle}) => {
+const SizeSelector = ({currentStyle, setSelectedSku, selectedSku}) => {
 
 
 
@@ -19,15 +19,24 @@ const SizeSelector = ({currentStyle}) => {
     });
   };
 
+  const changeSizeHandler = (event) => {
+    setSelectedSku(event.target.value);
+    document.getElementById('realQuantity').value = '1';
+  };
+
+  useEffect(() => {
+    console.log(selectedSku);
+  }, [selectedSku]);
+
   return (
     <div id='sizeSelector'>
       {inStock() ?
-        <select disabled>
-          <option>OUT OF STOCK</option>
+        <select onChange={changeSizeHandler} disabled>
+          <option value={null} >OUT OF STOCK</option>
         </select>
         :
-        <select>
-          <option value='Select Size'>Select Size</option>
+        <select onChange={changeSizeHandler}>
+          <option value= {null} >Select Size</option>
           {styleSkus.map((style) => {
             if (style[1].quantity > 0) {
               return <option value={style[0]} key={style[0]}>{style[1].size}</option>;
@@ -36,11 +45,6 @@ const SizeSelector = ({currentStyle}) => {
         </select>}
     </div>
   );
-
-
-
-
-
 };
 
 export default SizeSelector;
