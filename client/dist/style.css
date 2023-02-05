@@ -68,23 +68,13 @@ button {
   height: 1em;
   background-color: darkgray;
 }
-.lefttext{
-  display: inline;
-  float: left;
-  font-size: small;
-}
-.middletext{
-  display: inline;
-  margin-left:60px;
-  font-size: small;
-}
-.righttext{
-  display: inline;
-  float: right;
+.bar-text{
   font-size: small;
 }
 .producttext{
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .pointer{
   display: flex;

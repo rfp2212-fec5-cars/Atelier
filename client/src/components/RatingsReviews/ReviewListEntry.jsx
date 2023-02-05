@@ -4,7 +4,7 @@ import ReviewPhoto from './ReviewPhoto.jsx';
 import axios from 'axios';
 
 var ReviewListEntry = ({ review }) => {
-  console.log('single review', review);
+  //console.log('single review', review);
   const [showMore, setShowMore] = useState(true);
   const [helpfuled, setHelpfuled] = useState(false);
   const [reported, setReported] = useState(false);

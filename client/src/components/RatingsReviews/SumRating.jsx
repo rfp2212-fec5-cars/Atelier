@@ -3,14 +3,14 @@ import Star from './Star.jsx';
 import Sortstar from './Sortstar.jsx';
 import ProductCharacteristic from './ProductCharacteristic.jsx';
 
-var SumRating = ({ meta }) => {
+var SumRating = ({ meta, handleUserClick }) => {
   if (Object.keys(meta).length === 0) {
     return (
       <div>
       </div>
     );
   } else {
-    console.log('meta after ', meta);
+    //console.log('meta after ', meta);
     var sum1 = 0;
     var sum2 = 0;
     let i = 1;
@@ -40,7 +40,7 @@ var SumRating = ({ meta }) => {
         <Star star={num} />
         <div id = 'recommendrate'>{rateRecommend} % of reviews recommend this product</div>
         {Object.keys(meta.ratings).reverse().map(
-          (k, index)=><Sortstar k = {k} key={index} rateStar={rateStar}/>)}
+          (k, index)=><Sortstar k = {k} key={index} rateStar={rateStar} handleUserClick={handleUserClick}/>)}
         {Object.keys(meta.characteristics).map(
           (type, index)=><ProductCharacteristic type={type} info={meta.characteristics[type]} key={index}/>
         )}
