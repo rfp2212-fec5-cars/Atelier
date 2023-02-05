@@ -117,6 +117,7 @@ var AddReview = ({ productName, productId }) => {
       e.preventDefault();
       return;
     }
+    addReviewData.summary = document.getElementById('set-review-summary').value;
     if (!reviewbodyFlag) {
       alert('please input your review body');
       e.preventDefault();

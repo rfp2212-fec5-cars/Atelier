@@ -13,7 +13,6 @@ var Sortstar = ({ k, rateStar, handleUserClick }) => {
       <div className="greybar">
         <div className='greenbar' style={{ height: '1em', width: `${rateStar[k] + '%'}` }}></div>
       </div>
-      <span>{rateStar[k]}</span>
     </div>
   );
 
