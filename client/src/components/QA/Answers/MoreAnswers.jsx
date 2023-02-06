@@ -16,7 +16,7 @@ const MoreAnswers = ({ answerList, displayedAnswers, setDisplayedAnswers }) => {
   }
 
   const buttonName = () => {
-    return answerList.length > displayedAnswers.length ? 'See More Answers' : 'Collapse Answers';
+    return answerList.length > displayedAnswers.length ? `See More Answers (${answerList.length - displayedAnswers.length})` : 'Collapse Answers';
   }
 
   return (
