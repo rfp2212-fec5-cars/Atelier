@@ -12,9 +12,6 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   const postAnswer = (e) => {
     e.preventDefault();
 
-    // need to remove the 'blob:' prefix
-    setPhotos(photos.map(photo => photo.slice(5)));
-
     var options = {
       url: `qa/questions/${question.question_id}/answers`,
       method: 'POST',
@@ -34,8 +31,20 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   // adds the photos to the answer modal window
   const AddPhoto = () => {
     const loadFile = (e) => {
-      var photo = URL.createObjectURL(e.target.files[0]);
-      setPhotos(photos.concat(photo));
+      const formData = new FormData();
+      formData.append('file', e.target.files[0]);
+      formData.append('upload_preset', 'fec-cars');
+
+      // using cloudinary as a third party host database for images
+      var options = {
+        url: 'https://api.cloudinary.com/v1_1/fec-cars/image/upload',
+        method: 'POST',
+        data: formData
+      };
+
+      axios(options)
+        .then(({ data }) => setPhotos(photos.concat(data.url)))
+        .catch(err => console.log(err));
     }
 
     return (
