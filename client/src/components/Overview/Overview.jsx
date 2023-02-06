@@ -15,7 +15,7 @@ const Overview = ({productId}) => {
     let url = (`/products/${productId}/styles`);
     axios(url)
       .then((result) => {
-        // console.log('styles for product', result.data.results);
+        console.log('styles for product', result.data.results);
         setProductStyles(result.data.results);
       })
       .catch((err) => {
@@ -33,7 +33,8 @@ const Overview = ({productId}) => {
 
   return (
     <div>
-      <div> <ImageGallery/> </div>
+      <div> <ImageGallery
+        currentStyle={currentStyle}/> </div>
       <div> <ProductInformation
         productId={productId}
         currentStyle = {currentStyle}/>

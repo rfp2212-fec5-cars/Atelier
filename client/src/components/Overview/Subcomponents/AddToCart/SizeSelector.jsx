@@ -8,6 +8,7 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) =>
 
 
   const [styleSkus, setStyleSkus] = useState(Object.entries(currentStyle.skus));
+
   useEffect(()=>{
     setStyleSkus(Object.entries(currentStyle.skus));
   }, [currentStyle]);
