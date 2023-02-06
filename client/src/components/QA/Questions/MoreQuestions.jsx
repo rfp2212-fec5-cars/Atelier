@@ -12,7 +12,7 @@ const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQues
   return (
     <div>
       { filteredQuestions.length >= 4 && questionCount < filteredQuestions.length
-          ? <p className='statusLink' onClick={e => handleMoreQuestions(e)}>See More Questions {`(${filteredQuestions.length - displayedQuestions.length})`}</p>
+          ? <p className='statusLink' onClick={e => handleMoreQuestions(e)}>See More Questions {`(${filteredQuestions.length - questionCount})`}</p>
           : null
       }
     </div>
