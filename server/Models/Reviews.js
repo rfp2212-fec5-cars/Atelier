@@ -40,8 +40,9 @@ module.exports = {
         Authorization: `${config.TOKEN}`,
       },
       method: 'post',
-      params: `${params}`
+      data: `${params}`
     };
+    console.log(options.data);
     return axios(options);
   },
   helpful: (reviewId)=>{

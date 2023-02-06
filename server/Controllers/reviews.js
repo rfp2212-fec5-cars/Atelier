@@ -22,11 +22,16 @@ module.exports = {
 
   },
   create: (req, res) => {
-    models.create(req.query)
+    console.log('req query', req.query);
+    console.log('req params', req.params);
+    console.log('req body', req.body);
+    models.create(req.body)
       .then((result)=>{
+        console.log('success and result', result.data);
         res.send(result.data);
       })
       .catch((err)=>{
+        console.log('err', err.message);
         res.status(404).send();
       });
 

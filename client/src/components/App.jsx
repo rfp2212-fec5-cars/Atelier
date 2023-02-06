@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div>
       <Overview productId={productId}/>
-      {/* <RR productId={productId}/> */}
+      <RR productId={productId} productName = {product.name}/>
       <QA className='QA' product_id={ productId } product_name={ product.name }/>
       {/* <RelatedItemsComparison/> */}
     </div>
