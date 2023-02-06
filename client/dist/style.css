@@ -357,8 +357,76 @@ button:hover {
   margin-left: 10px;
   border-radius: 50%;
 }
-.main-image {
 
-  object-fit: contain;
+#main-image {
+  position: absolute;
+  z-index: 2;
+  object-fit: none;
+  width: 100%;
+  height: 100%;
+  bottom: 50px;
+}
+.main-image {
+  cursor: zoom-in;
+  /* object-fit: contain; */
+  width: 100%;
+  height: 400px;
+  object-fit: fill;
+  /* scale: 25%; */
   /* position: absolute; */
 }
+
+#thumbnail-list {
+  position: absolute;
+  bottom: 20%;
+  object-fit: fill;
+  z-index: 10;
+  width: 100%;
+  height: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#default-view-container {
+  width: 605px;
+  height: 400px;
+  position: relative;
+  border-bottom: 100px;
+}
+
+.thumbnail{
+  opacity: 0.55;
+}
+.selected-thumbnail{
+  opacity: 1;
+  border: red;
+  border-style: dotted;
+  border-width: 1px;
+  /* margin: auto;
+  width: 100%; */
+}
+
+.thumbnail-list{
+  /* display: inline-block; */
+  margin: auto;
+  /* width: 50%; */
+  /* display: flex; */
+}
+.icon{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+.thumbnail-overlay{
+  display: inline;
+}
+
+/* .image-gallery{
+  width: 40%;
+  align-self: flex-start;
+}
+.product-information{
+  width: 40%;
+  align-self: flex-end;
+} */

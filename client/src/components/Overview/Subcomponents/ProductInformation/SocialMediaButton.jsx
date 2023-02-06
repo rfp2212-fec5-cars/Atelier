@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import {AiFillFacebook} from 'react-icons/ai';
+import {BsPinterest} from 'react-icons/bs';
+import {AiFillTwitterCircle} from 'react-icons/ai';
 
 const SocialMediaButton = (platform) => {
 
@@ -9,7 +12,9 @@ const SocialMediaButton = (platform) => {
   return (
     <div>
       <form>
-        <button onClick = {handleClick}>Empty Button For Now</button>
+        <div className = 'icon'><AiFillFacebook size='2em'/></div>
+        <div className = 'icon'><BsPinterest size='2em'/></div>
+        <div className = 'icon'><AiFillTwitterCircle size='2em'/></div>
       </form>
     </div>
   );

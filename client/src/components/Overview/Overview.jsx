@@ -32,7 +32,7 @@ const Overview = ({productId}) => {
   // }, [currentStyle]);
 
   return (
-    <div>
+    <div style={{display: 'flex-wrap'}}>
       <div> <ImageGallery
         currentStyle={currentStyle}/> </div>
       <div> <ProductInformation

@@ -14,16 +14,18 @@ const DefaultView = ({imageURLs, thumbnailURLs}) => {
 
   return (
     <>
-      <div>
-        <MainImage
-          imageURLs={imageURLs}
-          imageNumber={imageNumber}/>
-      </div>
-      <div>
-        <ThumbnailList
-          thumbnailURLs={thumbnailURLs}
-          imageNumber={imageNumber}
-          setImageNumber={setImageNumber}/>
+      <div id='default-view-container'>
+        <div id='main-image'>
+          <MainImage
+            imageURLs={imageURLs}
+            imageNumber={imageNumber}/>
+        </div>
+        <div id='thumbnail-list'>
+          <ThumbnailList
+            thumbnailURLs={thumbnailURLs}
+            imageNumber={imageNumber}
+            setImageNumber={setImageNumber}/>
+        </div>
       </div>
     </>
   );

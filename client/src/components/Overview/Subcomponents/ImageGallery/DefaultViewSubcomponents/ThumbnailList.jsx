@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
 
   const [thumbnailContainerIndex, setThumbnailContainerIndex] = useState([0, 6]);
+  // const [isSelected, setIsSelected] = useState(false);
 
   if (thumbnailURLs) {
     const imagesLength = thumbnailURLs.length;
-    console.log('number of photos', imagesLength);
+    // console.log('number of photos', imagesLength);
 
     useEffect(() => {
       if (thumbnailURLs.length - 1 <= 6) {
@@ -47,13 +50,14 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
     };
 
     return (
-      <div id= 'thumbnail-list'>
-        {console.log(imageNumber, thumbnailContainerIndex)}
+      <div style={{display: 'inline-block', position: 'absolute'}}>
         <div className= 'thumbnail-overlay'>
           {imageNumber === 0 ? null :
-            <button className='left-arrow' onClick={loadPreviousImage}> Insert Left Arrow Image Here</button>}
+            <> {<AiOutlineArrowLeft onClick={loadPreviousImage} style={{width: '50px', color: 'white'}} />}</>
+          }
+          {/* <div className='thumbnail-list'> */}
           {thumbnailURLs.map((url, index) => (
-            <div className = 'thumbnail' key = {`thumbnail${index}`} style ={{ display: 'inline' }}>
+            <div className = {index === imageNumber ? 'selected-thumbnail' : 'thumbnail'} key = {`thumbnail${index}`} style ={{ display: 'inline' }}>
               {index <= thumbnailContainerIndex[1] && index >= thumbnailContainerIndex[0] ?
                 <span>
                   <img
@@ -68,8 +72,9 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
                 null}
             </div>
           ))}
+          {/* </div> */}
           {imageNumber === imagesLength - 1 ? null :
-            <button className='right-arrow' onClick={loadNextImage}> Insert Right Arrow Image Here</button>}
+            <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '50px', color: 'white'}} />}</>}
         </div>
       </div>
     );
