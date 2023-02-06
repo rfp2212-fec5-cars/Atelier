@@ -9,7 +9,7 @@ module.exports = {
       headers: {
         Authorization: `${config.TOKEN}`,
       },
-      params:{
+      params: {
         'product_id': `${id}`
       }
     };
@@ -40,9 +40,9 @@ module.exports = {
         Authorization: `${config.TOKEN}`,
       },
       method: 'post',
-      data: `${params}`
+      data: params
     };
-    console.log(options.data);
+    console.log('create options ', options);
     return axios(options);
   },
   helpful: (reviewId)=>{

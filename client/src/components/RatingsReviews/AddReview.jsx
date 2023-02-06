@@ -23,7 +23,7 @@ var AddReview = ({ productName, productId }) => {
   let ratingFlag = false;
   const RatingScore = (score) => {
     ratingFlag = true;
-    addReviewData.rating = score;
+    addReviewData.rating = parseInt(score);
   };
   const checkRecommend = () => {
     if (document.getElementById('recommend-yes').checked) {
@@ -42,24 +42,27 @@ var AddReview = ({ productName, productId }) => {
     let width = document.querySelector('input[name="width"]:checked');
     let comfort = document.querySelector('input[name="comfort"]:checked');
     let quality = document.querySelector('input[name="quality"]:checked');
+    let length = document.querySelector('input[name="length"]:checked');
     let fit = document.querySelector('input[name="fit"]:checked');
+
     if (size === null || width === null || comfort === null || quality === null || fit === null) {
       alert('Please rate all the product characteristics');
       return false;
     }
-    addReviewData.characteristics['size'] = size.value[size.value.length - 1];
-    addReviewData.characteristics['width'] = width.value[width.value.length - 1];
-    addReviewData.characteristics['comfort'] = comfort.value[comfort.value.length - 1];
-    addReviewData.characteristics['quality'] = quality.value[quality.value.length - 1];
-    addReviewData.characteristics['fit'] = fit.value[fit.value.length - 1];
+    addReviewData.characteristics['13141'] = parseInt(size.value[size.value.length - 1]);
+    addReviewData.characteristics['13142'] = parseInt(width.value[width.value.length - 1]);
+    addReviewData.characteristics['13143'] = parseInt(comfort.value[comfort.value.length - 1]);
+    addReviewData.characteristics['13144'] = parseInt(quality.value[quality.value.length - 1]);
+    addReviewData.characteristics['13145'] = parseInt(length.value[length.value.length - 1]);
+    addReviewData.characteristics['13146'] = parseInt(fit.value[fit.value.length - 1]);
     return true;
-    console.log('addreviewdata', addReviewData);
+    //console.log('addreviewdata', addReviewData);
   };
 
   let reviewbodyFlag = false;
   const checkTextLength = () => {
     let cur = document.getElementById('set-review-body').value;
-    console.log('textarea cur', cur);
+    //console.log('textarea cur', cur);
     if (cur.length > 50) {
       reviewbodyFlag = true;
       addReviewData.body = cur;
@@ -74,7 +77,7 @@ var AddReview = ({ productName, productId }) => {
   const handleUploadPhoto = () => {
     var fileElem = document.getElementById('fileElem');
     var fileList = document.getElementById('fileList');
-    console.log('fileElem', fileElem.value);
+    //console.log('fileElem', fileElem.value);
     if (fileElem.files.length > 5) {
       fileElem.value = '';
       alert('please upload at most 5 photos');
@@ -90,7 +93,7 @@ var AddReview = ({ productName, productId }) => {
       };
       fileList.appendChild(img);
     }
-    console.log('fileList', fileList);
+    //console.log('fileList', fileList);
 
     //assign addReviewData
     let imgTag = fileList.getElementsByTagName('img');
@@ -99,7 +102,7 @@ var AddReview = ({ productName, productId }) => {
     for (let i = 0; i < imgTag.length; i++) {
       addReviewData.photos.push(imgTag[i].src);
     }
-    console.log('addReviewData photo', addReviewData.photos);
+    //console.log('addReviewData photo', addReviewData.photos);
   };
 
 
@@ -114,6 +117,7 @@ var AddReview = ({ productName, productId }) => {
       e.preventDefault();
       return;
     }
+    addReviewData.summary = document.getElementById('set-review-summary').value;
     if (!reviewbodyFlag) {
       alert('please input your review body');
       e.preventDefault();
