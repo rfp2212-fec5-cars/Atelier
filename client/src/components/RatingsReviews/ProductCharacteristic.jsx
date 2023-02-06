@@ -25,9 +25,9 @@ var ProductCharacteristic = ({ type, info }) => {
       </div>
 
       <div className='producttext'>
-        <div className='lefttext'>{left}</div>
-        <div className='middletext'>{middle}</div>
-        <div className='righttext'>{right}</div>
+        <div className='bar-text'>{left}</div>
+        <div className='bar-text'>{middle}</div>
+        <div className='bar-text'>{right}</div>
       </div>
     </div>
 

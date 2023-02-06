@@ -22,12 +22,12 @@ module.exports = {
 
   },
   create: (req, res) => {
-    console.log('req query', req.query);
-    console.log('req params', req.params);
-    console.log('req body', req.body);
+    // console.log('req query', req.query);
+    // console.log('req params', req.params);
+    // console.log('req body', req.body);
     models.create(req.body)
       .then((result)=>{
-        console.log('success and result', result.data);
+        //console.log('success and result', result.data);
         res.send(result.data);
       })
       .catch((err)=>{

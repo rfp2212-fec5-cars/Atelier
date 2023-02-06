@@ -15,9 +15,9 @@ var ReviewsList = ({ display, setDisplay, total, handleSort, productName, produc
           <select id='mySelect' onChange={(e) => {
             handleSort(e);
           }}>
-            <option value='Relevant'>Relevant</option>
-            <option value='Helpful'>Helpful</option>
-            <option value='Newest'>Newest</option>
+            <option value='relevant'>Relevant</option>
+            <option value='helpful'>Helpful</option>
+            <option value='newest'>Newest</option>
           </select>
         </div>
         <div id='reviewcontent'>
