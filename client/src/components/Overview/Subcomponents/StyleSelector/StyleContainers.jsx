@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
-const StyleContainers = ({styles, setCurrentStyle, currentStyle}) => {
+const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}) => {
 
   const handleStyleChange = (style) => {
     if (currentStyle !== style) {
+      setSelectedSku(null);
       setCurrentStyle(style);
     }
   };

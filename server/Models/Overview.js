@@ -12,13 +12,14 @@ module.exports = {
     };
     return axios(options);
   },
-  addItemToCart: ({sku_id}) => {
+  addItemToCart: (sku_id) => {
     let options = {
       method: 'post',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart',
       headers: {
         Authorization: `${config.TOKEN}`,
       },
+      data: {sku_id}
     };
     return axios(options);
   },
