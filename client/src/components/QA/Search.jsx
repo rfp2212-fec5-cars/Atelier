@@ -5,7 +5,7 @@ const Search = ({ setSearch }) => {
   return (
     <form>
       <input
-        className='inputField search'
+        className='form-input search'
         type='text'
         placeholder='Have a Question? Search for answers...'
         onChange={e => {

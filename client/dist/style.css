@@ -5,6 +5,7 @@
   --color3: #70A9A1;
   --color4: #CFD7C7;
   --color5: #F6F1D1;
+  --color6: #5A5A5A;
 }
 
 #root {
@@ -263,7 +264,7 @@ button:hover {
 }
 
 .answerListEntry {
-  padding-left: 30px;
+  padding-left: 5%;
   padding-bottom: 10px;
 }
 
@@ -278,7 +279,7 @@ button:hover {
   cursor: pointer;
 }
 
-.inputField {
+.form-input {
   padding: 10px;
   border-radius: 10px;
   border: 2px black solid;
@@ -290,46 +291,7 @@ button:hover {
   text-align: center;
 }
 
-.qaModal {
-  background-color: white;
-  position: fixed;
-  left: 25vh;
-  top: 10vh;
-  right: 25vh;
-  bottom: 25vh;
-  overflow-y: auto;
-  border: 2px black solid;
-  border-radius: 10px;
-  box-shadow: 10px 5px 5px #0B2027;
-}
-
-.qaModalHeader {
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  background-color: var(--color3);
-  padding-left: 10px;
-}
-
-.closeModal {
-  background-color: inherit;
-  color: inherit;
-  border: none;
-  box-shadow: none;
-  font-weight: bolder;
-}
-
-.closeModal:hover {
-  background-color: inherit;
-}
-
-.modalSubtitle {
-  width: 100%;
-  text-align: center;
-}
-
-.qaModal fieldset {
+fieldset {
   border: none;
   display: flex;
   flex-direction: column;
@@ -337,7 +299,7 @@ button:hover {
 }
 
 .disclaimer {
-  color: #5A5A5A;
+  color: var(--color6);
   font-size: small;
 }
 
@@ -356,7 +318,7 @@ button:hover {
   max-width: 15vh;
   height: 15vh;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 3px var(--color6);
 }
 
 /* Overview Styles */
@@ -370,4 +332,9 @@ button:hover {
   object-fit: cover;
   margin-left: 10px;
   border-radius: 50%;
+}
+.main-image {
+
+  object-fit: contain;
+  /* position: absolute; */
 }
