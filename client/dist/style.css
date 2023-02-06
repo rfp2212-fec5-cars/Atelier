@@ -7,12 +7,29 @@
   --color5: #F6F1D1;
 }
 
-body {
+#root {
+  margin: 3% 7%;;
+}
+
+body,
+textarea {
   font-family: 'Heebo', sans-serif;
 }
 
+input::file-selector-button,
 button {
+  background-color: var(--color2);
+  color: white;
+  margin: none;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
+}
+
+input::file-selector-button:hover,
+button:hover {
+  background-color: var(--color1);
 }
 
 /* RR Styles */
@@ -179,6 +196,11 @@ button {
   gap: 20px;
 }
 
+.headingUnderline {
+  border-bottom: 4px solid var(--color2);
+  padding-bottom: 1px;
+}
+
 .questionButtons {
   display: flex;
   gap: 10px;
@@ -187,7 +209,7 @@ button {
 .questionList {
   border: 2px black solid;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 2px 2px 2px black;
   max-height: 75vh;
   overflow-y: auto;
 }
@@ -206,10 +228,14 @@ button {
 }
 
 .questionLine {
-  border-radius: 10px;
-  padding: 5px;
+  padding: 0 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.questionLine,
+.answerLine {
+  margin: 0;
 }
 
 .options {
@@ -224,6 +250,7 @@ button {
 
 .answerListEntry {
   padding-left: 30px;
+  padding-bottom: 10px;
 }
 
 .answerOptions {
@@ -237,23 +264,85 @@ button {
   cursor: pointer;
 }
 
-.search {
-  width: 50vh;
-  text-align: center;
+.inputField {
   padding: 10px;
   border-radius: 10px;
   border: 2px black solid;
   box-shadow: 1px 1px 1px black;
 }
 
-.modal {
+.search {
+  width: 50vh;
+  text-align: center;
+}
+
+.qaModal {
   background-color: white;
   position: fixed;
   left: 25vh;
-  top: 25vh;
+  top: 10vh;
   right: 25vh;
+  bottom: 25vh;
+  overflow-y: auto;
   border: 2px black solid;
   border-radius: 10px;
+  box-shadow: 10px 5px 5px #0B2027;
+}
+
+.qaModalHeader {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: var(--color3);
+  padding-left: 10px;
+}
+
+.closeModal {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  box-shadow: none;
+  font-weight: bolder;
+}
+
+.closeModal:hover {
+  background-color: inherit;
+}
+
+.modalSubtitle {
+  width: 100%;
+  text-align: center;
+}
+
+.qaModal fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 5%;
+}
+
+.disclaimer {
+  color: #5A5A5A;
+  font-size: small;
+}
+
+.required {
+  color: red;
+}
+
+.answerPhotos {
+  display: flex;
+  gap: 1vh;
+  padding: 2vh;
+}
+
+.answerPhoto {
+  width: 100%;
+  max-width: 15vh;
+  height: 15vh;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px black;
 }
 
 /* Overview Styles */
