@@ -8,8 +8,12 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
 
+  // posts the answer to the api
   const postAnswer = (e) => {
     e.preventDefault();
+
+    // need to remove the 'blob:' prefix
+    setPhotos(photos.map(photo => photo.slice(5)));
 
     var options = {
       url: `qa/questions/${question.question_id}/answers`,
@@ -27,59 +31,94 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
       })
   }
 
+  // adds the photos to the answer modal window
+  const AddPhoto = () => {
+    const loadFile = (e) => {
+      var photo = URL.createObjectURL(e.target.files[0]);
+      setPhotos(photos.concat(photo));
+    }
+
+    return (
+      <input
+        className='addPhoto'
+        type='file'
+        name='photos'
+        accept='image/*'
+        onChange={e => loadFile(e)}
+      />
+    );
+  };
+
   const answerModal = (
-    <div className='modal'>
-      <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
-      <h3>Submit your Answer</h3>
-      <h4>{ product_name }: { question.question_body }</h4>
+    <div className='qaModal'>
+      <div className='qaModalHeader'>
+        <h3>Submit your Answer</h3>
+        <button className='closeModal' onClick={e => setShowModal(false)}>X</button>
+      </div>
+      <h4 className='modalSubtitle'>{ product_name }: { question.question_body }</h4>
       <form onSubmit={e => postAnswer(e)}>
         <fieldset>
-          <label htmlFor='answer_body'>Your Answer</label>
+          <label htmlFor='answer_body'>Your Answer <span className='required'>*</span></label>
           <textarea
             name='answer_body'
             maxLength='1000'
             placeholder='The quality is better than expected...'
             onChange={e => setBody(e.target.value)}
+            className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter an answer')}
+            onInput={e => e.target.setCustomValidity('')}
             required >
           </textarea>
         </fieldset>
         <fieldset>
-          <label htmlFor='nickname'>What is your nickname</label>
+          <label htmlFor='nickname'>What is your nickname <span className='required'>*</span></label>
           <input
             type='text'
             name='nickname'
             maxLength='60'
             placeholder='Example: jack543!'
             onChange={e => setName(e.target.value)}
+            className='inputField'
+            onInvalid={e => e.target.setCustomValidity('You must enter your nickname')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
-          <p>For privacy reasons, do not use your full name or email address</p>
+          <p className='disclaimer'>For privacy reasons, do not use your full name or email address</p>
         </fieldset>
         <fieldset>
-          <label htmlFor='email'>Your Email</label>
+          <label htmlFor='email'>Your Email <span className='required'>*</span></label>
           <input
             type='email'
             name='email'
             maxLength='60'
             placeholder='Example: jack@email.com'
             onChange={e => setEmail(e.target.value)}
+            className='inputField'
+            onInvalid={e => e.target.setCustomValidity('The email address provided is not in the correct email format')}
+            onInput={e => e.target.setCustomValidity('')}
             required
           />
-          <p>For authentication reasons, you will not be emailed</p>
+          <p className='disclaimer'>For authentication reasons, you will not be emailed</p>
         </fieldset>
         <fieldset>
-          {/* Photo upload doesn't work yet */}
           <label htmlFor='photos'>Upload your photos</label>
-          <input type='file' name='photos' multiple />
+          <div>
+            <div className='answerPhotos'>
+              { photos.map( (photo, index) => <img key={ index } src={ photo } className='answerPhoto'/> ) }
+            </div>
+            { photos.length < 5 ? <AddPhoto /> : null }
+          </div>
         </fieldset>
-        <button type='submit'>Submit answer</button>
+        <fieldset>
+          <button type='submit'>Submit answer</button>
+        </fieldset>
       </form>
     </div>
   );
 
   return (
     <div>
-      <p onClick={e => setShowModal(true)} className='statusLink'>Add Answer</p>
+      <p className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
       { showModal ? answerModal : null }
     </div>
   );

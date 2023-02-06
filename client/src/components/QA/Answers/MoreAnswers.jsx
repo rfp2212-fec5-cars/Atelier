@@ -20,10 +20,10 @@ const MoreAnswers = ({ answerList, displayedAnswers, setDisplayedAnswers }) => {
   }
 
   return (
-    <div>
+    <div className='answerListEntry'>
       { answerList.length === 0 ? <span className='answerListEntry'>Question has not been answered yet</span> : null }
       { answerList.length > 2
-        ? <button onClick={(e) => handleMoreAnswers(e)}>{ buttonName() }</button>
+        ? <p className='statusLink' onClick={(e) => handleMoreAnswers(e)}>{ buttonName() }</p>
         : null
       }
     </div>

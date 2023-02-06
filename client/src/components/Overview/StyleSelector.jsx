@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import StyleContainers from './Subcomponents/StyleSelector/StyleContainers.jsx';
 
-const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle}) => {
+const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle, setSelectedSku}) => {
 
   const [styles, setStyles] = useState([]);
 
@@ -28,7 +28,8 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle}
         <StyleContainers
           styles={styles}
           setCurrentStyle={setCurrentStyle}
-          currentStyle={currentStyle}/>
+          currentStyle={currentStyle}
+          setSelectedSku={setSelectedSku}/>
       </div>
     </div>
   );
