@@ -30,8 +30,6 @@ const Modal = (props) => {
             <h3 className='modal-subtitle'>{props.subtitle}</h3>
           </div>
           <div className="modal-body">{props.children}</div>
-          <div className="modal-footer">
-          </div>
         </div>
       </div>
     </CSSTransition>,
