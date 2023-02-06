@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Star from './Star.jsx';
+import Star1 from './Star1.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import axios from 'axios';
 
@@ -61,9 +61,12 @@ var ReviewListEntry = ({ review }) => {
   };
   let date = map[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear();
 
+  //count each review's rating rate
+  let rate = (review.rating / 5).toFixed(2);
+
   return (
     <div className='singlereview'>
-      <div className='reviewstar'><Star star={review.rating} /></div>
+      <div className='reviewstar'><Star1 rate={rate} /></div>
       <div className='userinfo'>
         <span className='username'>{review.reviewer_name},</span>
         <span className='reviewdate'>{date}</span>

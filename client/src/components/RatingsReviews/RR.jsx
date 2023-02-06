@@ -64,6 +64,21 @@ var RR = ({ productId, productName }) => {
     setSortFilter(selector);
   };
 
+  //show and delete the selected stars
+  const handleSortStar = (stars) => {
+    //console.log('handle sort star', stars);
+    let temp = sortStar;
+    //console.log('temp before', temp);
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i] === stars) {
+        temp.splice(i, 1);
+      }
+    }
+    //console.log('temp after', temp);
+    setSortStar(temp);
+    showSortResults();//reset sortStar, why can't automatically invoke showSortResults??
+  };
+
   const handleUserClick = (k) => {
     let temp = [];
     temp.push(k);
@@ -71,10 +86,16 @@ var RR = ({ productId, productName }) => {
     //console.log('user click', sortStar.concat(temp));
   };
   const showSortResults = () => {
+    //console.log('invoke showSortResults??');
     let temp = [];
-    sum.forEach((review)=>{
-      if (sortStar.includes(review.rating.toString())) {
+    //console.log('sortStar in showSortResults', sortStar);
+    sum.forEach((review) => {
+      if (sortStar.length === 0) {
         temp.push(review);
+      } else {
+        if (sortStar.includes(review.rating.toString())) {
+          temp.push(review);
+        }
       }
     });
     setTotal(temp);
@@ -90,7 +111,7 @@ var RR = ({ productId, productName }) => {
 
   return (
     <div className='reviews'>
-      <SumRating meta={meta} handleUserClick={handleUserClick} />
+      <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} />
       <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} />
     </div>
   );

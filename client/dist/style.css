@@ -161,6 +161,30 @@ button {
   width: 100px;
 }
 
+.star-rating {
+  display: inline-block;
+  vertical-align: top;
+}
+.back-stars {
+  color:#918f8f;
+  position: relative;
+}
+.front-stars {
+  color: #FFBC0B;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+.selected-star{
+  display: inline-block;
+  margin-right: 4px;
+  font-size: small;
+}
+.delete-selected{
+  font-size: 0.6em;
+  vertical-align:text-top;
+}
+
 
 /* QA Styles */
 .QA {
