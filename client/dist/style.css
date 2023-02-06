@@ -319,3 +319,8 @@ fieldset {
   margin-left: 10px;
   border-radius: 50%;
 }
+.main-image {
+
+  object-fit: contain;
+  /* position: absolute; */
+}

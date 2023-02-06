@@ -3,8 +3,6 @@ import axios from 'axios';
 
 const AddToCartButton = ({currentStyle, selectedSku, setNoSize}) => {
 
-  console.log(selectedSku);
-
   const outOfStock = () => {
     let skuStock = Object.values(currentStyle.skus);
     return skuStock.every((element) => {
