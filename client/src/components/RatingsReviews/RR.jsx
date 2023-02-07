@@ -19,7 +19,7 @@ var RR = ({ productId, productName }) => {
   const [search, setSearch] = useState('');
 
 
-  const handleDisplay = ()=>{
+  const handleDisplay = () => {
     if (total.length >= 2) {
       setDisplay([total[0], total[1]]);
     } else if (total.length === 1) {
@@ -28,7 +28,7 @@ var RR = ({ productId, productName }) => {
       setDisplay([]);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     handleDisplay();
   }, [total]);
 
@@ -55,7 +55,10 @@ var RR = ({ productId, productName }) => {
         console.log('get reviews', results.data);
         let temp = results.data.results;
         setSum(temp);
-        setTotal(temp);
+        if (search === '' && sortStar.length === 0) { //the first time reload page
+          setTotal(temp);
+        }
+        //sortFilter changes will invoke getReviews,then sum will be updated which will invoke handleSortAndSearch
       })
       .catch((err) => {
         if (err) {
@@ -93,8 +96,6 @@ var RR = ({ productId, productName }) => {
 
   //search reviews in current total
   const handleSortAndSearch = () => {
-    console.log('search value', search);
-    console.log('sortStar', sortStar);
     let temp = [];
 
     if (search === '') {
@@ -142,15 +143,16 @@ var RR = ({ productId, productName }) => {
     }
   };
 
+
   useEffect(() => {
     handleSortAndSearch();
-  }, [search, sortStar]);
+  }, [search, sortStar, sum]);
 
 
   return (
-    <div style = {{marginTop: '50px'}}>
+    <div style={{ marginTop: '50px' }}>
       <h2>RATINGS & REVIEWS</h2>
-      <Search setSearch = {setSearch}/>
+      <Search setSearch={setSearch} />
       <div id='ratings-reviews'>
         <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} />
         <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} />

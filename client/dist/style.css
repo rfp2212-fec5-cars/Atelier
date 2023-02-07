@@ -117,6 +117,9 @@ button:hover {
   max-height: 600px;
   overflow-y: auto;
 }
+#reviewslist{
+  margin-bottom: 50px;
+}
 .singlereview{
   margin: 10px auto;
 }
