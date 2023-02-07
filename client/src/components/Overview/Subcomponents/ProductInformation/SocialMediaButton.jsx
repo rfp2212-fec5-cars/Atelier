@@ -3,18 +3,18 @@ import {AiFillFacebook} from 'react-icons/ai';
 import {BsPinterest} from 'react-icons/bs';
 import {AiFillTwitterCircle} from 'react-icons/ai';
 
-const SocialMediaButton = (platform) => {
+const SocialMediaButton = () => {
 
-  const handleClick = (event) => {
-    event.preventDefault();
-  };
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  // };
 
   return (
-    <div>
+    <div data-testid= 'social'>
       <form>
-        <div className = 'icon'><AiFillFacebook size='2em'/></div>
-        <div className = 'icon'><BsPinterest size='2em'/></div>
-        <div className = 'icon'><AiFillTwitterCircle size='2em'/></div>
+        <div style={{color: '#4267B2'}} className = 'icon'><AiFillFacebook size='2em'/></div>
+        <div style={{color: '#E60023'}} className = 'icon'><BsPinterest size='2em'/></div>
+        <div style={{color: '#1DA1F2'}} className = 'icon'><AiFillTwitterCircle size='2em'/></div>
       </form>
     </div>
   );

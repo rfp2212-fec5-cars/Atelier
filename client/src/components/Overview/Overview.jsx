@@ -39,13 +39,13 @@ const Overview = ({productId}) => {
         productId={productId}
         currentStyle = {currentStyle}/>
       </div>
-      <div> <StyleSelector
+      {productStyles ? <div> <StyleSelector
         productId={productId}
         productStyles = {productStyles}
         setCurrentStyle={setCurrentStyle}
         currentStyle = {currentStyle}
         setSelectedSku={setSelectedSku}
-      /> </div>
+      /> </div> : null}
       <div> <AddToCart
         currentStyle = {currentStyle}
         selectedSku={selectedSku}

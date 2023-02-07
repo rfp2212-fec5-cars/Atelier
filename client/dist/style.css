@@ -325,13 +325,14 @@ fieldset {
 .salePrice {
   color: red
 }
-.styleThumbnail {
+.style-thumbnail, .selected-style-thumbnail {
   width: 85px;
   height: 85px;
   display: inline;
   object-fit: cover;
   margin-left: 10px;
   border-radius: 50%;
+  /* position: absolute; */
 }
 
 #main-image {
@@ -373,6 +374,14 @@ fieldset {
 
 .thumbnail{
   opacity: 0.55;
+}
+
+.style-thumbnail{
+  opacity: 0.55
+}
+
+.selected-style-thumbnail{
+  opacity: 1
 }
 .selected-thumbnail{
   opacity: 1;

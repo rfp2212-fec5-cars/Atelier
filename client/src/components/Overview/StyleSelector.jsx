@@ -24,12 +24,12 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle,
     <div className = 'styleSelector'>
       <div><b>STYLE</b></div>
       <h2>{currentStyle ? currentStyle.name : null}</h2>
-      <div className = 'thumbnail'>
-        <StyleContainers
+      <div>
+        {currentStyle ? <StyleContainers
           styles={styles}
           setCurrentStyle={setCurrentStyle}
           currentStyle={currentStyle}
-          setSelectedSku={setSelectedSku}/>
+          setSelectedSku={setSelectedSku}/> : null}
       </div>
     </div>
   );

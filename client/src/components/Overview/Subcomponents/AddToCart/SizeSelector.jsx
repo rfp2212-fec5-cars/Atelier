@@ -38,11 +38,11 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) =>
     <div id='sizeSelector'>
       {outOfStock() ?
         <select onChange={changeSizeHandler} disabled>
-          <option value="Out of Stock" >OUT OF STOCK</option>
+          <option data-testid='size' value="Out of Stock" >OUT OF STOCK</option>
         </select>
         :
         <select id='size' onChange={changeSizeHandler}>
-          <option value= 'Select Size' >Select Size</option>
+          <option data-testid='size' value= 'Select Size' >Select Size</option>
           {styleSkus.map((style) => {
             if (style[1].quantity > 0) {
               return <option value={style[0]} key={style[0]}>{style[1].size}</option>;
