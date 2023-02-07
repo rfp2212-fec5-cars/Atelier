@@ -19,6 +19,19 @@ var RR = ({ productId, productName }) => {
   const [search, setSearch] = useState('');
 
 
+  const handleDisplay = ()=>{
+    if (total.length >= 2) {
+      setDisplay([total[0], total[1]]);
+    } else if (total.length === 1) {
+      setDisplay([total[0]]);
+    } else {
+      setDisplay([]);
+    }
+  };
+  useEffect(()=>{
+    handleDisplay();
+  }, [total]);
+
   const getReviewMeta = () => {
     let url = '/reviews/meta';
     axios.get(url, { params: { 'product_id': `${productId}` } })
@@ -43,11 +56,6 @@ var RR = ({ productId, productName }) => {
         let temp = results.data.results;
         setSum(temp);
         setTotal(temp);
-        if (temp.length >= 2) {
-          setDisplay([temp[0], temp[1]]);
-        } else if (temp.length === 1) {
-          setDisplay([temp[0]]);
-        }
       })
       .catch((err) => {
         if (err) {
@@ -69,7 +77,10 @@ var RR = ({ productId, productName }) => {
   //show and delete the selected stars
   const handleSortStar = (stars) => {
     //console.log('handle sort star', stars);
-    let temp = sortStar;
+    let temp = [];
+    sortStar.forEach((stars) => {
+      temp.push(stars);
+    });
     //console.log('temp before', temp);
     for (let i = 0; i < temp.length; i++) {
       if (temp[i] === stars) {
@@ -78,7 +89,6 @@ var RR = ({ productId, productName }) => {
     }
     //console.log('temp after', temp);
     setSortStar(temp);
-    handleSortAndSearch();//reset sortStar, why can't automatically invoke handleSortAndSearch??
   };
 
   //search reviews in current total
@@ -116,18 +126,12 @@ var RR = ({ productId, productName }) => {
     }
     setTotal(temp);
     //console.log('temp', temp);
-    if (temp.length >= 2) {
-      setDisplay([temp[0], temp[1]]);
-    } else if (temp.length === 1) {
-      setDisplay([temp[0]]);
-    } else {
-      setDisplay([]);
-    }
+
   };
 
   //user may click stars mulitple times,can't push stars to sortStar if already exists
   const handleUserClick = (k) => {
-    //can't assign sortStar to temp, or state won't change correctly
+    //can't assign sortStar to temp, or useEffect can't detect its changing.
     let temp = [];
     sortStar.forEach((stars) => {
       temp.push(stars);
@@ -137,7 +141,6 @@ var RR = ({ productId, productName }) => {
       setSortStar(temp);
     }
   };
-
 
   useEffect(() => {
     handleSortAndSearch();
