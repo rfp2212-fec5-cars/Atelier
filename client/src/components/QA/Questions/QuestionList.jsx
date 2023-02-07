@@ -4,7 +4,7 @@ import QuestionListEntry from './QuestionListEntry.jsx';
 const QuestionList = ({ displayedQuestions, product_name }) => {
 
   return (
-    <div className='questionList'>
+    <div role='questionList' className='questionList'>
       { displayedQuestions.map((question) => (
         <QuestionListEntry
           key={ question.question_id }

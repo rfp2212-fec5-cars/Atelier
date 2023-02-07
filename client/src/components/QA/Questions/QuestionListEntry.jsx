@@ -76,7 +76,7 @@ const QuestionListEntry = ({ question, product_name }) => {
   return (
     <div className='questionListEntry'>
       <div className='questionLine'>
-        <h4 className='question'><span className='headingUnderline'>Q:</span> { question.question_body }</h4 >
+        <h4 role='question' className='question'><span className='headingUnderline'>Q:</span> { question.question_body }</h4 >
         <div className='options'>
           <p>Helpful? </p>
           { alreadyLiked
