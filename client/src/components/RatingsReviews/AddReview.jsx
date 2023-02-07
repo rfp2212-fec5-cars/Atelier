@@ -151,8 +151,8 @@ var AddReview = ({ productName, productId }) => {
     <div>
       <button id='add-a-review' onClick={() => setShow(true)}>ADD A REVIEW +</button>
       <Modal title="Write Your Review" onClose={() => setShow(false)} show={show}>
+        <div id = 'subtitle'>About the {productName}</div>
         <form id='reviewform' onSubmit={check}>
-          <span>About the {productName}</span>
           <div>
             <div className='formItem'>Overall rating*</div>
             <SetRatingStar value={0} RatingScore={RatingScore} />

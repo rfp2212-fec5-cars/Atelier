@@ -2,7 +2,8 @@ import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import AddReview from './AddReview.jsx';
 
-var ReviewsList = ({ display, setDisplay, total, handleSort, productName, productId }) => {
+
+var ReviewsList = ({ display, setDisplay, total, handleSort, productName, productId}) => {
   let num = display.length;
   const handleMoreReviews = () => {
     num += 2;
@@ -11,7 +12,7 @@ var ReviewsList = ({ display, setDisplay, total, handleSort, productName, produc
   return (
     <div id='reviewswraper'>
       <div id='reviewslist'>
-        <div>{total.length} reviews, sorted by
+        <div>{total.length} reviews, sorted by &nbsp;
           <select id='mySelect' onChange={(e) => {
             handleSort(e);
           }}>

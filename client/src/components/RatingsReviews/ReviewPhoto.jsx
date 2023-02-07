@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import Modal from '../Modal/Modal.jsx';
 
 var ReviewPhoto = ({ photo }) => {
-  const [expand, setExpand] = useState(false);
+  const [show, setShow] = useState(false);
+
   return (
     <div className = 'reviewphoto'>
-      {
-        expand === true && (
-          <div onClick = {()=>setExpand(false)}>
-            <img src={photo.url}></img>
-          </div>)
-      }
-      <img className = 'thumbnails' src = {photo.url} onClick = {()=>setExpand(true)}></img>
+      <img className = 'thumbnails' src = {photo.url} onClick = {()=>setShow(true)}></img>
+      <Modal onClose = {()=>setShow(false)} show = {show}>
+        <img src = {photo.url}></img>
+      </Modal>
     </div>
+
   );
 };
 

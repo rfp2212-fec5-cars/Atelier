@@ -34,6 +34,11 @@ button:hover {
 }
 
 /* RR Styles */
+#RR-search{
+  width: 15%;
+  height: 1.5em;
+  border-radius: 5px;
+}
 #avgstar{
   font-size:50px;
 }
@@ -99,10 +104,10 @@ button:hover {
   flex-direction:column;
 }
 
-.reviews{
+#ratings-reviews{
   display: flex;
-  justify-content: space-around;
-  margin: 50px auto;
+  justify-content: space-between;
+  margin: 20px auto;
 }
 
 #reviewswraper{
@@ -172,6 +177,12 @@ button:hover {
 #addreview{
   display: inline-block;
   margin-left: 50px;
+}
+#reviewform{
+  margin: 20px;
+}
+#subtitle{
+  text-align: center;
 }
 #submit-button{
   display: block;
