@@ -1,10 +1,12 @@
+import { render, screen, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Search from './Search.jsx';
+import '@testing-library/jest-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import QA from './QA.jsx';
 
-it('should render the search component in the Q&A section', () => {
-  const tree = renderer
-    .create(<Search />)
-    .toJSON();
+afterEach(cleanup);
 
-  expect(tree).toMatchSnapshot();
+test('should not crash on load', () => {
+  render(<QA />);
 })

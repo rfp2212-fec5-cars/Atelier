@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.54% </span>
+                <span class="strong">4% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/22</span>
+                <span class='fraction'>1/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.54% </span>
+                <span class="strong">4% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/22</span>
+                <span class='fraction'>1/25</span>
             </div>
         
             
@@ -127,7 +127,19 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -175,6 +187,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,6 +209,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -238,19 +262,31 @@ const AnswerListEntry = <span class="fstat-no" title="function not covered" >({<
       })
   }
 &nbsp;
+  const AnswerPhotos = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className='answerPhotos'&gt;</span>
+      { answer.photos.map(<span class="fstat-no" title="function not covered" >ph</span>oto =&gt; <span class="cstat-no" title="statement not covered" >&lt;img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='answerPhoto'/&gt;)</span>}
+    &lt;/div&gt;
+  )
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;div&gt;
-      &lt;p&gt;&lt;b&gt;A: &lt;/b&gt;{ answer.body }&lt;/p&gt;
-      &lt;p&gt;by { answer.answerer_name === 'Seller' ? &lt;b&gt;Seller&lt;/b&gt; : answer.answerer_name }, { date }&lt;/p&gt;
-      &lt;label&gt;Helpful? &lt;/label&gt;
-      { alreadyLiked
-        ? `Yes (${yesCount})`
-        : &lt;input type='button' onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >handleLike(e)}</span> value={`Yes (${yesCount})`}/&gt;
-      }
-      { alreadyReported
-        ? 'Reported'
-        : &lt;input type='button' onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >handleReport(e)}</span> value='Report' /&gt;
-      }
+    &lt;div className='answerListEntry'&gt;
+      &lt;p className='answerLine'&gt;&lt;b&gt;A:  &lt;/b&gt;{ answer.body }&lt;/p&gt;
+      { answer.photos.length &gt; 0 ? &lt;AnswerPhotos /&gt; : null }
+      &lt;div className='options answerOptions'&gt;
+        &lt;p&gt;
+          by { answer.answerer_name === 'Seller' ? &lt;b&gt;Seller&lt;/b&gt; : answer.answerer_name }, { date }
+        &lt;/p&gt;
+        &lt;p&gt; | &lt;/p&gt;
+        &lt;p&gt;Helpful? &lt;/p&gt;
+          { alreadyLiked
+            ? &lt;p&gt;{ `Yes (${yesCount}) ` }&lt;/p&gt;
+            : &lt;p onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >handleLike(e)}</span>&gt;&lt;span className='statusLink'&gt;Yes&lt;/span&gt;{` (${yesCount})` }&lt;/p&gt;
+          }
+          { alreadyReported
+            ? &lt;p&gt;Reported&lt;/p&gt;
+            : &lt;p onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >handleReport(e)}</span> className='statusLink'&gt;Report&lt;/p&gt;
+          }
+      &lt;/div&gt;
     &lt;/div&gt;
   )
 };
@@ -262,7 +298,7 @@ export default AnswerListEntry;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-02T00:00:02.680Z
+                at 2023-02-07T01:38:37.076Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
