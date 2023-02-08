@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import { questionList, product_id, product_name } from '../exampleData.js';
 import QA from '../QA.jsx';
-import QuestionList from '../Questions/QuestionList.jsx';
+import QuestionListEntry from '../Questions/QuestionListEntry.jsx';
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
@@ -47,19 +47,21 @@ describe('Q&A Component', () => {
       })
   })
 
+  it('should display the answers after loading', () => {
+    const question = questionList[0];
+    render(<QuestionListEntry
+      question={ question }
+      product_name={ product_name }
+      index={ 1 } />
+    );
+
+    return waitFor(expect(screen.queryByTestId('loading-answers')).not.toBeInTheDocument)
+      .then(() => {
+        const answers = screen.queryAllByRole(/^answer/i);
+        expect(answers.length).toEqual(2);
+      });
+  })
+
 });
 
   // screen.logTestingPlaygroundURL();
-    // it('should render two more questions when user clicks addQuestion button', () => {
-    //   waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
-    //     .then(async () => {
-    //       var questions = screen.queryAllByRole(/^question/);
-    //       expect(questions.length).toEqual(4);
-
-    //       const link = screen.getByRole('more-questions');
-    //       await userEvent.click(link);
-
-    //       questions = screen.queryAllByRole(/question/);
-    //       expect(questions.length).toEqual(6);
-    //     })
-    //   })
