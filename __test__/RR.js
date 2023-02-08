@@ -18,14 +18,14 @@ afterEach(() => {
 describe('RR testing', ()=>{
   it('should correctly render', async () => {
 
-    // axios.get
-    //   .mockResolvedValueOnce({ data : MockData.featureMeta});
+    axios.get
+      .mockResolvedValueOnce({ data : MockData.featureMeta});
 
-    // axios.get
-    //   .mockResolvedValueOnce({data : MockData.reviews});
+    axios.get
+      .mockResolvedValueOnce({data : MockData.reviews});
 
-   // render(<RR productId={MockData.feature.id} productName={MockData.feature.name}/>)
-    render(<RR productId={40344} productName={'blue shoes'}/>)
+    render(<RR productId={MockData.feature.id} productName={MockData.feature.name}/>)
+    // render(<RR productId={40344} productName={'blue shoes'}/>)
     expect(screen.getByRole('heading', {level:2})).toBeInTheDocument();
     expect(screen.getByText('RATINGS & REVIEWS')).toBeInTheDocument();
 

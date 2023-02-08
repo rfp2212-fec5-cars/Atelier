@@ -30,6 +30,8 @@ const App = () => {
 
   const [productId, setProductId] = useState(40460);
   const [product, setProduct] = useState({});
+  const [avgStar, setAvgStar] = useState(0);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     var options = {
@@ -45,10 +47,17 @@ const App = () => {
       });
   }, []);
 
+  const handleRate = (rate)=>{
+    setAvgStar(rate);
+  };
+  const handleTotal = (sum)=>{
+    setTotal(sum);
+  };
+
   return (
     <div>
       <Overview productId={productId}/>
-      <RR productId={productId} productName = {product.name}/>
+      <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal}/>
       <QA className='QA' product_id={ productId } product_name={ product.name }/>
       {/* <RelatedItemsComparison/> */}
     </div>

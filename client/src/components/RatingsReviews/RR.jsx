@@ -5,7 +5,7 @@ import ReviewsList from './ReviewsList.jsx';
 import Search from './Search.jsx';
 
 
-var RR = ({ productId, productName }) => {
+var RR = ({ productId, productName, handleRate, handleTotal}) => {
   const [meta, setMeta] = useState({});
   const [display, setDisplay] = useState([]);
   //the total reviews of user select
@@ -54,6 +54,7 @@ var RR = ({ productId, productName }) => {
       .then((results) => {
         console.log('get reviews', results.data);
         let temp = results.data.results;
+        handleTotal(temp.length);
         setSum(temp);
         if (search === '' && sortStar.length === 0) { //the first time reload page
           setTotal(temp);
@@ -155,7 +156,7 @@ var RR = ({ productId, productName }) => {
       <h2>RATINGS & REVIEWS</h2>
       <Search search={search} setSearch={setSearch}/>
       <div id='ratings-reviews'>
-        <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} />
+        <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate}/>
         <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} />
       </div>
     </div>
