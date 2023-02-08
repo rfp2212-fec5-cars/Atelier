@@ -32,24 +32,27 @@ const Overview = ({productId}) => {
   // }, [currentStyle]);
 
   return (
-    <div style={{display: 'flex-wrap'}}>
-      <div> <ImageGallery
-        currentStyle={currentStyle}/> </div>
-      <div> <ProductInformation
-        productId={productId}
-        currentStyle = {currentStyle}/>
+    <div id='overview'>
+      <div className = 'top-overview'>
+        <ImageGallery
+          currentStyle={currentStyle}/>
+        <ProductInformation
+          productId={productId}
+          currentStyle = {currentStyle}/>
       </div>
-      {productStyles ? <div> <StyleSelector
-        productId={productId}
-        productStyles = {productStyles}
-        setCurrentStyle={setCurrentStyle}
-        currentStyle = {currentStyle}
-        setSelectedSku={setSelectedSku}
-      /> </div> : null}
-      <div> <AddToCart
-        currentStyle = {currentStyle}
-        selectedSku={selectedSku}
-        setSelectedSku={setSelectedSku}/> </div>
+      <div className='bottom-overview'>
+        <AddToCart
+          currentStyle = {currentStyle}
+          selectedSku={selectedSku}
+          setSelectedSku={setSelectedSku}/>
+        {productStyles ? <StyleSelector
+          productId={productId}
+          productStyles = {productStyles}
+          setCurrentStyle={setCurrentStyle}
+          currentStyle = {currentStyle}
+          setSelectedSku={setSelectedSku}
+        /> : null}
+      </div>
     </div>
   );
 };
