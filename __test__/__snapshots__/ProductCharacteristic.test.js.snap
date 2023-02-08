@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sortStar testing should exists 1`] = `
+<div
+  className="characteristic"
+>
+  <div>
+    Comfort
+  </div>
+  <div>
+    <div
+      className="pointer"
+      style={
+        {
+          "marginLeft": "192px",
+        }
+      }
+    >
+      ▼
+    </div>
+    <div
+      className="leftbar"
+    />
+    <div
+      className="middlebar"
+    />
+    <div
+      className="rightbar"
+    />
+  </div>
+  <div
+    className="producttext"
+  >
+    <div
+      className="bar-text"
+    >
+      poor
+    </div>
+    <div
+      className="bar-text"
+    />
+    <div
+      className="bar-text"
+    >
+      perfect
+    </div>
+  </div>
+</div>
+`;

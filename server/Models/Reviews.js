@@ -16,7 +16,7 @@ module.exports = {
     return axios(options);
 
   },
-  getAll: (id, page, count)=>{
+  getAll: (id, page, count, sort)=>{
     //console.log('page', page);
     let options = {
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
@@ -26,7 +26,7 @@ module.exports = {
       params: {
         'page': page,
         'count': count,
-        'sort': 'helpful',
+        'sort': sort,
         'product_id': `${id}`,
       }
     };

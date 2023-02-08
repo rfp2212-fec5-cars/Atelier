@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Star1 from './Star1.jsx';
 import Sortstar from './Sortstar.jsx';
 import ProductCharacteristic from './ProductCharacteristic.jsx';
 import SelectedStar from './SelectedStar.jsx';
 
-var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
+var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar, handleRate }) => {
   //console.log('sortStar', sortStar);
   if (Object.keys(meta).length === 0) {
     return (
@@ -13,9 +13,10 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
     );
   } else {
     //console.log('meta after ', meta);
-    var sum1 = 0;
+    let sum1 = 0;
     var sum2 = 0;
     let i = 1;
+
     for (let value of Object.values(meta.ratings)) {
       sum1 += i * value;
       sum2 += parseInt(value);
@@ -25,6 +26,8 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
 
     //count the rate to display rating star
     let rate = (num / 5).toFixed(2);
+    useEffect(()=>handleRate(rate), []);
+
 
     let recommend = meta.recommended.true;
     let sumReviews = parseInt(meta.recommended.true) + parseInt(meta.recommended.false);
@@ -39,6 +42,7 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
     Object.keys(meta.ratings).forEach((key) => {
       rateStar.push((meta.ratings[key] * 100 / sumStars).toFixed(2));
     });
+    //console.log('rateStar', rateStar);
 
 
     return (

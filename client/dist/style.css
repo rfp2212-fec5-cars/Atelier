@@ -68,7 +68,7 @@ Modal Styling
 }
 
 .modal-content {
-  width: 950px;
+  width: auto;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
@@ -89,6 +89,8 @@ Modal Styling
 
 .modal-title {
   margin: 0;
+  text-align: center;
+  font-size: 1.3em;
 }
 
 .modal-body {
@@ -110,6 +112,11 @@ R&R Styling
 }
 #recommendrate{
   margin-bottom: 10px;
+}
+#RR-search{
+  width: 15%;
+  height: 1.5em;
+  border-radius: 5px;
 }
 .stars5{
   border: 1px solid;
@@ -167,10 +174,10 @@ R&R Styling
   flex-direction:column;
 }
 
-.reviews{
+#ratings-reviews{
   display: flex;
-  justify-content: space-around;
-  margin: 50px auto;
+  justify-content: space-between;
+  margin: 20px auto;
 }
 
 #reviewswraper{
@@ -179,6 +186,9 @@ R&R Styling
 #reviewcontent{
   max-height: 600px;
   overflow-y: auto;
+}
+#reviewslist{
+  margin-bottom: 50px;
 }
 .singlereview{
   margin: 10px auto;
@@ -240,6 +250,12 @@ R&R Styling
 #addreview{
   display: inline-block;
   margin-left: 50px;
+}
+#reviewform{
+  margin: 20px;
+}
+#subtitle{
+  text-align: center;
 }
 #submit-button{
   display: block;

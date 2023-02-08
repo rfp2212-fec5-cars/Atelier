@@ -6,6 +6,7 @@ import axios from 'axios';
 var AddReview = ({ productName, productId }) => {
   const [show, setShow] = useState(false);
   const [hint, setHint] = useState('');
+  //const [imagesURL, setImagesURL] = useState([]);
 
   const addReviewData = {
     'product_id': productId,
@@ -25,6 +26,7 @@ var AddReview = ({ productName, productId }) => {
     ratingFlag = true;
     addReviewData.rating = parseInt(score);
   };
+
   const checkRecommend = () => {
     if (document.getElementById('recommend-yes').checked) {
       addReviewData.recommend = true;
@@ -37,6 +39,7 @@ var AddReview = ({ productName, productId }) => {
       return false;
     }
   };
+
   const checkCharacter = () => {
     let size = document.querySelector('input[name="size"]:checked');
     let width = document.querySelector('input[name="width"]:checked');
@@ -59,70 +62,81 @@ var AddReview = ({ productName, productId }) => {
     //console.log('addreviewdata', addReviewData);
   };
 
-  let reviewbodyFlag = false;
-  const checkTextLength = () => {
+  const showHint = () => {
     let cur = document.getElementById('set-review-body').value;
-    //console.log('textarea cur', cur);
-    if (cur.length > 50) {
-      reviewbodyFlag = true;
-      addReviewData.body = cur;
-    }
     if (cur.length < 50) {
       setHint('Minimum required characters left:' + (50 - cur.length));
     } else if (cur.length >= 50) {
       setHint('Minimum reached');
     }
   };
+  const checkBody = ()=>{
+    let cur = document.getElementById('set-review-body').value;
+    if (cur.length >= 50) {
+      addReviewData.body = cur;
+      return true;
+    } else {
+      alert('please input valid review body');
+      return false;
+    }
+  };
 
-  const handleUploadPhoto = () => {
+  var imageArr = [];
+  const handleUploadPhoto = (e) => {
     var fileElem = document.getElementById('fileElem');
     var fileList = document.getElementById('fileList');
-    //console.log('fileElem', fileElem.value);
+    //console.log('fileElem', fileElem.files);
     if (fileElem.files.length > 5) {
       fileElem.value = '';
       alert('please upload at most 5 photos');
       return;
     }
-    //push all the img to the fileList
     for (let i = 0; i < fileElem.files.length; i++) {
       var img = new Image(100, 100);
+      img.style = 'margin-left : 10px, border-radius: 3px';
       img.src = window.URL.createObjectURL(fileElem.files[i]);
-      img.style = 'margin-left : 10px';
       img.onLoad = function (e) {
         window.URL.revokeObjectURL(this.src);
       };
       fileList.appendChild(img);
-    }
-    //console.log('fileList', fileList);
 
-    //assign addReviewData
-    let imgTag = fileList.getElementsByTagName('img');
-    //reset photos,if not, when user choose files twice,will push the first chosen twice.
-    addReviewData.photos = [];
-    for (let i = 0; i < imgTag.length; i++) {
-      addReviewData.photos.push(imgTag[i].src);
+      //can't post multiple photos one time
+      var formData = new FormData();
+      formData.append('file', fileElem.files[i]);
+      formData.append('upload_preset', 'fec-cars');
+      // using cloudinary as a third party host database for images
+      var options = {
+        url: 'https://api.cloudinary.com/v1_1/fec-cars/image/upload',
+        method: 'POST',
+        data: formData
+      };
+      axios(options)
+        .then(({ data }) => {
+          //setImagesURL(imagesURL.concat(data.url));
+          imageArr.push(data.url);
+        })
+        .catch(err => console.log(err));
     }
-    //console.log('addReviewData photo', addReviewData.photos);
   };
 
 
-
   const check = (e) => {
+    //console.log('imageArr', imageArr);
+    for (let i = 0; i < imageArr.length; i ++) {
+      addReviewData.photos.push(imageArr[i]);
+    }
+    console.log('addReviewData photo', addReviewData.photos);
     if (!ratingFlag) {
       alert('please select the overall rating');
       e.preventDefault();
       return;
     }
-    if (!checkRecommend() || !checkCharacter()) {
+    if (!checkRecommend() || !checkCharacter() || !checkBody()) {
       e.preventDefault();
       return;
     }
     addReviewData.summary = document.getElementById('set-review-summary').value;
-    if (!reviewbodyFlag) {
-      alert('please input your review body');
-      e.preventDefault();
-      return;
-    }
+
     let username = document.getElementById('set-nickname').value;
     if (username === '') {
       alert('please input your nickname');
@@ -151,8 +165,8 @@ var AddReview = ({ productName, productId }) => {
     <div>
       <button id='add-a-review' onClick={() => setShow(true)}>ADD A REVIEW +</button>
       <Modal title="Write Your Review" onClose={() => setShow(false)} show={show}>
+        <div id='subtitle'>About the {productName}</div>
         <form id='reviewform' onSubmit={check}>
-          <span>About the {productName}</span>
           <div>
             <div className='formItem'>Overall rating*</div>
             <SetRatingStar value={0} RatingScore={RatingScore} />
@@ -221,7 +235,7 @@ var AddReview = ({ productName, productId }) => {
           </div>
           <div>
             <div className='formItem'>Review body*</div>
-            <textarea id='set-review-body' placeholder='Why did you like the product or not?' rows='5' cols='58' onChange={checkTextLength} maxLength='1000' />
+            <textarea id='set-review-body' placeholder='Why did you like the product or not?' rows='5' cols='70' onChange={showHint} maxLength='1000' />
             <div className='privacy-hint'><small><i>{hint}</i></small></div>
           </div>
           <div>
