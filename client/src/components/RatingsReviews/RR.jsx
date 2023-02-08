@@ -36,7 +36,7 @@ var RR = ({ productId, productName }) => {
     let url = '/reviews/meta';
     axios.get(url, { params: { 'product_id': `${productId}` } })
       .then((results) => {
-        //console.log('get review meta', results.data);
+        console.log('get review meta', results.data);
         setMeta(results.data);
       })
       .catch((err) => {
@@ -149,10 +149,11 @@ var RR = ({ productId, productName }) => {
   }, [search, sortStar, sum]);
 
 
+
   return (
     <div style={{ marginTop: '50px' }}>
       <h2>RATINGS & REVIEWS</h2>
-      <Search setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch}/>
       <div id='ratings-reviews'>
         <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} />
         <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} />

@@ -11,8 +11,7 @@ module.exports = {
       });
   },
   getAll: (req, res) => {
-    //req.query page count product_id
-    console.log('req query', req.query);
+    //req.query page count sort product_id
     models.getAll(req.query.product_id, req.query.page, req.query.count, req.query.sort)
       .then((result)=>{
         res.send(result.data);

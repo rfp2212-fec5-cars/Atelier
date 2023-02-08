@@ -5,7 +5,7 @@ import ProductCharacteristic from './ProductCharacteristic.jsx';
 import SelectedStar from './SelectedStar.jsx';
 
 var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
-  //console.log('sortStar', sortStar);
+  // console.log('sortStar', sortStar);
   if (Object.keys(meta).length === 0) {
     return (
       <div>
