@@ -5,11 +5,12 @@ const QuestionList = ({ displayedQuestions, product_name }) => {
 
   return (
     <div className='questionList'>
-      { displayedQuestions.map((question) => (
+      { displayedQuestions.map((question, index) => (
         <QuestionListEntry
           key={ question.question_id }
           question={ question }
           product_name={ product_name }
+          index={ index + 1 }
         />
       ))}
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AnswerListEntry = ({ answer }) => {
+const AnswerListEntry = ({ answer, index }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(answer.helpfulness);
   const [alreadyReported, setAlreadyReported] = useState(false);
@@ -53,7 +53,12 @@ const AnswerListEntry = ({ answer }) => {
 
   return (
     <div className='answerListEntry'>
-      <p className='answerLine'><b>A:  </b>{ answer.body }</p>
+      <p
+        role={`answer-${ index }`}
+        className='answerLine'
+      >
+        <b>A:  </b>{ answer.body }
+      </p>
       { answer.photos.length > 0 ? <AnswerPhotos /> : null }
       <div className='options answerOptions'>
         <p>
