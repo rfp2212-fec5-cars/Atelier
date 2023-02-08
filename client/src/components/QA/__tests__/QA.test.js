@@ -43,13 +43,13 @@ describe('Q&A Component', () => {
         const button = screen.getByRole('button', { name: /Ask Your Question/i });
         await userEvent.click(button);
 
-        screen.logTestingPlaygroundURL();
         expect(screen.getByText(/^your question$/i )).toBeInTheDocument();
       })
   })
 
 });
 
+  // screen.logTestingPlaygroundURL();
     // it('should render two more questions when user clicks addQuestion button', () => {
     //   waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
     //     .then(async () => {
