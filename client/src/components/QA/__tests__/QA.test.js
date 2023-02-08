@@ -57,8 +57,26 @@ describe('Q&A Component', () => {
 
     return waitFor(expect(screen.queryByTestId('loading-answers')).not.toBeInTheDocument)
       .then(() => {
-        const answers = screen.queryAllByRole(/^answer/i);
+        const answers = screen.queryAllByRole(/^answer-/i);
         expect(answers.length).toEqual(2);
+      });
+  })
+
+  it('should display two more answers when clicking on answer button', () => {
+    const question = questionList[0];
+    render(<QuestionListEntry
+      question={ question }
+      product_name={ product_name }
+      index={ 1 } />
+    );
+
+    return waitFor(expect(screen.queryByTestId('loading-answers')).not.toBeInTheDocument)
+      .then(async () => {
+        const button = screen.getByRole('more-answers');
+        await userEvent.click(button);
+
+        const moreAnswers = screen.queryAllByRole(/^answer-/);
+        expect(moreAnswers.length).toEqual(4);
       });
   })
 
