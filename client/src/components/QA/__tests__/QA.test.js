@@ -1,23 +1,65 @@
-import { render, screen, waitFor } from '@testing-library/react/pure';
+import { render, screen, waitFor, cleanup } from '@testing-library/react/pure';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
+import { questionList, product_id, product_name } from '../exampleData.js';
 import QA from '../QA.jsx';
+import QuestionList from '../Questions/QuestionList.jsx';
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
-describe('Q&A Component', () => {
-  // setting up testing
-  const product_id = 40351;
-  const product_name = 'YEasy350';
-  render(<QA product_id={ product_id } product_name={ product_name }/>);
+afterEach(cleanup);
 
-  it('should render at most four questions at load', () => {
-    return waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
+describe('Q&A Component', () => {
+
+  it('should render four questions at load', () => {
+    render(<QA product_id={ product_id } product_name={ product_name }/>);
+    return waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
       .then(() => {
-        const questions = screen.queryAllByRole('heading', { name: /q: /i });
-        expect(questions.length).toBeLessThanOrEqual(4)
+        const questions = screen.queryAllByRole(/^question/);
+        expect(questions.length).toEqual(4);
       })
-  });
+    });
+
+  it('should render two more questions when user presses button', () => {
+    render(<QA product_id={ product_id } product_name={ product_name }/>);
+    return waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
+      .then( async () => {
+        const questions = screen.queryAllByRole(/^question/);
+        expect(questions.length).toEqual(4);
+
+        const button = screen.getByRole('more-questions');
+        await userEvent.click(button);
+
+        const moreQuestions = screen.queryAllByRole(/^question/);
+        expect(moreQuestions.length).toEqual(6);
+      })
+  })
+
+  it('should open the ask question modal when ask question button is clicked', () => {
+    render(<QA product_id={ product_id } product_name={ product_name }/>);
+    return waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
+      .then( async () => {
+        const button = screen.getByRole('button', { name: /Ask Your Question/i });
+        await userEvent.click(button);
+
+        screen.logTestingPlaygroundURL();
+        expect(screen.getByText(/^your question$/i )).toBeInTheDocument();
+      })
+  })
 
 });
+
+    // it('should render two more questions when user clicks addQuestion button', () => {
+    //   waitFor(expect(screen.queryByTestId('loading')).not.toBeInTheDocument)
+    //     .then(async () => {
+    //       var questions = screen.queryAllByRole(/^question/);
+    //       expect(questions.length).toEqual(4);
+
+    //       const link = screen.getByRole('more-questions');
+    //       await userEvent.click(link);
+
+    //       questions = screen.queryAllByRole(/question/);
+    //       expect(questions.length).toEqual(6);
+    //     })
+    //   })

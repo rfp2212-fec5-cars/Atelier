@@ -331,6 +331,7 @@ Q&A Styling
 }
 
 .answerList {
+  font-weight: light;
   max-height: 50vh;
   overflow-y: auto;
 }
