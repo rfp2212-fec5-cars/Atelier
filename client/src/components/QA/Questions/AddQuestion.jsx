@@ -31,7 +31,12 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
   return (
     <div>
       <button onClick={e => setShowModal(true)}>Ask Your Question</button>
-      <Modal title='Ask Your Question' onClose={() => setShowModal(false)} show={ showModal }>
+      <Modal
+        title='Ask Your Question'
+        subtitle={`About the ${ product_name }`}
+        onClose={() => setShowModal(false)}
+        show={ showModal }
+      >
         <form onSubmit={e => postQuestion(e)}>
           <fieldset>
             <label htmlFor='question_body'>Your Question <span className='required'>*</span></label>

@@ -61,8 +61,13 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   return (
     <div>
-      <p className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
-      <Modal title='Submit an Answer' onClose={() => setShowModal(false)} show={ showModal } >
+      <p role='add-answer' className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
+      <Modal
+        title='Submit an Answer'
+        subtitle={`About the ${product_name}`}
+        onClose={() => setShowModal(false)}
+        show={ showModal }
+      >
         <form onSubmit={e => postAnswer(e)}>
           <fieldset>
             <label htmlFor='answer_body'>Your Answer <span className='required'>*</span></label>

@@ -4,13 +4,14 @@ import AnswerList from '../Answers/AnswerList.jsx';
 import MoreAnswers from '../Answers/MoreAnswers.jsx';
 import AddAnswer from '../Answers/AddAnswer.jsx';
 
-const QuestionListEntry = ({ question, product_name }) => {
+const QuestionListEntry = ({ question, product_name, index }) => {
   // setting up states for the question details
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(question.question_helpfulness);
   const [alreadyReported, setAlreadyReported] = useState(false);
 
   // setting up states for the answer lists
+  const [loadedAnswers, setLoadedAnswers] = useState(false);
   const [answerList, setAnswerList] = useState([]);
   const [displayedAnswers, setDisplayedAnswers] = useState([]);
   const [updateAnswers, setUpdateAnswers] = useState(false);
@@ -30,6 +31,7 @@ const QuestionListEntry = ({ question, product_name }) => {
           return b.helpfulness - a.helpfulness;
         })
 
+        setLoadedAnswers(true);
         setAnswerList(sortedAnswers);
         setDisplayedAnswers(sortedAnswers.slice(0, 2));
       })
@@ -76,7 +78,12 @@ const QuestionListEntry = ({ question, product_name }) => {
   return (
     <div className='questionListEntry'>
       <div className='questionLine'>
-        <h4 className='question'><span className='headingUnderline'>Q:</span> { question.question_body }</h4 >
+        <h4
+          className='question'
+          role={`question-${ index }`}
+        >
+          <span className='headingUnderline'>Q:</span> { question.question_body }
+        </h4 >
         <div className='options'>
           <p>Helpful? </p>
           { alreadyLiked
@@ -91,6 +98,7 @@ const QuestionListEntry = ({ question, product_name }) => {
           <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
         </div>
       </div>
+      { loadedAnswers ? null : <p data-testid='loading-answers'>Loading Answers...</p>}
       <AnswerList answers={ displayedAnswers } />
       <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
     </div>

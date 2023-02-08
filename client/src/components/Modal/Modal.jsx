@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import "./Modal.css";
+// import "./Modal.css";
 
 const Modal = (props) => {
   const closeOnEscapeKeyDown = e => {
@@ -17,7 +17,7 @@ const Modal = (props) => {
     };
   }, []);
 
-  return ReactDOM.createPortal(
+  return (
     <CSSTransition
       in={props.show}
       unmountOnExit
@@ -27,14 +27,12 @@ const Modal = (props) => {
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-header">
             <h4 className="modal-title">{props.title}</h4>
+            <h3 className='modal-subtitle'>{props.subtitle}</h3>
           </div>
           <div className="modal-body">{props.children}</div>
-          <div className="modal-footer">
-          </div>
         </div>
       </div>
-    </CSSTransition>,
-    document.getElementById('root')
+    </CSSTransition>
   );
 };
 

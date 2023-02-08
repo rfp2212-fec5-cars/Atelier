@@ -5,3 +5,4 @@ client/dist/bundle.js.map
 .env
 server/config.js
 .config.js
+coverage

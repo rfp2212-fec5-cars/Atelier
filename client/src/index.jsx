@@ -1,9 +1,10 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './components/App.jsx';
 
-const root = document.createElement('div');
+var root = document.createElement('div');
 root.setAttribute('id', 'root');
-document.body.appendChild(root);
 
+document.body.appendChild(root);
 render(<App />, root);
