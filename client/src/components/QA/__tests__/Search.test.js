@@ -1,7 +1,5 @@
-import { render, screen, waitFor, cleanup, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library//jest-dom';
-import renderer from 'react-test-renderer';
-import axios from 'axios';
 import Search from '../Search.jsx';
 
 it('should trigger a change on user input if more than 3 characters', () => {
