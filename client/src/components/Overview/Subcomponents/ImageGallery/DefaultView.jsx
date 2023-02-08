@@ -3,14 +3,12 @@ import MainImage from './DefaultViewSubcomponents/MainImage.jsx';
 import ThumbnailList from './DefaultViewSubcomponents/ThumbnailList.jsx';
 
 const DefaultView = ({imageURLs, thumbnailURLs}) => {
-  // console.log(imageURLs);
-  // console.log(thumbnailURLs);
 
   const [imageNumber, setImageNumber] = useState(0);
 
-  // useEffect(()=>{
-  //   setImageNumber(0);
-  // }, []);
+  useEffect(()=>{
+    setImageNumber(0);
+  }, []);
 
   return (
     <>

@@ -12,16 +12,14 @@ const QuantitySelector = ({currentStyle, selectedSku}) => {
   let arrayOfQuantity = [];
   arrayOfQuantity = quantityForSku < 15 ? Array(quantityForSku) : Array(15);
 
-
-
   return (
-    <div id='quantitySelector'>
+    <div id='quantity-selector'>
       {selectedSku === null || selectedSku === 'Select Size' ?
         <select disabled>
           <option>-</option>
         </select>
         :
-        <select id='realQuantity' defaultValue='1'>
+        <select data-testid='quantity-selector' id='realQuantity' defaultValue='1'>
           {Array.from(arrayOfQuantity).map((number, index) => {
             return <option value={index + 1} key={index + 1}>{index + 1}</option>;
           })}
@@ -29,11 +27,6 @@ const QuantitySelector = ({currentStyle, selectedSku}) => {
       }
     </div>
   );
-
-
-
-
-
 };
 
 export default QuantitySelector;

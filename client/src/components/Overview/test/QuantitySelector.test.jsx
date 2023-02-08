@@ -8,8 +8,9 @@ import QuantitySelector from '../Subcomponents/AddToCart/QuantitySelector.jsx';
 
 afterEach(cleanup);
 
-// it ('expects price to accurately display price passed in', async () => {
-//   await render(<PriceDisplay currentStyle={{original_price: 1026}} />);
-//   const element = screen.getByTestId('price');
-//   expect(element).toHaveTextContent('1026');
-// });
+it ('expects value of select to be 1 on render', async () => {
+  await render(<QuantitySelector currentStyle={{skus: {
+  }}} />);
+  const element = screen.getByTestId('quantity-selector');
+  expect(element).toHaveTextContent('1');
+});

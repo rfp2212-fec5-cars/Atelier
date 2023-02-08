@@ -2,11 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) => {
 
-
-
-  // console.log('CurrentStyle and SKUs', currentStyle);
-
-
   const [styleSkus, setStyleSkus] = useState(Object.entries(currentStyle.skus));
 
   useEffect(()=>{
@@ -29,10 +24,6 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) =>
       document.getElementById('realQuantity').value = '1';
     }
   };
-
-  useEffect(() => {
-    console.log(selectedSku);
-  }, [selectedSku]);
 
   return (
     <div id='sizeSelector'>

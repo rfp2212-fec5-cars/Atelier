@@ -51,7 +51,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
 
     return (
       <div style={{display: 'inline-block', position: 'absolute'}}>
-        <div className= 'thumbnail-overlay'>
+        <div data-testid='tnt' className= 'thumbnail-overlay'>
           {imageNumber === 0 ? null :
             <> {<AiOutlineArrowLeft onClick={loadPreviousImage} style={{width: '50px', color: 'white'}} />}</>
           }

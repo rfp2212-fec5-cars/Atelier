@@ -13,3 +13,8 @@ it ('expect button to display Add to Cart if there is stock', async () => {
   const element = screen.getByTestId('cart-button');
   expect(element).toHaveTextContent('Add To Cart');
 });
+
+it ('renders properly', async () => {
+  await render(<AddToCartButton currentStyle={{'skus': {'123456': {quantity: 2}}}} />);
+  expect.anything();
+});

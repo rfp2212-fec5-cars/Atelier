@@ -24,7 +24,6 @@ const ImageGallery = ({currentStyle}) => {
 
   if (currentImages.length !== 0) {
     const thumbnailURLs = currentImages.map((image) => image.thumbnail_url);
-    // console.log('currentimages', currentImages);
     const imageURLs = currentImages.map((image) => image.url);
 
 
@@ -41,9 +40,6 @@ const ImageGallery = ({currentStyle}) => {
       </div>
     );
   }
-
-
-
 };
 
 export default ImageGallery;
