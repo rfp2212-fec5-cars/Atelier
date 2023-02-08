@@ -6,6 +6,9 @@ import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
 const QA = ({ product_id, product_name }) => {
+  // create state for loading
+  const [loaded, setLoaded] = useState(false);
+
   // different types of questions
   const [allQuestions, setAllQuestions] = useState([]);
   const [displayedQuestions, setDisplayedQuestions] = useState([]);
@@ -32,6 +35,7 @@ const QA = ({ product_id, product_name }) => {
           return b.question_helpfulness - a.question_helpfulness;
         });
 
+        setLoaded(true);
         setAllQuestions(sortedQuestions);
         setFilteredQuestions(sortedQuestions);
         setDisplayedQuestions(sortedQuestions.slice(0, 4));
@@ -56,10 +60,13 @@ const QA = ({ product_id, product_name }) => {
       <Search
         setSearch={ setSearch }
       />
-      <QuestionList
-        displayedQuestions={ displayedQuestions }
-        product_name={ product_name }
-      />
+      {
+        loaded ? null : <p data-testid='loading'>Loading...</p>
+      }
+      { displayedQuestions.length > 0
+        ? <QuestionList displayedQuestions={ displayedQuestions } product_name={ product_name } />
+        : null
+      }
       <div className='questionButtons'>
         <AddQuestion
           product_id={ product_id }
