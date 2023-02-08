@@ -5,7 +5,7 @@ import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import axios from 'axios';
 
-const Overview = ({productId}) => {
+const Overview = ({productId, total, avgStar}) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(productStyles[0]);
   const [selectedSku, setSelectedSku] = useState(null);
@@ -38,7 +38,9 @@ const Overview = ({productId}) => {
           currentStyle={currentStyle}/>
         <ProductInformation
           productId={productId}
-          currentStyle = {currentStyle}/>
+          currentStyle = {currentStyle}
+          total= {total}
+          avgStar={avgStar}/>
       </div>
       <div className='bottom-overview'>
         <AddToCart

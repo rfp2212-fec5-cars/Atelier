@@ -19,13 +19,13 @@ const ImageGallery = ({currentStyle}) => {
     const imageURLs = currentImages.map((image) => image.url);
 
     return (
-      <div className = 'image-gallery'>
+      <>
         {expanded ?
           <ExpandedView/> :
           <DefaultView
             thumbnailURLs={thumbnailURLs}
             imageURLs={imageURLs}/>}
-      </div>
+      </>
     );
   }
 };
