@@ -5,6 +5,7 @@ const Search = ({ setSearch }) => {
   return (
     <form role='search'>
       <input
+        aria-label='search'
         className='form-input search'
         type='text'
         placeholder='Have a Question? Search for answers...'
