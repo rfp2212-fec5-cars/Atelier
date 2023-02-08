@@ -111,6 +111,7 @@ var ReviewListEntry = ({ review }) => {
           }
         </div>
       </div>
+      <hr/>
 
     </div>
 

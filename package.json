@@ -7,12 +7,25 @@
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "node server/index.js",
+    "test-watch": "jest --watch",
     "test": "jest --coverage",
     "(UNSUPPORTED BY DEFAULT; see webpack.config.js for more info) client-dev:hot": "npx webpack serve --hot --open"
+  },
+  "jest": {
+    "verbose": false,
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
     "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "date-fns": "^2.22.1",
@@ -32,11 +45,14 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "babel-jest": "^29.4.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "css-loader": "^5.2.6",
+    "enzyme": "^3.11.0",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^29.4.1",
     "live-server": "^1.1.0",
@@ -47,5 +63,12 @@
     "webpack": "^5.41.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^4.8.0"
+  },
+
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "url": "http:/localhost:3000"
+    }
   }
 }
