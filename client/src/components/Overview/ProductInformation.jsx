@@ -35,7 +35,7 @@ const ProductInformation = ({productId, currentStyle}) => {
   };
 
   return (
-    <div className='productInformation'>
+    <div className='product-information'>
       <div><b>PRODUCT INFORMATION</b></div>
       <div onClick={scrollToReviews}>Stars, Link to Reviews</div>
       <div>{productInfo.category}</div>

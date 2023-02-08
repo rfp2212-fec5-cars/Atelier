@@ -3,7 +3,7 @@
  */
 import {cleanup, fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom'
-import PriceDisplay from './PriceDisplay';
+import PriceDisplay from '../Subcomponents/ProductInformation/PriceDisplay.jsx';
 
 
 afterEach(cleanup);

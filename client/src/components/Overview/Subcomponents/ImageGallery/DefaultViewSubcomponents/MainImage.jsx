@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 
 const MainImage = ({imageURLs, imageNumber}) => {
   return (
-    <div id='main-image'>
+    <>
       {imageURLs.map((url, index) => (
-        <div key = {url}>
+        <div data-testid='main-image' key = {url}>
           {index === imageNumber &&
             <img
               className = 'main-image'
@@ -14,8 +14,7 @@ const MainImage = ({imageURLs, imageNumber}) => {
           }
         </div>
       ))}
-    </div>
-
+    </>
   );
 };
 

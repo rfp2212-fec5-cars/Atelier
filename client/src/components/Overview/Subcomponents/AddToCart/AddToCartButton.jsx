@@ -27,9 +27,8 @@ const AddToCartButton = ({currentStyle, selectedSku, setNoSize}) => {
     }
   };
 
-  // console.log(outOfStock());
   return (
-    <div>
+    <div data-testid='cart-button'>
       {outOfStock() ? null : <button onClick = {handleClick}>Add To Cart</button>}
     </div>
   );
