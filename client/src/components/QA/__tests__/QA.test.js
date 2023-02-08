@@ -5,12 +5,13 @@ import axios from 'axios';
 import { questionList, product_id, product_name } from '../exampleData.js';
 import QA from '../QA.jsx';
 import QuestionListEntry from '../Questions/QuestionListEntry.jsx';
+import AnswerListEntry from '../Answers/AnswerListEntry.jsx';
 
 axios.defaults.baseURL = 'http://localhost:3000';
 
 afterEach(cleanup);
 
-describe('Q&A Component', () => {
+describe('Questions', () => {
 
   it('should render four questions at load', () => {
     render(<QA product_id={ product_id } product_name={ product_name }/>);
@@ -46,7 +47,9 @@ describe('Q&A Component', () => {
         expect(screen.getByText(/^your question$/i )).toBeInTheDocument();
       })
   })
+});
 
+describe('Answers', () => {
   it('should display the answers after loading', () => {
     const question = questionList[0];
     render(<QuestionListEntry
@@ -78,6 +81,32 @@ describe('Q&A Component', () => {
         const moreAnswers = screen.queryAllByRole(/^answer-/);
         expect(moreAnswers.length).toEqual(4);
       });
+  })
+
+  it('should open the answer question modal when answer button is clicked', () => {
+    const question = questionList[0];
+    render(<QuestionListEntry
+      question={ question }
+      product_name={ product_name }
+      index={ 1 } />
+    );
+    return waitFor(expect(screen.queryByTestId('loading-answers')).not.toBeInTheDocument)
+      .then( async () => {
+        const link = screen.getByRole('add-answer');
+        await userEvent.click(link);
+
+        expect(screen.getByText(/^your answer$/i )).toBeInTheDocument();
+      })
+  })
+
+  it('answer entry should render a photo if present', () => {
+    const answer = questionList[0].answers[0];
+    render(<AnswerListEntry answer={ answer } index={ 1 }/>);
+    return waitFor(expect(screen.queryByTestId('loading-answers')).not.toBeInTheDocument)
+      .then(() => {
+        const images = screen.queryAllByRole('img');
+        expect(images.length).toEqual(2);
+      })
   })
 
 });

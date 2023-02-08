@@ -61,7 +61,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   return (
     <div>
-      <p className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
+      <p role='add-answer' className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
       <Modal
         title='Submit an Answer'
         subtitle={`About the ${product_name}`}

@@ -15,7 +15,16 @@ module.exports = {
         date: '2020-11-12T00:00:00.000Z',
         answerer_name: 'Jamal_Weimann69',
         helpfulness: 19,
-        photos: [Array]
+        photos: [
+          {
+            id: 2726824,
+            url: "https://images.unsplash.com/photo-1556812191-381c7e7d96d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80"
+          },
+          {
+            id: 2726825,
+            url: "https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+          }
+        ]
       },
       {
         answer_id: 3077110,
