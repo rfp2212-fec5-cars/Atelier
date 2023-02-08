@@ -68,7 +68,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
         onClose={() => setShowModal(false)}
         show={ showModal }
       >
-        <form onSubmit={e => postAnswer(e)}>
+        <form role='answer-modal' onSubmit={e => postAnswer(e)}>
           <fieldset>
             <label htmlFor='answer_body'>Your Answer <span className='required'>*</span></label>
             <textarea
@@ -100,6 +100,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
           <fieldset>
             <label htmlFor='email'>Your Email <span className='required'>*</span></label>
             <input
+              role='answer-email'
               type='email'
               name='email'
               maxLength='60'

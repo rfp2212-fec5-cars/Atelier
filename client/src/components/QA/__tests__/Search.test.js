@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import '@testing-library//jest-dom';
+import '@testing-library/jest-dom';
 import Search from '../Search.jsx';
 
 it('should trigger a change on user input if more than 3 characters', () => {
