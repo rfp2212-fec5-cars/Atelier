@@ -6,7 +6,7 @@ import AddToCartButton from './Subcomponents/AddToCart/AddToCartButton.jsx';
 
 const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
 
-  // const [selectedSku, setSelectedSku] = useState(null);
+
   const [noSize, setNoSize] = useState(false);
 
   return (

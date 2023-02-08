@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {AiOutlineCheck} from 'react-icons/ai';
 
 const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}) => {
+
+  console.log(currentStyle)
 
   const handleStyleChange = (style) => {
     if (currentStyle !== style) {
@@ -23,15 +26,15 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
     }
   });
 
-
   return (
     <div className = 'styleContainer'>
       <ul>
         {styleContainer1.length ? styleContainer1.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
+            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
-                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                {style === currentStyle ? <p style= {{position: 'absolute', top: '-80%', left: '60%'}} id='checkmark'><AiOutlineCheck size='2em' style={{color: 'red'}}/></p> : null}
               </a>
             </li>
           );
@@ -40,10 +43,11 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
       <ul>
         {styleContainer2.length ? styleContainer2.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
+            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
-                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
+              {style === currentStyle ? <p style= {{position: 'absolute', top: '-80%', left: '60%'}} id='checkmark'><AiOutlineCheck size='2em' style={{color: 'red'}}/></p> : null}
             </li>
           );
         }) : null}
@@ -51,10 +55,11 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
       <ul>
         {styleContainer3.length ? styleContainer3.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline' }}>
+            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
-                <img className = 'styleThumbnail' src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
+                <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
+              {style === currentStyle ? <p style= {{position: 'absolute', top: '-80%', left: '60%'}} id='checkmark'><AiOutlineCheck size='2em' style={{color: 'red'}}/></p> : null}
             </li>
           );
         }) : null}
