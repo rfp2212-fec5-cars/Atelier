@@ -28,7 +28,7 @@ const App = () => {
   //   allProducts();
   // }, []);
 
-  const [productId, setProductId] = useState(40390);
+  const [productId, setProductId] = useState(40460);
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div>
       <Overview productId={productId}/>
-      {/* <RR productId={productId} productName = {product.name}/> */}
+      <RR productId={productId} productName = {product.name}/>
       <QA className='QA' product_id={ productId } product_name={ product.name }/>
       {/* <RelatedItemsComparison/> */}
     </div>

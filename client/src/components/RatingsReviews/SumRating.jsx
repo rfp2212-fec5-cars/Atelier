@@ -5,7 +5,7 @@ import ProductCharacteristic from './ProductCharacteristic.jsx';
 import SelectedStar from './SelectedStar.jsx';
 
 var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
-  // console.log('sortStar', sortStar);
+  console.log('sortStar', sortStar);
   if (Object.keys(meta).length === 0) {
     return (
       <div>
@@ -13,7 +13,7 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
     );
   } else {
     //console.log('meta after ', meta);
-    var sum1 = 0;
+    let sum1 = 0;
     var sum2 = 0;
     let i = 1;
     for (let value of Object.values(meta.ratings)) {
@@ -39,6 +39,7 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar }) => {
     Object.keys(meta.ratings).forEach((key) => {
       rateStar.push((meta.ratings[key] * 100 / sumStars).toFixed(2));
     });
+    console.log('rateStar', rateStar);
 
 
     return (
