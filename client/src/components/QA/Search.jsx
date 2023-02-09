@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Search = ({ setSearch }) => {
+const Search = ({ setSearch, logInteraction }) => {
 
   return (
     <form role='search'>
@@ -15,6 +15,13 @@ const Search = ({ setSearch }) => {
           } else {
             setSearch('');
           }
+        }}
+        onClick={(e) => {
+          e.preventDefault();
+          logInteraction({
+            element: 'Search',
+            widget: 'Q&A'
+          })
         }}
       />
     </form>

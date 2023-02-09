@@ -59,6 +59,7 @@ const QA = ({ product_id, product_name, logInteraction }) => {
       <h1><span className='headingUnderline'>Questions</span> & Answers</h1>
       <Search
         setSearch={ setSearch }
+        logInteraction={ logInteraction }
       />
       {
         loaded ? null : <p data-testid='loading'>Loading...</p>
