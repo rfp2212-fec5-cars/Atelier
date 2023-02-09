@@ -3,7 +3,7 @@ import Star1 from './Star1.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import axios from 'axios';
 
-var ReviewListEntry = ({ review }) => {
+var ReviewListEntry = ({ review, logInteraction }) => {
   //console.log('single review', review);
   const [showMore, setShowMore] = useState(true);
   const [helpfuled, setHelpfuled] = useState(false);
@@ -76,7 +76,10 @@ var ReviewListEntry = ({ review }) => {
       }
       <div className='reviewbody' >
         {showMore ? review.body.slice(0, 250) : review.body}
-        {flag && <span className="read-or-hide" onClick={() => setShowMore(!showMore)} >
+        {flag && <span className="read-or-hide" onClick={() => {
+          setShowMore(!showMore);
+          logInteraction({element: 'show more review content', widget: 'Ratings&Reviews'});
+        }} >
           {showMore ? '...show more' : 'fold'}
         </span>}
       </div>
@@ -100,14 +103,20 @@ var ReviewListEntry = ({ review }) => {
         <div className='helpful'>
           Was this review helpful?&nbsp;&nbsp;
           {
-            helpfuled ? 'Yes' : <span className = 'helpfultext' onClick={markHelpful}>Yes </span>
+            helpfuled ? 'Yes' : <span className = 'helpfultext' onClick={(e)=>{
+              markHelpful(e);
+              logInteraction({element: 'confirm helpful review', widget: 'Ratings&Reviews'});
+            }}>Yes </span>
           }
           ({yes})
         </div>
         |
         <div className='report'>
           {
-            reported ? 'Report' : <span className = 'reporttext' onClick={reportReview}>Report</span>
+            reported ? 'Report' : <span className = 'reporttext' onClick={(e)=>{
+              reportReview(e);
+              logInteraction({element: 'report review', widget: 'Ratings&Reviews'});
+            }}>Report</span>
           }
         </div>
       </div>

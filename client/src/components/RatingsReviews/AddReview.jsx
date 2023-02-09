@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal.jsx';
 import SetRatingStar from './SetRatingStar.jsx';
 import axios from 'axios';
 
-var AddReview = ({ productName, productId }) => {
+var AddReview = ({ productName, productId, logInteraction}) => {
   const [show, setShow] = useState(false);
   const [hint, setHint] = useState('');
   //const [imagesURL, setImagesURL] = useState([]);
@@ -163,10 +163,16 @@ var AddReview = ({ productName, productId }) => {
 
   return (
     <div>
-      <button id='add-a-review' onClick={() => setShow(true)}>ADD A REVIEW +</button>
+      <button id='add-a-review' onClick={() => {
+        setShow(true);
+        logInteraction({element: 'add new review', widget: 'Ratings&Reviews'});
+      }}>ADD A REVIEW +</button>
       <Modal title="Write Your Review" onClose={() => setShow(false)} show={show}>
         <div id='subtitle'>About the {productName}</div>
-        <form id='reviewform' onSubmit={check}>
+        <form id='reviewform' onSubmit={(e)=>{
+          check(e);
+          logInteraction({element: 'submit new review', widget: 'Ratings&Reviews'});
+        }}>
           <div>
             <div className='formItem'>Overall rating*</div>
             <SetRatingStar value={0} RatingScore={RatingScore} />
@@ -240,7 +246,10 @@ var AddReview = ({ productName, productId }) => {
           </div>
           <div>
             <div className='formItem'>Upload your photo</div>
-            <input type='file' id='fileElem' multiple='multiple' accept='image/*' onChange={handleUploadPhoto} />
+            <input type='file' id='fileElem' multiple='multiple' accept='image/*' onChange={(e)=>{
+              handleUploadPhoto(e);
+              logInteraction({element: 'upload photos', widget: 'Ratings&Reviews'});
+            }} />
             <div id='fileList'></div>
           </div>
           <div>
