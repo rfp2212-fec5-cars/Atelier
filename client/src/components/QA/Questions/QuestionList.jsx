@@ -1,7 +1,7 @@
 import React from 'react';
 import QuestionListEntry from './QuestionListEntry.jsx';
 
-const QuestionList = ({ displayedQuestions, product_name }) => {
+const QuestionList = ({ displayedQuestions, product_name, logInteraction }) => {
 
   return (
     <div className='questionList'>
@@ -11,6 +11,7 @@ const QuestionList = ({ displayedQuestions, product_name }) => {
           question={ question }
           product_name={ product_name }
           index={ index + 1 }
+          logInteraction={ logInteraction }
         />
       ))}
     </div>

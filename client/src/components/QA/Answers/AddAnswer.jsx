@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../Modal/Modal.jsx';
 
-const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) => {
+const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers, logInteraction }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -12,6 +12,10 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   // posts the answer to the api
   const postAnswer = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Submit Answer',
+      widget: 'Q&A'
+    })
 
     var options = {
       url: `qa/questions/${question.question_id}/answers`,
@@ -50,6 +54,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
     return (
       <input
+        role='photo-upload'
         className='addPhoto'
         type='file'
         name='photos'
@@ -61,14 +66,20 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   return (
     <div>
-      <p role='add-answer' className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
+      <p role='add-answer' className='statusLink' onClick={e => {
+        setShowModal(true)
+        logInteraction({
+          element: 'Add Answer',
+          widget: 'Q&A'
+        })
+      }} >Add Answer</p>
       <Modal
         title='Submit an Answer'
         subtitle={`About the ${product_name}`}
         onClose={() => setShowModal(false)}
         show={ showModal }
       >
-        <form onSubmit={e => postAnswer(e)}>
+        <form role='answer-modal' onSubmit={e => postAnswer(e)}>
           <fieldset>
             <label htmlFor='answer_body'>Your Answer <span className='required'>*</span></label>
             <textarea
@@ -100,6 +111,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
           <fieldset>
             <label htmlFor='email'>Your Email <span className='required'>*</span></label>
             <input
+              role='answer-email'
               type='email'
               name='email'
               maxLength='60'
@@ -116,7 +128,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
             <label htmlFor='photos'>Upload your photos</label>
             <div>
               <div className='answerPhotos'>
-                { photos.map( (photo, index) => <img key={ index } src={ photo } className='answerPhoto'/> ) }
+                { photos.map( (photo, index) => <img alt={ photo } key={ index } src={ photo } className='answerPhoto'/> ) }
               </div>
               { photos.length < 5 ? <AddPhoto /> : null }
             </div>

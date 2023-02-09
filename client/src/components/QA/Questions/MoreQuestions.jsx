@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
-const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQuestions }) => {
+const MoreQuestions = ({ setDisplayedQuestions, displayedQuestions, filteredQuestions, logInteraction }) => {
   const [questionCount, setQuestionCount] = useState(4);
 
   const handleMoreQuestions = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'More Questions',
+      widget: 'Q&A'
+    })
     setDisplayedQuestions(filteredQuestions.slice(0, questionCount + 2));
     setQuestionCount(questionCount + 2);
   }

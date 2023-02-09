@@ -177,7 +177,129 @@ module.exports = {
     }
   ],
 
-  answerList: [
+  question: {
+    question_id: 329393,
+    question_body: 'Beatae autem recusandae nesciunt.',
+    question_date: '2021-02-05T00:00:00.000Z',
+    asker_name: 'Jermaine.Stehr89',
+    question_helpfulness: 27,
+    reported: false,
+    answers: [{
+      answer_id: 3077112,
+      body: 'Sapiente natus error.',
+      date: '2020-11-12T00:00:00.000Z',
+      answerer_name: 'Jamal_Weimann69',
+      helpfulness: 19,
+      photos: [
+        {
+          id: 2726824,
+          url: "https://images.unsplash.com/photo-1556812191-381c7e7d96d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80"
+        },
+        {
+          id: 2726825,
+          url: "https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+        }
+      ]
+    },
+    {
+      answer_id: 3077110,
+      body: 'In quo nisi eum est eaque nihil est.',
+      date: '2020-12-20T00:00:00.000Z',
+      answerer_name: 'Johathan_Ebert50',
+      helpfulness: 9,
+      photos: [Array]
+    },
+    {
+      answer_id: 3077109,
+      body: 'Aliquam consequatur dolores beatae et occaecati aperiam.',
+      date: '2021-06-13T00:00:00.000Z',
+      answerer_name: 'Aracely.Schinner',
+      helpfulness: 3,
+      photos: []
+    },
+    {
+      answer_id: 3077108,
+      body: 'Sunt molestiae nobis.',
+      date: '2020-08-13T00:00:00.000Z',
+      answerer_name: 'Mack.Bailey43',
+      helpfulness: 2,
+      photos: [Array]
+    },
+    {
+      answer_id: 3077107,
+      body: 'Autem quo in omnis voluptatem asperiores perferendis.',
+      date: '2021-06-11T00:00:00.000Z',
+      answerer_name: 'Benedict15',
+      helpfulness: 0,
+      photos: []
+    }]
+  },
 
-  ]
+  answerList: [{
+    answer_id: 3077112,
+    body: 'Sapiente natus error.',
+    date: '2020-11-12T00:00:00.000Z',
+    answerer_name: 'Jamal_Weimann69',
+    helpfulness: 19,
+    photos: [
+      {
+        id: 2726824,
+        url: "https://images.unsplash.com/photo-1556812191-381c7e7d96d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80"
+      },
+      {
+        id: 2726825,
+        url: "https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+      }
+    ]
+  },
+  {
+    answer_id: 3077110,
+    body: 'In quo nisi eum est eaque nihil est.',
+    date: '2020-12-20T00:00:00.000Z',
+    answerer_name: 'Johathan_Ebert50',
+    helpfulness: 9,
+    photos: [Array]
+  },
+  {
+    answer_id: 3077109,
+    body: 'Aliquam consequatur dolores beatae et occaecati aperiam.',
+    date: '2021-06-13T00:00:00.000Z',
+    answerer_name: 'Aracely.Schinner',
+    helpfulness: 3,
+    photos: []
+  },
+  {
+    answer_id: 3077108,
+    body: 'Sunt molestiae nobis.',
+    date: '2020-08-13T00:00:00.000Z',
+    answerer_name: 'Mack.Bailey43',
+    helpfulness: 2,
+    photos: [Array]
+  },
+  {
+    answer_id: 3077107,
+    body: 'Autem quo in omnis voluptatem asperiores perferendis.',
+    date: '2021-06-11T00:00:00.000Z',
+    answerer_name: 'Benedict15',
+    helpfulness: 0,
+    photos: []
+  }],
+
+  answer: {
+    answer_id: 3077112,
+    body: 'Sapiente natus error.',
+    date: '2020-11-12T00:00:00.000Z',
+    answerer_name: 'Jamal_Weimann69',
+    helpfulness: 19,
+    photos: [
+      {
+        id: 2726824,
+        url: "https://images.unsplash.com/photo-1556812191-381c7e7d96d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80"
+      },
+      {
+        id: 2726825,
+        url: "https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+      }
+    ]
+  }
 }

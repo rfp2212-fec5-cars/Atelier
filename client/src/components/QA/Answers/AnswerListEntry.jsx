@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AnswerListEntry = ({ answer, index }) => {
+const AnswerListEntry = ({ answer, index, logInteraction }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(answer.helpfulness);
   const [alreadyReported, setAlreadyReported] = useState(false);
@@ -13,6 +13,10 @@ const AnswerListEntry = ({ answer, index }) => {
   // liking an answer increases its yes count
   const handleLike = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Like Answer',
+      widget: 'Q&A'
+    });
 
     var options = {
       url: `/qa/answers/${answer.answer_id}/helpful`,
@@ -32,6 +36,10 @@ const AnswerListEntry = ({ answer, index }) => {
   // reporting an answer
   const handleReport = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Report Answer',
+      widget: 'Q&A'
+    });
 
     var options = {
       url: `/qa/answers/${answer.answer_id}/report`,
