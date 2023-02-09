@@ -7,27 +7,6 @@ import RelatedItemsComparison from './Related Items & Comparison/Related Items &
 
 
 const App = () => {
-  //STATES//
-  // const [products, setProducts] = useState([]);
-
-  //Handler//
-  // const allProducts = async () => {
-  //   // axios
-  //   //   .get('/products')
-  //   //   .then(({data}) => setProducts(data))
-  //   //   .catch(err => console.log('App.jsx', err));
-  //   // var result = await axios.get('/products');
-  //   try {
-  //     var result = await axios.get('/products')
-  //     console.log(result)
-  //   }catch(err){console.log(err)}
-
-  // };
-
-  // useEffect(() => {
-  //   allProducts();
-  // }, []);
-
   const [productId, setProductId] = useState(40460);
   const [product, setProduct] = useState({});
   const [avgStar, setAvgStar] = useState(0);
@@ -54,11 +33,27 @@ const App = () => {
     setTotal(sum);
   };
 
+  const logInteraction = ({ element, widget }) => {
+    var time = new Date().getTime().toString();
+
+    var options = {
+      url: '/interactions',
+      method: 'POST',
+      data: { element, widget, time }
+    }
+
+    axios(options)
+      .then(() => {
+        console.log('User clicked on', element, 'in', widget);
+      })
+      .catch((err) => console.log('Failed posting user interaction', err))
+  }
+
   return (
     <div>
       <Overview productId={productId}/>
       <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal}/>
-      <QA className='QA' product_id={ productId } product_name={ product.name }/>
+      <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
       {/* <RelatedItemsComparison/> */}
     </div>
   );
