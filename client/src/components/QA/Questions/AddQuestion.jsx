@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../Modal/Modal.jsx';
 
-const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuestions }) => {
+const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuestions, logInteraction }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -10,6 +10,10 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
 
   const postQuestion = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Submit Question',
+      widget: 'Q&A'
+    })
 
     var options = {
       url: '/qa/questions',
@@ -30,7 +34,10 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
 
   return (
     <div>
-      <button onClick={e => setShowModal(true)}>Ask Your Question</button>
+      <button onClick={e => {
+        logInteraction({ element: 'Post Question', widget: 'Q&A' })
+        setShowModal(true)
+      }}>Ask Your Question</button>
       <Modal
         title='Ask Your Question'
         subtitle={`About the ${ product_name }`}

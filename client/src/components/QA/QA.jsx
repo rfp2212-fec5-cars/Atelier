@@ -5,7 +5,7 @@ import QuestionList from './Questions/QuestionList.jsx';
 import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
-const QA = ({ product_id, product_name }) => {
+const QA = ({ product_id, product_name, logInteraction }) => {
   // create state for loading
   const [loaded, setLoaded] = useState(false);
 
@@ -73,11 +73,13 @@ const QA = ({ product_id, product_name }) => {
           product_name={ product_name }
           updateQuestions={ updateQuestions }
           setUpdateQuestions={ setUpdateQuestions }
+          logInteraction={ logInteraction }
         />
         <MoreQuestions
           filteredQuestions={ filteredQuestions }
           setDisplayedQuestions={ setDisplayedQuestions }
           displayedQuestions={ displayedQuestions }
+          logInteraction={ logInteraction }
         />
       </div>
     </div>
