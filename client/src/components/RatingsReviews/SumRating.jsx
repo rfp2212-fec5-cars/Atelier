@@ -55,7 +55,6 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar, handleRate }
             <SelectedStar stars={stars} key={index} handleSortStar={handleSortStar} />
           )
         }
-        <div id='show-selected-stars'></div>
         {Object.keys(meta.ratings).reverse().map(
           (k, index) => <Sortstar k={k} key={index} rateStar={rateStar} handleUserClick={handleUserClick} />)}
         {Object.keys(meta.characteristics).map(

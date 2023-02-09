@@ -150,7 +150,6 @@ var RR = ({ productId, productName, handleRate, handleTotal}) => {
   }, [search, sortStar, sum]);
 
 
-
   return (
     <div style={{ marginTop: '50px' }}>
       <h2>RATINGS & REVIEWS</h2>
