@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../Modal/Modal.jsx';
 
-const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) => {
+const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers, logInteraction }) => {
   const [showModal, setShowModal] = useState(false);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -12,6 +12,10 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
   // posts the answer to the api
   const postAnswer = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Submit Answer',
+      widget: 'Q&A'
+    })
 
     var options = {
       url: `qa/questions/${question.question_id}/answers`,
@@ -62,7 +66,13 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
   return (
     <div>
-      <p role='add-answer' className='statusLink' onClick={e => setShowModal(true)} >Add Answer</p>
+      <p role='add-answer' className='statusLink' onClick={e => {
+        setShowModal(true)
+        logInteraction({
+          element: 'Add Answer',
+          widget: 'Q&A'
+        })
+      }} >Add Answer</p>
       <Modal
         title='Submit an Answer'
         subtitle={`About the ${product_name}`}

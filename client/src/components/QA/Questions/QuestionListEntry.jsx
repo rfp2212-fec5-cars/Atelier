@@ -103,12 +103,12 @@ const QuestionListEntry = ({ question, product_name, index, logInteraction }) =>
             : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
           }
           <p> | </p>
-          <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
+          <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers } logInteraction={ logInteraction }/>
         </div>
       </div>
       { loadedAnswers ? null : <p data-testid='loading-answers'>Loading Answers...</p>}
-      <AnswerList answers={ displayedAnswers } />
-      <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
+      <AnswerList answers={ displayedAnswers } logInteraction={ logInteraction }/>
+      <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers } logInteraction={ logInteraction }/>
     </div>
   );
 };
