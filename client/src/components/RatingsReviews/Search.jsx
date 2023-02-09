@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Search = ({ search, setSearch}) => {
+const Search = ({ search, setSearch, logInteraction}) => {
   return (
     <div>
       <input className='form-input search' id='RR-search' type='text' placeholder='Search reviews...' data-testid='search'
@@ -10,6 +10,7 @@ const Search = ({ search, setSearch}) => {
           } else {
             setSearch('');
           }
+          logInteraction({element: 'search reviews', widget: 'Ratings&Reviews'});
         }}
       />
 

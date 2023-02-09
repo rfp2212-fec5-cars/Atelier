@@ -39,19 +39,20 @@ const App = () => {
       url: '/interactions',
       method: 'POST',
       data: { element, widget, time }
-    }
+    };
+    console.log('options', options);
 
     axios(options)
       .then(() => {
         console.log('User clicked on', element, 'in', widget);
       })
-      .catch((err) => console.log('Failed posting user interaction', err))
-  }
+      .catch((err) => console.log('Failed posting user interaction', err));
+  };
 
   return (
     <div>
       <Overview productId={productId}/>
-      <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal}/>
+      <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal} logInteraction={logInteraction}/>
       <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
     </div>
   );
