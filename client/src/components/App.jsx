@@ -3,7 +3,6 @@ import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
 import RR from './RatingsReviews/RR.jsx';
 import QA from './QA/QA.jsx';
-import RelatedItemsComparison from './Related Items & Comparison/Related Items & Comparison.jsx';
 
 
 const App = () => {
@@ -54,7 +53,6 @@ const App = () => {
       <Overview productId={productId}/>
       <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal}/>
       <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
-      {/* <RelatedItemsComparison/> */}
     </div>
   );
 };
