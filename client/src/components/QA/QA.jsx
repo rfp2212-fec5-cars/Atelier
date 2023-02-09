@@ -64,7 +64,7 @@ const QA = ({ product_id, product_name, logInteraction }) => {
         loaded ? null : <p data-testid='loading'>Loading...</p>
       }
       { displayedQuestions.length > 0
-        ? <QuestionList displayedQuestions={ displayedQuestions } product_name={ product_name } />
+        ? <QuestionList displayedQuestions={ displayedQuestions } product_name={ product_name } logInteraction={ logInteraction }/>
         : null
       }
       <div className='questionButtons'>
