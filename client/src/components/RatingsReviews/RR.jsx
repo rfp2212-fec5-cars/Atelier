@@ -153,7 +153,7 @@ var RR = ({ productId, productName, handleRate, handleTotal}) => {
 
   return (
     <div style={{ marginTop: '50px' }}>
-      <h2>RATINGS & REVIEWS</h2>
+      <h1><span className='headingUnderline'>Ratings</span> & Reviews</h1>
       <Search search={search} setSearch={setSearch}/>
       <div id='ratings-reviews'>
         <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate}/>
