@@ -37,7 +37,7 @@ const AddQuestion = ({ product_id, product_name, updateQuestions, setUpdateQuest
         onClose={() => setShowModal(false)}
         show={ showModal }
       >
-        <form onSubmit={e => postQuestion(e)}>
+        <form onSubmit={e => postQuestion(e)} role='question-modal'>
           <fieldset>
             <label htmlFor='question_body'>Your Question <span className='required'>*</span></label>
             <textarea

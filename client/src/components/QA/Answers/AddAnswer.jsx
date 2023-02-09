@@ -50,6 +50,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
 
     return (
       <input
+        role='photo-upload'
         className='addPhoto'
         type='file'
         name='photos'
@@ -117,7 +118,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers }) 
             <label htmlFor='photos'>Upload your photos</label>
             <div>
               <div className='answerPhotos'>
-                { photos.map( (photo, index) => <img key={ index } src={ photo } className='answerPhoto'/> ) }
+                { photos.map( (photo, index) => <img alt={ photo } key={ index } src={ photo } className='answerPhoto'/> ) }
               </div>
               { photos.length < 5 ? <AddPhoto /> : null }
             </div>
