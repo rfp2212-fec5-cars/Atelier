@@ -5,7 +5,7 @@ import ReviewsList from './ReviewsList.jsx';
 import Search from './Search.jsx';
 
 
-var RR = ({ productId, productName, handleRate, handleTotal}) => {
+var RR = ({ productId, productName, handleRate, handleTotal, logInteraction}) => {
   const [meta, setMeta] = useState({});
   const [display, setDisplay] = useState([]);
   //the total reviews of user select
@@ -153,10 +153,10 @@ var RR = ({ productId, productName, handleRate, handleTotal}) => {
   return (
     <div style={{ marginTop: '50px' }}>
       <h2>RATINGS & REVIEWS</h2>
-      <Search search={search} setSearch={setSearch}/>
+      <Search search={search} setSearch={setSearch} logInteraction={logInteraction}/>
       <div id='ratings-reviews'>
-        <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate}/>
-        <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} />
+        <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate} logInteraction={logInteraction}/>
+        <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} logInteraction={logInteraction}/>
       </div>
     </div>
 
