@@ -6,9 +6,14 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 beforeEach(() => {
+  var updateAnswers = false;
+  const setUpdateAnswers = (boolean) => { updateAnswers = boolean };
+
   render(<AddAnswer
     product_name={ product_name }
     question={ question }
+    updateAnswers={ updateAnswers }
+    setUpdateAnswers={ setUpdateAnswers }
   />)
 
   const link = screen.getByRole('add-answer');
@@ -63,4 +68,16 @@ it('does not updateAnswers when invalid submit has occur', async () => {
   await fireEvent.submit(screen.getByRole('answer-modal'));
 
   expect(screen.queryByAltText('chucknorris.png')).not.toBeInTheDocument;
+})
+
+it('should close modal after successfully posting answer', async () => {
+  await fireEvent.change(screen.getByPlaceholderText(/the quality is better than expected.../i), {target: { value: 'how much?'}});
+
+  await fireEvent.change(screen.getByPlaceholderText(/jack543!/i), {target: { value: 'frank' }});
+
+  await fireEvent.change(screen.getByPlaceholderText(/jack@email.com/i), {target: { value: 'google@gmail.com' }});
+
+  await fireEvent.submit(screen.getByRole('answer-modal'));
+
+  expect(screen.queryByRole('answer-modal')).not.toBeInTheDocument;
 })

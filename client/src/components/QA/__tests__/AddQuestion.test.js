@@ -24,3 +24,15 @@ Add Question Modal Window
 it('should open modal window when click on add question', () => {
   expect(screen.queryByRole('question-modal')).toBeInTheDocument;
 });
+
+it('should close modal after successfully posting question', async () => {
+  await fireEvent.change(screen.getByPlaceholderText(/how is the quality of.../i), {target: { value: 'how much?'}});
+
+  await fireEvent.change(screen.getByPlaceholderText(/jackson11!/i), {target: { value: 'frank' }});
+
+  await fireEvent.change(screen.getByPlaceholderText(/why did you like the product or not/i), {target: { value: 'google@gmail.com' }});
+
+  await fireEvent.submit(screen.getByRole('question-modal'));
+
+  expect(screen.queryByRole('question-modal')).not.toBeInTheDocument;
+})
