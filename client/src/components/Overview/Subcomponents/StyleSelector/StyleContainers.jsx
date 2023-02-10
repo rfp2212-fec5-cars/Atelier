@@ -3,8 +3,6 @@ import {AiOutlineCheck} from 'react-icons/ai';
 
 const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}) => {
 
-  console.log(currentStyle)
-
   const handleStyleChange = (style) => {
     if (currentStyle !== style) {
       setSelectedSku(null);

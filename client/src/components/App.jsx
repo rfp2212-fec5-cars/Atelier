@@ -7,6 +7,9 @@ import RelatedItemsComparison from './Related Items & Comparison/Related Items &
 
 
 const App = () => {
+
+  //STATES//
+
   const [productId, setProductId] = useState(40460);
   const [product, setProduct] = useState({});
   const [avgStar, setAvgStar] = useState(0);
