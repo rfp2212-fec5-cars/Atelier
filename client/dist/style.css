@@ -68,6 +68,9 @@ Modal Styling
 }
 
 .modal-content {
+  /* border: 2px solid red; */
+  /* z-index: 9999999; */
+  position: absolute;
   width: auto;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
@@ -418,55 +421,9 @@ Overview Styling
 .salePrice {
   color: red
 }
-.style-thumbnail, .selected-style-thumbnail {
-  width: 85px;
-  height: 85px;
-  display: inline;
-  object-fit: cover;
-  margin-left: 10px;
-  border-radius: 50%;
-  /* position: absolute; */
-}
 
-#main-image {
-  position: absolute;
-  z-index: 2;
-  object-fit: none;
-  width: 100%;
-  height: 100%;
-  bottom: 50px;
-}
-.main-image {
-  cursor: zoom-in;
-  /* object-fit: contain; */
-  width: 100%;
-  height: 400px;
-  object-fit: fill;
-  /* scale: 25%; */
-  /* position: absolute; */
-}
-
-#thumbnail-list {
-  position: absolute;
-  bottom: 20%;
-  object-fit: fill;
-  z-index: 10;
-  width: 100%;
-  height: 10%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#default-view-container {
-  width: 605px;
-  height: 400px;
-  position: relative;
-  border-bottom: 100px;
-}
-
-.thumbnail{
-  opacity: 0.55;
+.star-nav{
+  font-style: italic;
 }
 
 .style-thumbnail{
@@ -476,35 +433,144 @@ Overview Styling
 .selected-style-thumbnail{
   opacity: 1
 }
-.selected-thumbnail{
-  opacity: 1;
-  border: red;
-  border-style: dotted;
-  border-width: 1px;
-  /* margin: auto;
-  width: 100%; */
-}
 
-.thumbnail-list{
-  /* display: inline-block; */
-  margin: auto;
-  /* width: 50%; */
-  /* display: flex; */
-}
 .icon{
   display: inline-block;
   width: 50px;
   height: 50px;
 }
-.thumbnail-overlay{
-  display: inline;
-}
 
-/* .image-gallery{
-  width: 40%;
-  align-self: flex-start;
+.image-gallery{
+  width: 60%;
+  /* align-self: flex-start; */
 }
 .product-information{
   width: 40%;
-  align-self: flex-end;
-} */
+  background-color: #70A9A1;
+  /* align-self: flex-end; */
+}
+
+#overview{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  background-color: #40798C;
+}
+
+.top-overview{
+  display: flex;
+  /* height: 25%; */
+    /* justify-content: center; */
+  /* flex-direction: row; */
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.image-gallery{
+  height: 100%;
+  /* align-items:flex-end; */
+  /* padding: 50%; */
+}
+
+#default-view-container {
+  width: 50%;
+  height: 500px;
+  position: relative;
+  border-bottom: 100px;
+  justify-content: center;
+  /* align-self: end; */
+  align-items: center;
+}
+
+#main-image {
+  position: static;
+  z-index: 2;
+
+  bottom: 0;
+}
+.main-image {
+  cursor: zoom-in;
+  object-fit: contain;
+  position: relative;
+  background-color: #F6F1D1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-height: 600px;
+}
+
+#expanded-view{
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-overlay{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
+}
+
+#thumbnail-list {
+  position: relative;
+  bottom: 12%;
+  /* object-fit: fill; */
+  z-index: 10;
+  width: 100%;
+  /* height: 90%; */
+  /* flex-direction: column; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.selected-thumbnail{
+  opacity: 1;
+  border: red;
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.thumbnail{
+  opacity: 0.55;
+}
+
+.product-information{
+  height: 100%;
+  width: 40%;
+  margin-left: 20px;
+}
+
+#main-image{
+  z-index: 1;
+}
+
+.bottom-overview{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: '4em';
+  flex-direction: row;
+  align-items: row;
+}
+
+.style-thumbnail, .selected-style-thumbnail {
+  width: 85px;
+  height: 85px;
+  display: inline;
+  object-fit: cover;
+  margin-left: 10px;
+  border-radius: 50%;
+  /* justify-self: center;
+  align-self: center; */
+  /* position: absolute; */
+}
+
+.add-to-cart{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}

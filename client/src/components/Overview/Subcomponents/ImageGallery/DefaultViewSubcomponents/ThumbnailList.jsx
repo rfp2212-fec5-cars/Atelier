@@ -23,10 +23,6 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
       }
     }, [imageNumber]);
 
-    useEffect(()=> {
-      console.log('thumbnail State', thumbnailContainerIndex);
-    }, thumbnailContainerIndex);
-
     const changeMainImage = (index) => {
       if (imageNumber !== index) {
         setImageNumber(index);
@@ -50,12 +46,11 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
     };
 
     return (
-      <div style={{display: 'inline-block', position: 'absolute'}}>
-        <div data-testid='tnt' className= 'thumbnail-overlay'>
-          {imageNumber === 0 ? null :
-            <> {<AiOutlineArrowLeft onClick={loadPreviousImage} style={{width: '50px', color: 'white'}} />}</>
-          }
-          {/* <div className='thumbnail-list'> */}
+      <div data-testid='tnt' className= 'thumbnail-overlay'>
+        {imageNumber === 0 ? <div style={{visability: 'hidden'}}></div> :
+          <> {<AiOutlineArrowLeft onClick={loadPreviousImage} style={{width: '10%', color: 'white', size: '2em'}} />}</>
+        }
+        <div className='thumbnail-list'>
           {thumbnailURLs.map((url, index) => (
             <div className = {index === imageNumber ? 'selected-thumbnail' : 'thumbnail'} key = {`thumbnail${index}`} style ={{ display: 'inline' }}>
               {index <= thumbnailContainerIndex[1] && index >= thumbnailContainerIndex[0] ?
@@ -65,17 +60,16 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
                     className = 'thumbnail-image'
                     id='default-view'
                     src = {url}
-                    style = {{height: '50px'}}
+                    style = {{height: '45px'}}
                   />
                 </span>
                 :
                 null}
             </div>
           ))}
-          {/* </div> */}
-          {imageNumber === imagesLength - 1 ? null :
-            <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '50px', color: 'white'}} />}</>}
         </div>
+        {imageNumber === imagesLength - 1 ? <div style={{visability: 'hidden'}}></div> :
+          <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '10%', color: 'white'}} />}</>}
       </div>
     );
   }
