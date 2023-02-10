@@ -6,7 +6,6 @@ import ExpandedView from './Subcomponents/ImageGallery/ExpandedView.jsx';
 const ImageGallery = ({currentStyle}) => {
 
   const [currentImages, setCurrentImages] = useState([]);
-  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     if (currentStyle) {
@@ -20,17 +19,10 @@ const ImageGallery = ({currentStyle}) => {
 
     return (
       <>
-        {expanded ?
-          <ExpandedView
-            thumbnailURLs={thumbnailURLs}
-            imageURLs={imageURLs}
-            setExpanded={setExpanded}
-            expanded={expanded}/> :
-          <DefaultView
-            thumbnailURLs={thumbnailURLs}
-            imageURLs={imageURLs}
-            expanded={expanded}
-            setExpanded={setExpanded}/>}
+        <DefaultView
+          thumbnailURLs={thumbnailURLs}
+          imageURLs={imageURLs}
+        />
       </>
     );
   }

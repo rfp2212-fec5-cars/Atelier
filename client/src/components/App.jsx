@@ -10,7 +10,7 @@ const App = () => {
 
   //STATES//
 
-  const [productId, setProductId] = useState(40460);
+  const [productId, setProductId] = useState(40351);
   const [product, setProduct] = useState({});
   const [avgStar, setAvgStar] = useState(0);
   const [total, setTotal] = useState(0);
@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <div>
-      <Overview productId={productId}/>
+      <Overview productId={productId} logInteraction={logInteraction} avgStar={avgStar} total={total}/>
       <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal} logInteraction={logInteraction}/>
       <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
       {/* <RelatedItemsComparison/> */}

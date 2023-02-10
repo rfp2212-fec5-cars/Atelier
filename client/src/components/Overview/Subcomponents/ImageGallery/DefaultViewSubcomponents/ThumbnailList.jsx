@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
+
+const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber, expanded}) => {
 
   const [thumbnailContainerIndex, setThumbnailContainerIndex] = useState([0, 6]);
-  // const [isSelected, setIsSelected] = useState(false);
 
   if (thumbnailURLs) {
     const imagesLength = thumbnailURLs.length;
-    // console.log('number of photos', imagesLength);
 
     useEffect(() => {
       if (thumbnailURLs.length - 1 <= 6) {
@@ -45,6 +44,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
       }
     };
 
+
     return (
       <div data-testid='tnt' className= 'thumbnail-overlay'>
         {imageNumber === 0 ? <div style={{visability: 'hidden'}}></div> :
@@ -72,6 +72,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
           <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '10%', color: 'white'}} />}</>}
       </div>
     );
+
   }
 };
 

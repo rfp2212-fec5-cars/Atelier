@@ -574,3 +574,15 @@ Overview Styling
   justify-content: space-around;
   flex-direction: column;
 }
+
+#zoom-expanded-view{
+  background-position: var(--x) var(--y);
+  offset-inline-start: 0;
+  offset-block-start: 0;
+  min-width: 90vw;
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  transform-origin: 0, 0;
+  /* transform: scale(1.5); */
+  cursor: zoom-out;
+}

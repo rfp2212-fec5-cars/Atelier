@@ -5,7 +5,7 @@ import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import axios from 'axios';
 
-const Overview = ({productId, total, avgStar}) => {
+const Overview = ({productId, total, avgStar, logInteraction}) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(productStyles[0]);
   const [selectedSku, setSelectedSku] = useState(null);
@@ -27,20 +27,19 @@ const Overview = ({productId, total, avgStar}) => {
     getProductStyles();
   }, []);
 
-  // useEffect(()=> {
-  //   console.log(currentStyle);
-  // }, [currentStyle]);
 
   return (
     <div id='overview'>
       <div className = 'top-overview'>
         <ImageGallery
-          currentStyle={currentStyle}/>
+          currentStyle={currentStyle}
+          logInteraction={logInteraction}/>
         <ProductInformation
           productId={productId}
           currentStyle = {currentStyle}
           total= {total}
-          avgStar={avgStar}/>
+          avgStar={avgStar}
+          logInteraction={logInteraction}/>
       </div>
       <div className='bottom-overview'>
         {productStyles ? <StyleSelector
@@ -49,11 +48,13 @@ const Overview = ({productId, total, avgStar}) => {
           setCurrentStyle={setCurrentStyle}
           currentStyle = {currentStyle}
           setSelectedSku={setSelectedSku}
+          logInteraction={logInteraction}
         /> : null}
         <AddToCart
           currentStyle = {currentStyle}
           selectedSku={selectedSku}
-          setSelectedSku={setSelectedSku}/>
+          setSelectedSku={setSelectedSku}
+          logInteraction={logInteraction}/>
       </div>
     </div>
   );
