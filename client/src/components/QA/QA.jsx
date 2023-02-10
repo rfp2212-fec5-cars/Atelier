@@ -57,10 +57,19 @@ const QA = ({ product_id, product_name, logInteraction }) => {
   return (
     <div className='QA'>
       <h2><span className='headingUnderline'>Questions</span> & Answers</h2>
-      <Search
-        setSearch={ setSearch }
-        logInteraction={ logInteraction }
-      />
+      <div className='QA-top-bar'>
+        <Search
+          setSearch={ setSearch }
+          logInteraction={ logInteraction }
+        />
+        <p className='disclaimer'>Displaying { displayedQuestions.length } out of { filteredQuestions.length } questions</p>
+        {
+          search !== '' ? <p className='disclaimer'> |</p> : null
+        }
+        {
+          search !== '' ? <p className='disclaimer'>Searching for "{ search }"</p> : null
+        }
+      </div>
       {
         loaded ? null : <p data-testid='loading'>Loading...</p>
       }

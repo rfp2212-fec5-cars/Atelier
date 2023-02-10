@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+// import Modal from '../../Modal/Modal.jsx'
 
 const AnswerListEntry = ({ answer, index, logInteraction }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(answer.helpfulness);
   const [alreadyReported, setAlreadyReported] = useState(false);
+  // const [showPhoto, setShowPhoto] = useState(false);
 
   // format the date
   var date = new Date(answer.date);
@@ -53,9 +55,18 @@ const AnswerListEntry = ({ answer, index, logInteraction }) => {
       })
   }
 
+  // const AnswerPhoto = ({ photo }) => (
+  //   <div key={ answer.answer_id + '.' + photo.id }>
+  //     <img src={ photo.url } className='thumbnails' onClick={(e) => { setShowPhoto(true)}}/>
+  //     {/* <Modal onClose = {() => setShowPhoto(false)} show = { showPhoto } children={ }>
+  //       <img src={ photo.url } />
+  //     </Modal> */}
+  //   </div>
+  // )
+
   const AnswerPhotos = () => (
-    <div className='answerPhotos'>
-      { answer.photos.map(photo => <img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='answerPhoto'/>)}
+    <div className='answer-photos'>
+      { answer.photos.map(photo => <img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='thumbnails noclick'/>)}
     </div>
   )
 

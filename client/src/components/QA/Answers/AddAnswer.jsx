@@ -127,8 +127,8 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers, lo
           <fieldset>
             <label htmlFor='photos'>Upload your photos</label>
             <div>
-              <div className='answerPhotos'>
-                { photos.map( (photo, index) => <img alt={ photo } key={ index } src={ photo } className='answerPhoto'/> ) }
+              <div className='answer-photos'>
+                { photos.map( (photo, index) => <img alt={ photo } key={ index } src={ photo } className='thumbnails'/> ) }
               </div>
               { photos.length < 5 ? <AddPhoto /> : null }
             </div>
