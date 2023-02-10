@@ -4,7 +4,7 @@ import Sortstar from './Sortstar.jsx';
 import ProductCharacteristic from './ProductCharacteristic.jsx';
 import SelectedStar from './SelectedStar.jsx';
 
-var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar, handleRate }) => {
+var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar, handleRate, logInteraction}) => {
   //console.log('sortStar', sortStar);
   if (Object.keys(meta).length === 0) {
     return (
@@ -52,12 +52,11 @@ var SumRating = ({ meta, handleUserClick, sortStar, handleSortStar, handleRate }
         <div id='recommendrate'>{rateRecommend} % of reviews recommend this product</div>
         {
           sortStar.map((stars, index) =>
-            <SelectedStar stars={stars} key={index} handleSortStar={handleSortStar} />
+            <SelectedStar stars={stars} key={index} handleSortStar={handleSortStar} logInteraction={logInteraction}/>
           )
         }
-        <div id='show-selected-stars'></div>
         {Object.keys(meta.ratings).reverse().map(
-          (k, index) => <Sortstar k={k} key={index} rateStar={rateStar} handleUserClick={handleUserClick} />)}
+          (k, index) => <Sortstar k={k} key={index} rateStar={rateStar} handleUserClick={handleUserClick} logInteraction={logInteraction}/>)}
         {Object.keys(meta.characteristics).map(
           (type, index) => <ProductCharacteristic type={type} info={meta.characteristics[type]} key={index} />
         )}
