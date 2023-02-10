@@ -136,6 +136,7 @@ R&R Styling
   display: inline-block;
   width: 5vw;
   font-size: 0.8em;
+  min-width: fit-content;
 }
 .greybar{
   display: inline-block;
@@ -174,6 +175,7 @@ R&R Styling
 }
 .bar-text{
   font-size: 0.6em;
+  min-width: fit-content;
 }
 .producttext{
   display: flex;
@@ -187,12 +189,13 @@ R&R Styling
 
 #ratings-reviews{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin: 20px auto;
 }
 
 #reviewswraper{
   margin-left: 3vw;
+  width: 70vw;
 }
 #reviewcontent{
   max-height: 700px;
