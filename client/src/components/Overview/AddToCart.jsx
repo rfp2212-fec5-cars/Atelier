@@ -11,7 +11,7 @@ const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
 
   return (
     <div id='add-to-cart'>
-      <div><b>ADD TO CART</b></div>
+      <div><b>Add to Cart</b></div>
       <div id='cart-options'>
         {noSize ? <p className='noSize'>Please select size</p> : null}
         {currentStyle &&

@@ -167,8 +167,7 @@ var AddReview = ({ productName, productId, logInteraction}) => {
         setShow(true);
         logInteraction({element: 'add new review', widget: 'Ratings&Reviews'});
       }}>ADD A REVIEW +</button>
-      <Modal title="Write Your Review" onClose={() => setShow(false)} show={show}>
-        <div id='subtitle'>About the {productName}</div>
+      <Modal title="Write Your Review" subtitle={`About the ${productName}`} onClose={() => setShow(false)} show={show}>
         <form id='reviewform' onSubmit={(e)=>{
           check(e);
           logInteraction({element: 'submit new review', widget: 'Ratings&Reviews'});
