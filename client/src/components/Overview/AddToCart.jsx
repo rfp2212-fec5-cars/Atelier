@@ -11,25 +11,27 @@ const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
 
   return (
     <div id='add-to-cart'>
-      <div><b>ADD TO CART</b></div>
-      {noSize ? <p className='noSize'>Please select size</p> : null}
-      {currentStyle &&
-        <div><SizeSelector
-          currentStyle= {currentStyle}
-          setSelectedSku={setSelectedSku}
-          selectedSku={selectedSku}
-          setNoSize={setNoSize}/></div>
-      }
-      {currentStyle &&
-        <div><QuantitySelector
-          currentStyle={currentStyle}
-          selectedSku={selectedSku}/></div>
-      }
-      {currentStyle &&
-        <div><AddToCartButton
-          currentStyle={currentStyle}
-          selectedSku={selectedSku}
-          setNoSize={setNoSize}/></div>}
+      <div><b>Add to Cart</b></div>
+      <div id='cart-options'>
+        {noSize ? <p className='noSize'>Please select size</p> : null}
+        {currentStyle &&
+          <div><SizeSelector
+            currentStyle= {currentStyle}
+            setSelectedSku={setSelectedSku}
+            selectedSku={selectedSku}
+            setNoSize={setNoSize}/></div>
+        }
+        {currentStyle &&
+          <div><QuantitySelector
+            currentStyle={currentStyle}
+            selectedSku={selectedSku}/></div>
+        }
+        {currentStyle &&
+          <div><AddToCartButton
+            currentStyle={currentStyle}
+            selectedSku={selectedSku}
+            setNoSize={setNoSize}/></div>}
+      </div>
     </div>
   );
 };

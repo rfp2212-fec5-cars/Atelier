@@ -3,14 +3,13 @@ import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
 import RR from './RatingsReviews/RR.jsx';
 import QA from './QA/QA.jsx';
-import RelatedItemsComparison from './Related Items & Comparison/Related Items & Comparison.jsx';
 
 
 const App = () => {
 
   //STATES//
 
-  const [productId, setProductId] = useState(40460);
+  const [productId, setProductId] = useState(40344);
   const [product, setProduct] = useState({});
   const [avgStar, setAvgStar] = useState(0);
   const [total, setTotal] = useState(0);
@@ -55,10 +54,14 @@ const App = () => {
 
   return (
     <div>
-      <Overview productId={productId}/>
-      <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal} logInteraction={logInteraction}/>
-      <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
-      {/* <RelatedItemsComparison/> */}
+      <div className='main-header'>
+        <h1>Atelier</h1>
+      </div>
+      <div id='app'>
+        <Overview productId={productId}/>
+        <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal} logInteraction={logInteraction}/>
+        <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
+      </div>
     </div>
   );
 };

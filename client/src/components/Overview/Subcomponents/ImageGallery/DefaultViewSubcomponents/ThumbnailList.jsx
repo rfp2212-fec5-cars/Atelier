@@ -5,11 +5,9 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
 
   const [thumbnailContainerIndex, setThumbnailContainerIndex] = useState([0, 6]);
-  // const [isSelected, setIsSelected] = useState(false);
 
   if (thumbnailURLs) {
     const imagesLength = thumbnailURLs.length;
-    // console.log('number of photos', imagesLength);
 
     useEffect(() => {
       if (thumbnailURLs.length - 1 <= 6) {
@@ -46,11 +44,11 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
     };
 
     return (
-      <div data-testid='tnt' className= 'thumbnail-overlay'>
+      <div data-testid='tnt' className= 'thumbnail-list'>
         {imageNumber === 0 ? <div style={{visability: 'hidden'}}></div> :
-          <> {<AiOutlineArrowLeft onClick={loadPreviousImage} style={{width: '10%', color: 'white', size: '2em'}} />}</>
+          <> {<AiOutlineArrowLeft onClick={loadPreviousImage} className='thumbnail-arrow' />}</>
         }
-        <div className='thumbnail-list'>
+        <div >
           {thumbnailURLs.map((url, index) => (
             <div className = {index === imageNumber ? 'selected-thumbnail' : 'thumbnail'} key = {`thumbnail${index}`} style ={{ display: 'inline' }}>
               {index <= thumbnailContainerIndex[1] && index >= thumbnailContainerIndex[0] ?
@@ -60,7 +58,6 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
                     className = 'thumbnail-image'
                     id='default-view'
                     src = {url}
-                    style = {{height: '45px'}}
                   />
                 </span>
                 :
@@ -69,7 +66,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
           ))}
         </div>
         {imageNumber === imagesLength - 1 ? <div style={{visability: 'hidden'}}></div> :
-          <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '10%', color: 'white'}} />}</>}
+          <> {<AiOutlineArrowRight onClick={loadNextImage} className='thumbnail-arrow' />}</>}
       </div>
     );
   }

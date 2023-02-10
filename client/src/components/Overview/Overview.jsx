@@ -14,9 +14,8 @@ const Overview = ({productId, total, avgStar}) => {
   const getProductStyles = () =>{
     let url = (`/products/${productId}/styles`);
     axios(url)
-      .then((result) => {
-        console.log('styles for product', result.data.results);
-        setProductStyles(result.data.results);
+      .then(({ data }) => {
+        setProductStyles(data.results);
       })
       .catch((err) => {
         console.log('Error', err);
@@ -33,16 +32,13 @@ const Overview = ({productId, total, avgStar}) => {
 
   return (
     <div id='overview'>
-      <div className = 'top-overview'>
-        <ImageGallery
-          currentStyle={currentStyle}/>
+      <ImageGallery currentStyle={currentStyle}/>
+      <div className='product-information'>
         <ProductInformation
           productId={productId}
           currentStyle = {currentStyle}
           total= {total}
           avgStar={avgStar}/>
-      </div>
-      <div className='bottom-overview'>
         {productStyles ? <StyleSelector
           productId={productId}
           productStyles = {productStyles}

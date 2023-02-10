@@ -22,8 +22,7 @@ const StyleSelector = ({productId, productStyles, setCurrentStyle, currentStyle,
 
   return (
     <div className = 'styleSelector'>
-      <div><b>STYLE</b></div>
-      <h2>{currentStyle ? currentStyle.name : null}</h2>
+      <p><b>Style: </b>{currentStyle ? currentStyle.name : null}</p>
       <div>
         {currentStyle ? <StyleContainers
           styles={styles}

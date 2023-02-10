@@ -56,7 +56,7 @@ const QA = ({ product_id, product_name, logInteraction }) => {
 
   return (
     <div className='QA'>
-      <h1><span className='headingUnderline'>Questions</span> & Answers</h1>
+      <h2><span className='headingUnderline'>Questions</span> & Answers</h2>
       <Search
         setSearch={ setSearch }
         logInteraction={ logInteraction }
