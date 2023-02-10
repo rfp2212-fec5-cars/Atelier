@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
-const MoreAnswers = ({ answerList, displayedAnswers, setDisplayedAnswers }) => {
+const MoreAnswers = ({ answerList, displayedAnswers, setDisplayedAnswers, logInteraction }) => {
   const [answerCount, setAnswerCount] = useState(2);
 
   const handleMoreAnswers = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'More Answers',
+      widget: 'Q&A'
+    })
 
     if (JSON.stringify(displayedAnswers) === JSON.stringify(answerList)) {
       setDisplayedAnswers(answerList.slice(0, 2));

@@ -4,7 +4,7 @@ import AnswerList from '../Answers/AnswerList.jsx';
 import MoreAnswers from '../Answers/MoreAnswers.jsx';
 import AddAnswer from '../Answers/AddAnswer.jsx';
 
-const QuestionListEntry = ({ question, product_name, index }) => {
+const QuestionListEntry = ({ question, product_name, index, logInteraction }) => {
   // setting up states for the question details
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const [yesCount, setYesCount] = useState(question.question_helpfulness);
@@ -43,6 +43,10 @@ const QuestionListEntry = ({ question, product_name, index }) => {
   // liking a question
   const handleLike = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Like Question',
+      widget: 'Q&A'
+    });
 
     var options = {
       url: `/qa/questions/${question.question_id}/helpful`,
@@ -62,6 +66,10 @@ const QuestionListEntry = ({ question, product_name, index }) => {
   // reporting a question
   const handleReport = (e) => {
     e.preventDefault();
+    logInteraction({
+      element: 'Report Question',
+      widget: 'Q&A'
+    });
 
     var options = {
       url: `/qa/questions/${question.question_id}/report`,
@@ -95,12 +103,12 @@ const QuestionListEntry = ({ question, product_name, index }) => {
             : <p onClick={e => handleReport(e)} className='statusLink'>Report</p>
           }
           <p> | </p>
-          <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers }/>
+          <AddAnswer product_name={ product_name } question={ question } updateAnswers={ updateAnswers } setUpdateAnswers={ setUpdateAnswers } logInteraction={ logInteraction }/>
         </div>
       </div>
       { loadedAnswers ? null : <p data-testid='loading-answers'>Loading Answers...</p>}
-      <AnswerList answers={ displayedAnswers } />
-      <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers }/>
+      <AnswerList answers={ displayedAnswers } logInteraction={ logInteraction }/>
+      <MoreAnswers answerList={ answerList } displayedAnswers={ displayedAnswers } setDisplayedAnswers={ setDisplayedAnswers } logInteraction={ logInteraction }/>
     </div>
   );
 };

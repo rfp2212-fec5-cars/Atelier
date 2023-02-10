@@ -4,10 +4,11 @@ module.exports = {
   logInteraction: (req, res) => {
     model
       .logInteraction(req.body)
-      .then((results) => {
-        res.status(201).send(results);
+      .then(() => {
+        res.sendStatus(201);
       })
       .catch((err) => {
+        console.log(err);
         res.status(422).send(err);
       });
   }

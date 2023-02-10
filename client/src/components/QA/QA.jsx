@@ -5,7 +5,7 @@ import QuestionList from './Questions/QuestionList.jsx';
 import MoreQuestions from './Questions/MoreQuestions.jsx';
 import AddQuestion from './Questions/AddQuestion.jsx';
 
-const QA = ({ product_id, product_name }) => {
+const QA = ({ product_id, product_name, logInteraction }) => {
   // create state for loading
   const [loaded, setLoaded] = useState(false);
 
@@ -59,12 +59,13 @@ const QA = ({ product_id, product_name }) => {
       <h1><span className='headingUnderline'>Questions</span> & Answers</h1>
       <Search
         setSearch={ setSearch }
+        logInteraction={ logInteraction }
       />
       {
         loaded ? null : <p data-testid='loading'>Loading...</p>
       }
       { displayedQuestions.length > 0
-        ? <QuestionList displayedQuestions={ displayedQuestions } product_name={ product_name } />
+        ? <QuestionList displayedQuestions={ displayedQuestions } product_name={ product_name } logInteraction={ logInteraction }/>
         : null
       }
       <div className='questionButtons'>
@@ -73,11 +74,13 @@ const QA = ({ product_id, product_name }) => {
           product_name={ product_name }
           updateQuestions={ updateQuestions }
           setUpdateQuestions={ setUpdateQuestions }
+          logInteraction={ logInteraction }
         />
         <MoreQuestions
           filteredQuestions={ filteredQuestions }
           setDisplayedQuestions={ setDisplayedQuestions }
           displayedQuestions={ displayedQuestions }
+          logInteraction={ logInteraction }
         />
       </div>
     </div>
