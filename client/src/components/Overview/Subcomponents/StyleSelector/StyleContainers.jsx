@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {AiOutlineCheck} from 'react-icons/ai';
 
-const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}) => {
+const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku, logInteraction}) => {
 
   const handleStyleChange = (style) => {
     if (currentStyle !== style) {
@@ -29,7 +29,12 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
       <ul>
         {styleContainer1.length ? styleContainer1.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
+            <li onClick ={()=> {
+              handleStyleChange(style);
+              logInteraction({
+                element: 'styleContainer',
+                widget: 'Overview'});
+            }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
                 <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
                 {style === currentStyle ? <p style= {{position: 'absolute', top: '-80%', left: '60%'}} id='checkmark'><AiOutlineCheck size='2em' style={{color: 'red'}}/></p> : null}
@@ -41,7 +46,12 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
       <ul>
         {styleContainer2.length ? styleContainer2.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
+            <li onClick ={()=> {
+              handleStyleChange(style);
+              logInteraction({
+                element: 'styleContainer',
+                widget: 'Overview'});
+            }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
                 <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>
@@ -53,7 +63,12 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku}
       <ul>
         {styleContainer3.length ? styleContainer3.map((style, index) => {
           return (
-            <li onClick ={()=> { handleStyleChange(style); }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
+            <li onClick ={()=> {
+              handleStyleChange(style);
+              logInteraction({
+                element: 'styleContainer',
+                widget: 'Overview'});
+            }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
                 <img className = {style === currentStyle ? 'selected-style-thumbnail' : 'style-thumbnail'} src= {`${style.photos[0].thumbnail_url}`} alt='default style thumbnail'></img>
               </a>

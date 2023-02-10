@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const AddToCartButton = ({currentStyle, selectedSku, setNoSize}) => {
+const AddToCartButton = ({currentStyle, selectedSku, setNoSize, logInteraction}) => {
 
   const outOfStock = () => {
     let skuStock = Object.values(currentStyle.skus);
@@ -11,6 +11,9 @@ const AddToCartButton = ({currentStyle, selectedSku, setNoSize}) => {
   };
 
   const handleClick = (event) => {
+    logInteraction({
+      element: 'cart-button',
+      widget: 'Overview'});
     if (selectedSku === null || selectedSku === 'Select Size') {
       setNoSize(true);
       let size = document.getElementById('size');

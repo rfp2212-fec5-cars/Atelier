@@ -58,7 +58,7 @@ const App = () => {
         <h1>Atelier</h1>
       </div>
       <div id='app'>
-        <Overview productId={productId} avgStar={ avgStar } total={ total }/>
+        <Overview productId={productId} avgStar={ avgStar } total={ total } logInteraction={logInteraction}/>
         <RR productId={productId} productName = {product.name} handleRate={handleRate} handleTotal={handleTotal} logInteraction={logInteraction}/>
         <QA className='QA' product_id={ productId } product_name={ product.name } logInteraction={ logInteraction }/>
       </div>

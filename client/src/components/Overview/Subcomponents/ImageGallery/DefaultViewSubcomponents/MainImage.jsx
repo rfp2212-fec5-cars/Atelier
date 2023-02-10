@@ -2,15 +2,16 @@ import React, {useState, useEffect} from 'react';
 import Modal from '../../../../Modal/Modal.jsx';
 import ThumbnailList from './ThumbnailList.jsx';
 
-
-const MainImage = ({imageURLs, imageNumber, setExpanded, expanded}) => {
+const MainImage = ({imageURLs, imageNumber, logInteraction}) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
 
   const changeView = (e)=> {
-    e.preventDefault();
     setIsExpanded(true);
+    logInteraction({
+      element: 'main-image',
+      widget: 'Overview'});
   };
 
   const zoomIn = () => {
@@ -22,6 +23,8 @@ const MainImage = ({imageURLs, imageNumber, setExpanded, expanded}) => {
       zoomImg.style['transform'] = 'scale(1.25)';
     });
   };
+
+
 
   return (
     <>
@@ -35,13 +38,18 @@ const MainImage = ({imageURLs, imageNumber, setExpanded, expanded}) => {
               src = {url}
               onClick = {e => changeView(e) }
             />
-            <Modal onClose={()=> { setIsExpanded(false) }} show = {isExpanded} key ={index}>
+            <Modal onClose={()=> { setIsExpanded(false); }} show = {isExpanded} key ={index}>
               <div>
                 <img
                   className = 'main-image'
                   id={isZoomed ? 'zoom-expanded-view' : 'expanded-view'}
                   src = {url}
-                  onClick = {()=>{ setIsZoomed(!isZoomed) }}
+                  onClick = {()=>{
+                    setIsZoomed(!isZoomed);
+                    logInteraction({
+                      element: 'main-image',
+                      widget: 'Overview'});
+                  }}
                   onMouseMove = {isZoomed ? (e)=> { zoomIn(e); } : null }
                 />
               </div>

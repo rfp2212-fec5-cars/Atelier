@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) => {
+const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize, logInteraction}) => {
 
   const [styleSkus, setStyleSkus] = useState(Object.entries(currentStyle.skus));
 
@@ -32,7 +32,11 @@ const SizeSelector = ({currentStyle, setSelectedSku, selectedSku, setNoSize}) =>
           <option data-testid='size' value="Out of Stock" >OUT OF STOCK</option>
         </select>
         :
-        <select id='size' onChange={changeSizeHandler}>
+        <select id='size'
+          onChange={changeSizeHandler}
+          onClick = {()=> logInteraction({
+            element: 'sizeSelector',
+            widget: 'Overview'})}>
           <option data-testid='size' value= 'Select Size' >Select Size</option>
           {styleSkus.map((style) => {
             if (style[1].quantity > 0) {
