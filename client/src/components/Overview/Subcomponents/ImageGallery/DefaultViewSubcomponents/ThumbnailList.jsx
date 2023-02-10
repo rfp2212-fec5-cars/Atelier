@@ -27,11 +27,6 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber, logInteracti
       }
     };
 
-    useEffect(()=> {
-      console.log('container', thumbnailContainerIndex);
-      console.log('imageNumber', imageNumber);
-    }, [thumbnailContainerIndex, imageNumber]);
-
     const loadPreviousImage = () => {
       console.log(thumbnailContainerIndex[0]);
       if (thumbnailContainerIndex[0] !== 0) {

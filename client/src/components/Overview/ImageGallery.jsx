@@ -19,19 +19,10 @@ const ImageGallery = ({ currentStyle, logInteraction }) => {
 
     return (
       <>
-        {expanded ?
-          <ExpandedView
-            thumbnailURLs={thumbnailURLs}
-            imageURLs={imageURLs}
-            setExpanded={setExpanded}
-            expanded={expanded}
-            logInteraction={logInteraction}/> :
-          <DefaultView
-            thumbnailURLs={thumbnailURLs}
-            imageURLs={imageURLs}
-            expanded={expanded}
-            setExpanded={setExpanded}
-            logInteraction={logInteraction}/>}
+        <DefaultView
+          thumbnailURLs={thumbnailURLs}
+          imageURLs={imageURLs}
+          logInteraction={logInteraction}/>
       </>
     );
   }

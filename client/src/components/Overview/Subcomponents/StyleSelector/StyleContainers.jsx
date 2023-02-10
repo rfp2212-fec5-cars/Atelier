@@ -32,7 +32,7 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku,
             <li onClick ={()=> {
               handleStyleChange(style);
               logInteraction({
-                element: 'thumbnail-list',
+                element: 'styleContainer',
                 widget: 'Overview'});
             }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
@@ -49,7 +49,7 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku,
             <li onClick ={()=> {
               handleStyleChange(style);
               logInteraction({
-                element: 'thumbnail-list',
+                element: 'styleContainer',
                 widget: 'Overview'});
             }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
@@ -66,7 +66,7 @@ const StyleContainers = ({styles, setCurrentStyle, currentStyle, setSelectedSku,
             <li onClick ={()=> {
               handleStyleChange(style);
               logInteraction({
-                element: 'thumbnail-list',
+                element: 'styleContainer',
                 widget: 'Overview'});
             }} key = {index} style ={{ display: 'inline', position: 'relative'}}>
               <a>
