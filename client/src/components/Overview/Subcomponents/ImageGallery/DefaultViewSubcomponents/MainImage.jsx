@@ -15,21 +15,12 @@ const MainImage = ({imageURLs, imageNumber, setExpanded, expanded}) => {
 
   const zoomIn = () => {
     const zoomImg = document.getElementById('zoom-expanded-view');
-    // console.log(zoomImg.offsetLeft, zoomImg.offsetTop);
     zoomImg.addEventListener('mousemove', (e) => {
-    // zoomImg.on('mousemove', function(e) {
-      //       'transform-origin':
-      //         ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
-      //         '% ' +
-      //         ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +
-      //         '%'
-      //     });
-      // });
       let xPos = (e.pageX);
       let yPos = (e.pageY);
       console.log(xPos, yPos);
-      zoomImg.style['transform-origin'] = `${xPos}, ${yPos}`;
-      zoomImg.style['tranform'] = 'scale(1.5)';
+      zoomImg.style['transform-origin'] = `${xPos}px ${yPos}px`;
+      zoomImg.style['transform'] = 'scale(1.25)';
     });
   };
 
