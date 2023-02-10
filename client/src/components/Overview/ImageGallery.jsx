@@ -3,7 +3,7 @@ import DefaultView from './Subcomponents/ImageGallery/DefaultView.jsx';
 import ExpandedView from './Subcomponents/ImageGallery/ExpandedView.jsx';
 
 
-const ImageGallery = ({currentStyle}) => {
+const ImageGallery = ({ currentStyle }) => {
 
   const [currentImages, setCurrentImages] = useState([]);
   const [expanded, setExpanded] = useState(false);

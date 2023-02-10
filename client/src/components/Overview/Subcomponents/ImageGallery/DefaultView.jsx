@@ -12,18 +12,17 @@ const DefaultView = ({imageURLs, thumbnailURLs, setExpanded}) => {
 
   return (
     <div id='default-view-container'>
-      <div id='main-image'>
+      <div>
         <MainImage
           imageURLs={imageURLs}
           imageNumber={imageNumber}
           setExpanded={setExpanded}/>
       </div>
-      <div id='thumbnail-list'>
-        <ThumbnailList
-          thumbnailURLs={thumbnailURLs}
-          imageNumber={imageNumber}
-          setImageNumber={setImageNumber}/>
-      </div>
+      <ThumbnailList
+        thumbnailURLs={thumbnailURLs}
+        imageNumber={imageNumber}
+        setImageNumber={setImageNumber}
+      />
     </div>
   );
 };

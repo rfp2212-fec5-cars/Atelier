@@ -36,14 +36,16 @@ const ProductInformation = ({productId, currentStyle, total, avgStar}) => {
   };
 
   return (
-    <div className='product-information'>
-      <div><b>PRODUCT INFORMATION</b></div>
-      <div className='star-nav' onClick={scrollToReviews}><Star rate={avgStar}/> Read all {total} reviews</div>
-      <div>{productInfo.category}</div>
-      <div>{productInfo.name}</div>
-      {currentStyle && <div><PriceDisplay currentStyle={currentStyle}/></div>}
-      <div>{productInfo.description ? productInfo.description : null }</div>
-      <div><SocialMediaButton/></div>
+    <div>
+      <p id='product-category'>{ productInfo.category }</p>
+      <h1 id='product-name'>{ productInfo.name }</h1>
+      { currentStyle && <PriceDisplay currentStyle={currentStyle}/> }
+      <div className='star-nav' onClick={scrollToReviews}>
+        <Star rate={avgStar} />
+        <p className='statusLink'>See all {total} reviews</p>
+      </div>
+      <p>{productInfo.description ? productInfo.description : null }</p>
+      <SocialMediaButton />
     </div>
   );
 };

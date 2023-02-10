@@ -20,16 +20,15 @@ const MainImage = ({imageURLs, imageNumber, setExpanded}) => {
 
           <div data-testid='main-image' key = {url}>
             <img
-              className = 'main-image'
+              className='main-image'
               id='default-view'
               src = {url}
               onClick = {changeView}
             />
 
             <Modal onClose={()=> setIsExpanded(false)} show = {isExpanded} key ={index}>
-              {console.log('im open!', url, isExpanded, imageNumber, index)}
               <img
-                className = 'main-image'
+                className='main-image'
                 id='expanded-view'
                 src = {url}
                 onClick = {zoomIn}
