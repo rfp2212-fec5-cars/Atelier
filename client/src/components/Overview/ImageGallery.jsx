@@ -6,7 +6,6 @@ import ExpandedView from './Subcomponents/ImageGallery/ExpandedView.jsx';
 const ImageGallery = ({ currentStyle, logInteraction }) => {
 
   const [currentImages, setCurrentImages] = useState([]);
-  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     if (currentStyle) {

@@ -5,6 +5,8 @@ import ThumbnailList from './DefaultViewSubcomponents/ThumbnailList.jsx';
 const DefaultView = ({imageURLs, thumbnailURLs, setExpanded, logInteraction}) => {
 
   const [imageNumber, setImageNumber] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
 
   useEffect(()=>{
     setImageNumber(0);

@@ -63,6 +63,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber, logInteracti
       }
     };
 
+
     return (
       <div data-testid='tnt' className= 'thumbnail-list'>
         {imageNumber === 0 ? <div style={{visability: 'hidden'}}></div> :
@@ -94,6 +95,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber, logInteracti
           <> {<AiOutlineArrowRight onClick={loadNextImage} className='thumbnail-arrow' />}</>}
       </div>
     );
+
   }
 };
 

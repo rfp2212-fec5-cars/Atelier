@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Modal from '../../../../Modal/Modal.jsx';
 import ThumbnailList from './ThumbnailList.jsx';
 
-
 const MainImage = ({imageURLs, imageNumber, logInteraction}) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -24,6 +23,8 @@ const MainImage = ({imageURLs, imageNumber, logInteraction}) => {
       zoomImg.style['transform'] = 'scale(1.25)';
     });
   };
+
+
 
   return (
     <>
