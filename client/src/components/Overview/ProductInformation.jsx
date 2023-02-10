@@ -5,7 +5,7 @@ import PriceDisplay from './Subcomponents/ProductInformation/PriceDisplay.jsx';
 import Star from '../RatingsReviews/Star1.jsx';
 
 
-const ProductInformation = ({productId, currentStyle, total, avgStar}) => {
+const ProductInformation = ({productId, currentStyle, total, avgStar, logInteraction}) => {
 
   const [productInfo, setProductInfo] = useState({});
   const getProductInfo = () =>{
@@ -30,8 +30,10 @@ const ProductInformation = ({productId, currentStyle, total, avgStar}) => {
   };
 
   const scrollToReviews = (event) => {
+    logInteraction({
+      element: 'Star and Reviews',
+      widget: 'Overview'});
     let reviews = document.getElementById('rr-header');
-    console.log(reviews);
     reviews.scrollIntoView();
   };
 

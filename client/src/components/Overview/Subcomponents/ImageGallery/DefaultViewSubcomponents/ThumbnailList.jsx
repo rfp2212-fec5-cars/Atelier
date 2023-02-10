@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
+const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber, logInteraction}) => {
 
   const [thumbnailContainerIndex, setThumbnailContainerIndex] = useState([0, 6]);
 
@@ -27,10 +27,24 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
       }
     };
 
+    useEffect(()=> {
+      console.log('container', thumbnailContainerIndex);
+      console.log('imageNumber', imageNumber);
+    }, [thumbnailContainerIndex, imageNumber]);
+
     const loadPreviousImage = () => {
+      console.log(thumbnailContainerIndex[0]);
       if (thumbnailContainerIndex[0] !== 0) {
         setThumbnailContainerIndex([thumbnailContainerIndex[0] - 1, thumbnailContainerIndex[1] - 1]);
         setImageNumber(imageNumber - 1);
+        logInteraction({
+          element: 'thumbnail-list',
+          widget: 'Overview'});
+      } else if (imageNumber > 0) {
+        setImageNumber(imageNumber - 1);
+        logInteraction({
+          element: 'thumbnail-list',
+          widget: 'Overview'});
       }
     };
 
@@ -38,8 +52,14 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
       if (thumbnailContainerIndex[1] !== imagesLength - 1) {
         setThumbnailContainerIndex([thumbnailContainerIndex[0] + 1, thumbnailContainerIndex[1] + 1]);
         setImageNumber(imageNumber + 1);
+        logInteraction({
+          element: 'thumbnail-list',
+          widget: 'Overview'});
       } else if (imageNumber < imagesLength - 1) {
         setImageNumber(imageNumber + 1);
+        logInteraction({
+          element: 'thumbnail-list',
+          widget: 'Overview'});
       }
     };
 
@@ -54,7 +74,12 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
               {index <= thumbnailContainerIndex[1] && index >= thumbnailContainerIndex[0] ?
                 <span>
                   <img
-                    onClick = {() => { changeMainImage(index); }}
+                    onClick = {() => {
+                      changeMainImage(index);
+                      logInteraction({
+                        element: 'thumbnail-list',
+                        widget: 'Overview'});
+                    }}
                     className = 'thumbnail-image'
                     id='default-view'
                     src = {url}

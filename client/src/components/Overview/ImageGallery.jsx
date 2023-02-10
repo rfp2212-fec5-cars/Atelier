@@ -3,7 +3,7 @@ import DefaultView from './Subcomponents/ImageGallery/DefaultView.jsx';
 import ExpandedView from './Subcomponents/ImageGallery/ExpandedView.jsx';
 
 
-const ImageGallery = ({ currentStyle }) => {
+const ImageGallery = ({ currentStyle, logInteraction }) => {
 
   const [currentImages, setCurrentImages] = useState([]);
   const [expanded, setExpanded] = useState(false);
@@ -25,12 +25,14 @@ const ImageGallery = ({ currentStyle }) => {
             thumbnailURLs={thumbnailURLs}
             imageURLs={imageURLs}
             setExpanded={setExpanded}
-            expanded={expanded}/> :
+            expanded={expanded}
+            logInteraction={logInteraction}/> :
           <DefaultView
             thumbnailURLs={thumbnailURLs}
             imageURLs={imageURLs}
             expanded={expanded}
-            setExpanded={setExpanded}/>}
+            setExpanded={setExpanded}
+            logInteraction={logInteraction}/>}
       </>
     );
   }

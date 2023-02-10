@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const QuantitySelector = ({currentStyle, selectedSku}) => {
+const QuantitySelector = ({currentStyle, selectedSku, logInteraction}) => {
 
   let skus = Object.entries(currentStyle.skus);
   let quantityForSku = null;
@@ -19,7 +19,9 @@ const QuantitySelector = ({currentStyle, selectedSku}) => {
           <option>-</option>
         </select>
         :
-        <select data-testid='quantity-selector' id='realQuantity' defaultValue='1'>
+        <select data-testid='quantity-selector' id='realQuantity' defaultValue='1' onClick={()=> logInteraction({
+          element: 'quantity-selector',
+          widget: 'Overview'})}>
           {Array.from(arrayOfQuantity).map((number, index) => {
             return <option value={index + 1} key={index + 1}>{index + 1}</option>;
           })}

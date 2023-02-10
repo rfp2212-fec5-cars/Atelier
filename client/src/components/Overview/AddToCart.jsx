@@ -4,7 +4,7 @@ import QuantitySelector from './Subcomponents/AddToCart/QuantitySelector.jsx';
 import AddToCartButton from './Subcomponents/AddToCart/AddToCartButton.jsx';
 
 
-const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
+const AddToCart = ({currentStyle, selectedSku, setSelectedSku, logInteraction}) => {
 
 
   const [noSize, setNoSize] = useState(false);
@@ -19,18 +19,21 @@ const AddToCart = ({currentStyle, selectedSku, setSelectedSku}) => {
             currentStyle= {currentStyle}
             setSelectedSku={setSelectedSku}
             selectedSku={selectedSku}
-            setNoSize={setNoSize}/></div>
+            setNoSize={setNoSize}
+            logInteraction={logInteraction}/></div>
         }
         {currentStyle &&
           <div><QuantitySelector
             currentStyle={currentStyle}
-            selectedSku={selectedSku}/></div>
+            selectedSku={selectedSku}
+            logInteraction={logInteraction}/></div>
         }
         {currentStyle &&
           <div><AddToCartButton
             currentStyle={currentStyle}
             selectedSku={selectedSku}
-            setNoSize={setNoSize}/></div>}
+            setNoSize={setNoSize}
+            logInteraction={logInteraction}/></div>}
       </div>
     </div>
   );
