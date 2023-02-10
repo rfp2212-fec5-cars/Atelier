@@ -9,7 +9,7 @@ const App = () => {
 
   //STATES//
 
-  const [productId, setProductId] = useState(40344);
+  const [productId, setProductId] = useState(40346);
   const [product, setProduct] = useState({});
   const [avgStar, setAvgStar] = useState(0);
   const [total, setTotal] = useState(0);
