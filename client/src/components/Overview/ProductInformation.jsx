@@ -30,7 +30,7 @@ const ProductInformation = ({productId, currentStyle, total, avgStar}) => {
   };
 
   const scrollToReviews = (event) => {
-    let reviews = document.getElementById('ratings-reviews');
+    let reviews = document.getElementById('rr-header');
     console.log(reviews);
     reviews.scrollIntoView();
   };
