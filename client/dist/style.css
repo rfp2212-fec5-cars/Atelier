@@ -19,7 +19,7 @@ textarea {
 }
 
 #app {
-  margin: 10% 5% 3%;
+  margin: 8% 5% 3%;
 }
 
 input::file-selector-button,
@@ -120,6 +120,13 @@ Modal Styling
   margin: 0;
   text-align: center;
   font-size: 1.3em;
+}
+
+.modal-subtitle {
+  margin: 0;
+  text-align: center;
+  font-size: small;
+  font-weight: normal;
 }
 
 .modal-body {

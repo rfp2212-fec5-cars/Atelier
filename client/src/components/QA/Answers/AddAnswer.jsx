@@ -75,7 +75,7 @@ const AddAnswer = ({ product_name, question, updateAnswers, setUpdateAnswers, lo
       }} >Add Answer</p>
       <Modal
         title='Submit an Answer'
-        subtitle={`About the ${product_name}`}
+        subtitle={`${product_name}: ${question.question_body}`}
         onClose={() => setShowModal(false)}
         show={ showModal }
       >
