@@ -7,8 +7,6 @@ import Star from '../RatingsReviews/Star1.jsx';
 
 const ProductInformation = ({productId, currentStyle, total, avgStar}) => {
 
-  console.log(total, avgStar)
-
   const [productInfo, setProductInfo] = useState({});
   const getProductInfo = () =>{
     let url = `/products/${productId}`;

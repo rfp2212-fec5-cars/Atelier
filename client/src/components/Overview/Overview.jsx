@@ -43,10 +43,6 @@ const Overview = ({productId, total, avgStar}) => {
           avgStar={avgStar}/>
       </div>
       <div className='bottom-overview'>
-        <AddToCart
-          currentStyle = {currentStyle}
-          selectedSku={selectedSku}
-          setSelectedSku={setSelectedSku}/>
         {productStyles ? <StyleSelector
           productId={productId}
           productStyles = {productStyles}
@@ -54,6 +50,10 @@ const Overview = ({productId, total, avgStar}) => {
           currentStyle = {currentStyle}
           setSelectedSku={setSelectedSku}
         /> : null}
+        <AddToCart
+          currentStyle = {currentStyle}
+          selectedSku={selectedSku}
+          setSelectedSku={setSelectedSku}/>
       </div>
     </div>
   );

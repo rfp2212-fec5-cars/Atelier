@@ -60,7 +60,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
                     className = 'thumbnail-image'
                     id='default-view'
                     src = {url}
-                    style = {{height: '50px'}}
+                    style = {{height: '45px'}}
                   />
                 </span>
                 :
@@ -69,7 +69,7 @@ const ThumbnailList = ({thumbnailURLs, imageNumber, setImageNumber}) => {
           ))}
         </div>
         {imageNumber === imagesLength - 1 ? <div style={{visability: 'hidden'}}></div> :
-          <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '10%', color: 'white', size: '2em'}} />}</>}
+          <> {<AiOutlineArrowRight onClick={loadNextImage} style={{width: '10%', color: 'white'}} />}</>}
       </div>
     );
   }

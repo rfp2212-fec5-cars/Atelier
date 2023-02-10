@@ -21,10 +21,16 @@ const ImageGallery = ({currentStyle}) => {
     return (
       <>
         {expanded ?
-          <ExpandedView/> :
+          <ExpandedView
+            thumbnailURLs={thumbnailURLs}
+            imageURLs={imageURLs}
+            setExpanded={setExpanded}
+            expanded={expanded}/> :
           <DefaultView
             thumbnailURLs={thumbnailURLs}
-            imageURLs={imageURLs}/>}
+            imageURLs={imageURLs}
+            expanded={expanded}
+            setExpanded={setExpanded}/>}
       </>
     );
   }

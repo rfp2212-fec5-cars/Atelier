@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MainImage from './DefaultViewSubcomponents/MainImage.jsx';
 import ThumbnailList from './DefaultViewSubcomponents/ThumbnailList.jsx';
 
-const DefaultView = ({imageURLs, thumbnailURLs}) => {
+const DefaultView = ({imageURLs, thumbnailURLs, setExpanded}) => {
 
   const [imageNumber, setImageNumber] = useState(0);
 
@@ -15,7 +15,8 @@ const DefaultView = ({imageURLs, thumbnailURLs}) => {
       <div id='main-image'>
         <MainImage
           imageURLs={imageURLs}
-          imageNumber={imageNumber}/>
+          imageNumber={imageNumber}
+          setExpanded={setExpanded}/>
       </div>
       <div id='thumbnail-list'>
         <ThumbnailList
