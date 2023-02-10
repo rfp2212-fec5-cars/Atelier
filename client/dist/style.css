@@ -13,7 +13,7 @@ General
 }
 
 #root {
-  margin: 3% 7%;;
+  margin: 3% 1.5%;
 }
 
 body,
@@ -69,6 +69,7 @@ Modal Styling
 
 .modal-content {
   width: auto;
+  max-width: 75vw;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
@@ -105,7 +106,7 @@ R&R Styling
 
 ======================*/
 #avgstar{
-  font-size:50px;
+  font-size:3em;
 }
 .star{
   vertical-align: top;
@@ -114,9 +115,10 @@ R&R Styling
   margin-bottom: 10px;
 }
 #RR-search{
-  width: 15%;
-  height: 1.5em;
+  height: 2em;
   border-radius: 5px;
+  width: 20vw;
+  text-align: center;
 }
 .stars5{
   border: 1px solid;
@@ -127,11 +129,17 @@ R&R Styling
   background-color: darkgreen;
 }
 
+.stars-text{
+  display: inline-block;
+  width: 5vw;
+  font-size: 0.8em;
+}
 .greybar{
   display: inline-block;
-  width: 200px;
+  width: 14vw;
   background-color: darkgray;
-  margin-left: 4px;
+  margin-left: 1vw;
+  /* min-width: 100px; */
 }
 .greenbar{
   background-color: green;
@@ -139,39 +147,39 @@ R&R Styling
 
 .characteristic{
   margin-top: 10px;
-  width: 250px;
+  width: 20vw;
 }
 .leftbar{
   display: inline-block;
-  width: 80px;
+  width: 6vw;
   height: 1em;
   background-color: darkgray;
-  margin-right: 5px;
+  margin-right: 1vw;
 }
 .middlebar{
   display: inline-block;
-  width: 80px;
+  width: 6vw;
   height: 1em;
   background-color: darkgray;
-  margin-right: 5px;
+  margin-right: 1vw;
 }
 .rightbar{
   display: inline-block;
-  width: 80px;
+  width: 6vw;
   height: 1em;
   background-color: darkgray;
 }
 .bar-text{
-  font-size: small;
+  font-size: 0.6em;
 }
 .producttext{
-  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  /* min-width: 110px; */
 }
 .pointer{
-  display: flex;
-  flex-direction:column;
+  /* display: flex;
+  flex-direction:column; */
 }
 
 #ratings-reviews{
@@ -181,11 +189,12 @@ R&R Styling
 }
 
 #reviewswraper{
-  width:80%;
+  margin-left: 3vw;
 }
 #reviewcontent{
-  max-height: 600px;
+  max-height: 700px;
   overflow-y: auto;
+  margin-top: 20px;
 }
 #reviewslist{
   margin-bottom: 50px;
@@ -206,8 +215,8 @@ R&R Styling
   display: inline;
 }
 .thumbnails{
-  width: 15vh;
-  height: 15vh;
+  width: 6vw;
+  height: 6vw;
   border-radius: 2px;
   cursor: 'pointer';
   margin-right: 10px;
@@ -249,7 +258,7 @@ R&R Styling
 }
 #addreview{
   display: inline-block;
-  margin-left: 50px;
+  margin-left: 5vw;
 }
 #reviewform{
   margin: 20px;
@@ -279,8 +288,9 @@ R&R Styling
 }
 .selected-star{
   display: inline-block;
-  margin-right: 4px;
+  margin-right: 8px;
   font-size: small;
+  margin-bottom: 10px;
 }
 .delete-selected{
   font-size: 0.6em;

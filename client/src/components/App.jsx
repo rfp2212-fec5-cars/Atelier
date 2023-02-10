@@ -41,7 +41,7 @@ const App = () => {
       method: 'POST',
       data: { element, widget, time }
     };
-    console.log('options', options);
+    //console.log('options', options);
 
     axios(options)
       .then(() => {

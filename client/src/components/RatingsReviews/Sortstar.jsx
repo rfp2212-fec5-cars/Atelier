@@ -9,7 +9,7 @@ var Sortstar = ({ k, rateStar, handleUserClick, logInteraction}) => {
       handleUserClick(k);
       logInteraction({element: 'choose filter stars', widget: 'Ratings&Reviews'});
     }} data-testid = 'sortstar'>
-      <span>{k} Stars </span>
+      <div className ='stars-text'>{k} Stars </div>
       <div className="greybar">
         <div className='greenbar' style={{ height: '1em', width: `${rateStar[k] + '%'}` }}></div>
       </div>

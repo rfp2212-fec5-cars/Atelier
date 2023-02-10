@@ -17,7 +17,7 @@ const Modal = (props) => {
     };
   }, []);
 
-  return (
+  return ReactDOM.createPortal(
     <CSSTransition
       in={props.show}
       unmountOnExit
@@ -32,7 +32,8 @@ const Modal = (props) => {
           <div className="modal-body">{props.children}</div>
         </div>
       </div>
-    </CSSTransition>
+    </CSSTransition>,
+    document.getElementById('root')
   );
 };
 

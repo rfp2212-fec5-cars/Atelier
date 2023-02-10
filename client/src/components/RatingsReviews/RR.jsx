@@ -36,7 +36,7 @@ var RR = ({ productId, productName, handleRate, handleTotal, logInteraction}) =>
     let url = '/reviews/meta';
     axios.get(url, { params: { 'product_id': `${productId}` } })
       .then((results) => {
-        console.log('get review meta', results.data);
+        //console.log('get review meta', results.data);
         setMeta(results.data);
       })
       .catch((err) => {
@@ -48,11 +48,11 @@ var RR = ({ productId, productName, handleRate, handleTotal, logInteraction}) =>
 
 
   const getReviews = (page = 1, count = Number.MAX_SAFE_INTEGER, sort = sortFilter) => {
-    console.log('sort', sort);
+    //console.log('sort', sort);
     let url = '/reviews';
     axios.get(url, { params: { 'product_id': `${productId}`, 'page': page, 'count': count, 'sort': sort } })
       .then((results) => {
-        console.log('get reviews', results.data);
+        //console.log('get reviews', results.data);
         let temp = results.data.results;
         handleTotal(temp.length);
         setSum(temp);

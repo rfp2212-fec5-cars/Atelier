@@ -101,7 +101,7 @@ var ReviewListEntry = ({ review, logInteraction }) => {
 
       <div className='helpfulandreport'>
         <div className='helpful'>
-          Was this review helpful?&nbsp;&nbsp;
+          Helpful?&nbsp;&nbsp;
           {
             helpfuled ? 'Yes' : <span className = 'helpfultext' onClick={(e)=>{
               markHelpful(e);

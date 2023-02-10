@@ -11,9 +11,10 @@ var ProductCharacteristic = ({ type, info }) => {
     middle = 'perfect';
     right = 'too large';
   }
-  //the length of the whole 3 bar is 250px
-  //we minus 8 because if info.value is 5, 定位符的最左侧指向bar的尾端，而不是我们想看到的定位符中间,8是实验来的
-  let moving = (info.value / 5) * 250 - 8;
+  //the length of the whole 3 bar is 14vw
+  //minus 8 because half ▼ 's length is 8px, 定位符的最左侧指向bar的尾端，而不是我们想看到的定位符中间,8是实验来的
+  //console.log('window width', window.screen.width);
+  let moving = (info.value / 5) * window.screen.width * 0.2 - 8;
   return (
     <div className='characteristic'>
       <div>{type}</div>
