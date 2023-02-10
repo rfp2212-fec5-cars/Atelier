@@ -55,7 +55,7 @@ const AnswerListEntry = ({ answer, index, logInteraction }) => {
 
   const AnswerPhotos = () => (
     <div className='answerPhotos'>
-      { answer.photos.map(photo => <img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='answerPhoto'/>)}
+      { answer.photos.map(photo => <img key={ answer.answer_id + '.' + photo.id } src={ photo.url } className='thumbnails'/>)}
     </div>
   )
 
