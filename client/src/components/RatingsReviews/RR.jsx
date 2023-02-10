@@ -151,15 +151,17 @@ var RR = ({ productId, productName, handleRate, handleTotal, logInteraction}) =>
 
 
   return (
-    <div style={{ marginTop: '50px' }}>
-      <h2><span className='headingUnderline'>Ratings</span> & Reviews</h2>
-      <Search search={search} setSearch={setSearch} logInteraction={logInteraction}/>
-      <div id='ratings-reviews'>
-        <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate} logInteraction={logInteraction}/>
-        <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} logInteraction={logInteraction}/>
+    <div>
+      <div id='rr-header'></div>
+      <div style={{ marginTop: '50px' }}>
+        <h2><span className='headingUnderline'>Ratings</span> & Reviews</h2>
+        <Search search={search} setSearch={setSearch} logInteraction={logInteraction}/>
+        <div id='ratings-reviews'>
+          <SumRating meta={meta} handleUserClick={handleUserClick} sortStar={sortStar} handleSortStar={handleSortStar} handleRate={handleRate} logInteraction={logInteraction}/>
+          <ReviewsList display={display} setDisplay={setDisplay} total={total} handleSort={handleSort} productName={productName} productId={productId} logInteraction={logInteraction}/>
+        </div>
       </div>
     </div>
-
   );
 };
 export default RR;

@@ -16,10 +16,11 @@ body,
 textarea {
   font-family: 'Heebo', sans-serif;
   background-color: var(--color5);
+  margin: 0;
 }
 
 #app {
-  margin: 8% 5% 3%;
+  margin: 15vh 5% 3%;
 }
 
 input::file-selector-button,
@@ -43,8 +44,6 @@ button:hover {
 .main-header {
   background-color: var(--color1);
   color: var(--color5);
-  position: fixed;
-  top: 0;
   z-index: 5;
   width: 100%;
   text-align: center;
@@ -52,6 +51,10 @@ button:hover {
   letter-spacing: 15px;
   font-size: large;
   text-shadow: 2px 2px 2px var(--color1);
+  position: fixed;
+  top: 0;
+  /* padding: 10px;
+  margin-top: 0; */
 }
 
 select {
@@ -98,7 +101,7 @@ Modal Styling
 .modal-content {
   z-index: 5;
   position: absolute;
-  width: auto;
+  width: 70%;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   transform: translateY(-200px);
@@ -141,6 +144,10 @@ Modal Styling
 R&R Styling
 
 ======================*/
+#rr-header {
+  padding: 40px;
+}
+
 #avgstar{
   font-size:50px;
 }
@@ -214,7 +221,8 @@ R&R Styling
 }
 
 #reviewswraper{
-  width:80%;
+  width: 70%;
+  margin-left: 3vh;
 }
 #reviewcontent{
   max-height: 600px;
@@ -586,4 +594,16 @@ Overview Styling
   margin-top: 15px;
   display: flex;
   gap: 10px;
+}
+
+#zoom-expanded-view {
+  background-position: var(--x) var(--y);
+  offset-inline-start: 0;
+  offset-block-start: 0;
+  min-width: 90vw;
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  transform-origin: 0, 0;
+  /* transform: scale(1.5); */
+  cursor: zoom-out;
 }
