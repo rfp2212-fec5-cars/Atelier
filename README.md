@@ -2,6 +2,8 @@
 
 This project is a modernized redesign of a client-facing retail web-portal in order to enhance user experience and promote sales numbers.
 
+<img width='1300' alt='Atelier Page' src='https://res.cloudinary.com/fec-cars/image/upload/v1676138641/Screenshot_2023-02-11_at_10.02_tiwnaq.png'/>
+
 ## Getting Started
 Clone the repository
 Navigate to the configexample.js in the server folder and create a config.js file with a unique GitHub Authorization token
@@ -12,7 +14,7 @@ npm run server-dev
 npm run client-dev
 ```
 
-# Dependencies
+## Dependencies
 * axios
 * bluebird
 * express
