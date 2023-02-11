@@ -5,25 +5,27 @@ This project is a modernized redesign of a client-facing retail web-portal in or
 ## Getting Started
 Clone the repository
 Navigate to the configexample.js in the server folder and create a config.js file with a unique GitHub Authorization token
+```
 npm i
 npm run build
 npm run server-dev
 npm run client-dev
+```
 
 # Dependencies
-axios
-bluebird
-express
-node.js
-react
-react-dom
+* axios
+* bluebird
+* express
+* node.js
+* react
+* react-dom
 
 ## Version
-ES6 on both server-side and client-side
-Transpile with Babel (via Webpack)
+* ES6 on both server-side and client-side
+* Transpile with Babel (via Webpack)
 
-## Overview
-# Features
+# Overview
+## Features
 * Interactable Image Gallery
   * Expanded View, Zoomed in View for main product image
   * Overlays gallery on top of main image to quickly display product images
@@ -36,15 +38,15 @@ Transpile with Babel (via Webpack)
   * Renders only when product is in stock
   * Options provided to customer are only for items avaliable
 
-## Ratings and Reviews
-# Features
+# Ratings and Reviews
+## Features
 * Filter reviews by sort order, search text and stars label
 * Toggle to see more reviews, 2 more on reload
 * Add Ratings and Reviews through a Modal Form
 * Like or Report Reviews
 
-## Questions and Answers
-# Features
+# Questions and Answers
+## Features
 * Filter Questions by Title
 * Toggle to see more questions/answers
   * Default 4 Questions and 2 Answers on reload
