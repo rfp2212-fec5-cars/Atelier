@@ -41,13 +41,19 @@ npm run client-dev
   * Options provided to customer are only for items avaliable
 
 # Ratings and Reviews
-## Features
+
 <img width="1197" alt="Screenshot 2023-08-17 at 11 10 22 PM" src="https://github.com/rfp2212-fec5-cars/Atelier/assets/116925220/9397662c-a1d7-4f8e-9d20-284c4ce423b3">
+
 <img width="1174" alt="Screenshot 2023-08-17 at 11 12 21 PM" src="https://github.com/rfp2212-fec5-cars/Atelier/assets/116925220/bcad5a24-fd0e-467e-8727-1e26a6b5e688">
+
 <img width="1163" alt="Screenshot 2023-08-17 at 11 13 53 PM" src="https://github.com/rfp2212-fec5-cars/Atelier/assets/116925220/c15a8e36-5a81-428b-a213-871bdcf6713a">
+
 <img width="913" alt="Screenshot 2023-08-17 at 11 14 22 PM" src="https://github.com/rfp2212-fec5-cars/Atelier/assets/116925220/a2c73f6c-0d41-46d8-9cbf-265980c54394">
 
-* Filter reviews by sort order, search text and stars label
+## Features
+* Reviews filter
+  * Sorted reviews by newest, helpful, and relevant
+  * filter reviews by searching keywords and star label
 * Toggle to see more reviews, 2 more on reload
 * Add Ratings and Reviews through a Modal Form
 * Like or Report Reviews
